@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -71,7 +70,7 @@ const Register = () => {
               </Form.Label>
               <Col sm="9">
                 <Form.Control
-                  {...((register("name") as unknown) as Record<any, unknown>)}
+                  {...(register("name") as unknown as Record<any, unknown>)}
                   type="text"
                   placeholder="Enter your name"
                 />
@@ -88,7 +87,7 @@ const Register = () => {
               </Form.Label>
               <Col sm="9">
                 <Form.Control
-                  {...((register("email") as unknown) as Record<any, unknown>)}
+                  {...(register("email") as unknown as Record<any, unknown>)}
                   type="email"
                   placeholder="Enter your Email"
                 />
@@ -105,10 +104,7 @@ const Register = () => {
               </Form.Label>
               <Col sm="9">
                 <Form.Control
-                  {...((register("password") as unknown) as Record<
-                    any,
-                    unknown
-                  >)}
+                  {...(register("password") as unknown as Record<any, unknown>)}
                   type="password"
                   placeholder="Enter your password"
                 />
@@ -127,7 +123,7 @@ const Register = () => {
               </Form.Label>
               <Col sm="9">
                 <Form.Control
-                  {...((register("confirmpassword") as unknown) as Record<
+                  {...(register("confirmpassword") as unknown as Record<
                     any,
                     unknown
                   >)}
@@ -149,10 +145,7 @@ const Register = () => {
               </Form.Label>
               <Col sm="9">
                 <Form.Control
-                  {...((register("pancard") as unknown) as Record<
-                    any,
-                    unknown
-                  >)}
+                  {...(register("pancard") as unknown as Record<any, unknown>)}
                   type="text"
                   placeholder="Enter your Pancard nunber"
                 />
@@ -171,7 +164,7 @@ const Register = () => {
               </Form.Label>
               <Col sm="9">
                 <Form.Control
-                  {...((register("phone") as unknown) as Record<any, unknown>)}
+                  {...(register("phone") as unknown as Record<any, unknown>)}
                   type="number"
                   placeholder="Enter your Phone"
                 />

@@ -52,6 +52,36 @@
 .tracker {
   width: 100vw;
   height: 100vh;
-  background-color: black;
-  /* opacity: 0.2; */
+  background-color: rgb(59, 58, 58, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+.doughnut {
+  width: 50%;
+  height: auto;
+}
+.list {
+  width: 50%;
+  height: auto;
+  margin: 15px;
+}
+@media (min-width: 786px) {
+  .tracker {
+    display: flex;
+    flex-direction: row;
+  }
+  .doughnut {
+    width: 25vw;
+    height: auto;
+    margin-left: 100px;
+    align-items: center;
+  }
+  .list {
+    width: 25vw;
+    height: auto;
+    margin-left: 100px;
+    align-items: center;
+  }
 }

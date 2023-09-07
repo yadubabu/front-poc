@@ -1,21 +1,17 @@
-import { AppState } from "../../redux/store";
-import "./style.css";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
 
-const TransactionsTracker = () => {
-  const dispatch = useDispatch();
-  const account = useSelector<AppState>((state) => state.account);
-  const budget = useSelector<AppState>((state) => state.budget);
-  const trans = useSelector<AppState>((state) => state.trans);
-  // const { totalAmount } = budget;
+const List = () => {
+  // const account: any = useSelector<Account>((state) => state.account);
+  // const budget:any = useSelector<Budget>((state) => state.budget);
+  // const trans: any = useSelector<Trans>((state) => state.trans);
+  // const dispatch = useDispatch();
+  // const {totalAmount}=budget;
   // const { totalSavings, totalExpense, totalInvestment } = account;
 
   // const savingPercent = Math.round((totalSavings * 100) / totalAmount);
   // const expensePercent = Math.round((totalExpense * 100) / totalAmount);
-  // const investPercent = Math.round((totalInvestment * 100) / totalAmount);
-  // const availBalPercent = Math.round(
-  //   100 - (savingPercent + expensePercent + investPercent)
-  // );
+  // const investPercent = Math.round(totalInvestment * 100 / totalAmount);
+  // const availBalPercent=Math.round(100-(savingPercent+expensePercent+investPercent))
 
   const objects: any = [
     {
@@ -47,7 +43,7 @@ const TransactionsTracker = () => {
   // }, [trans]);
 
   return (
-    <div className="tracker flex justify-content max-w-xs-mx-auto">
+    <div className="flex justify-content max-w-xs-mx-auto">
       {objects.map((object: any) => {
         return (
           <div className="list">
@@ -63,4 +59,5 @@ const TransactionsTracker = () => {
     </div>
   );
 };
-export default TransactionsTracker;
+
+export default List;
