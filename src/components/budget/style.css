@@ -1,0 +1,10 @@
+.setBtn {
+  width: 150px;
+  margin-left: 70px;
+}
+
+@media (min-width: 786px) {
+  .setBtn {
+    margin-left: 170px;
+  }
+}

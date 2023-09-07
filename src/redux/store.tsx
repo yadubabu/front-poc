@@ -1,0 +1,27 @@
+import React from "react";
+import { createStore } from "redux";
+import { applyMiddleware, compose } from "redux";
+import "bootstrap/dist/css/bootstrap.min.css";
+import reducers from "./reducers";
+import promiseMiddleware from "redux-promise";
+import { Auth, Account, Budget, Trans, User } from "../dataTypes";
+
+export interface AppState {
+  auth: Auth;
+  user: User;
+  budget: Budget;
+  account: Account;
+  trans: Trans[];
+}
+
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+  }
+}
+const composeEnhansers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const createStoreWithMiddleware = composeEnhansers(
+  applyMiddleware(promiseMiddleware)
+)(createStore);
+
+export const store = createStoreWithMiddleware(reducers);
