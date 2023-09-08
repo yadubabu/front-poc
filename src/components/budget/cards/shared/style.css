@@ -19,6 +19,7 @@
 
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
+  /* margin-top: 5px; */
 }
 
 .flip-card-front,
@@ -33,9 +34,10 @@
 .flip-card-front {
   color: black;
   border-radius: 20px;
-  display: flex;
+  margin-top: 20px;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 
 .flip-card-back {

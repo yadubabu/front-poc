@@ -19,7 +19,8 @@ const TransactionsForm = () => {
         amount,
         transdate,
       })
-      .then((res) => console.log(res.data));
+      .then(() => setMsg("Transaction added"))
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -41,12 +42,12 @@ const TransactionsForm = () => {
               type="text"
               placeholder="Salary,House,Rent,SIP"
               className="form-control m-1"
-              {...((register("name") as unknown) as Record<any, unknown>)}
+              {...(register("name") as unknown as Record<any, unknown>)}
             />
           </div>
           <select
             className="form-control m-1"
-            {...((register("type") as unknown) as Record<any, unknown>)}
+            {...(register("type") as unknown as Record<any, unknown>)}
           >
             <option value="Select categoery">Select</option>
             <option value="investment">Investment</option>
@@ -58,13 +59,13 @@ const TransactionsForm = () => {
               type="number"
               placeholder="Amount"
               className="form-control m-1"
-              {...((register("amount") as unknown) as Record<any, unknown>)}
+              {...(register("amount") as unknown as Record<any, unknown>)}
             />
           </div>
           <div>
             <input
               type="date"
-              {...((register("transdate") as unknown) as Record<any, unknown>)}
+              {...(register("transdate") as unknown as Record<any, unknown>)}
               className="form-control m-1"
             />
           </div>

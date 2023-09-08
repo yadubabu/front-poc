@@ -14,7 +14,10 @@ const Cards = (props: Props) => {
         style={{ background: `${props.color}` }}
       >
         <div className="flip-card-inner">
-          <div className="flip-card-front flex-column">
+          <div
+            className="flip-card-front flex-column "
+            // style={{ background: `${props.color}`, marginTop: "20px" }}
+          >
             <p>{props.title}</p>
             <p>{props.val}</p>
           </div>

@@ -52,7 +52,6 @@
 .tracker {
   width: 100vw;
   height: 100vh;
-  background-color: rgb(59, 58, 58, 0.9);
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import reducers from "./reducers";
 import thunk from "redux-thunk";
 import promiseMiddleware from "redux-promise";
-import { Auth, Account, Budget, Trans, User } from "../dataTypes";
+import { Auth, Account, Budget, Trans, User, Shares } from "../dataTypes";
 
 export interface AppState {
   auth: Auth;
@@ -13,6 +13,7 @@ export interface AppState {
   budget: Budget;
   account: Account;
   trans: Trans[];
+  shares: Shares[];
 }
 
 declare global {

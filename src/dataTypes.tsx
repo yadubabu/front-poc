@@ -30,9 +30,8 @@ export interface Trans {
   transdate: Date;
 }
 
-export interface Objects {
+export interface Shares {
   type: string;
   color: string;
   percent: number;
-  objects: Objects[];
 }

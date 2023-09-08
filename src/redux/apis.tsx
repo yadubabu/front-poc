@@ -11,3 +11,7 @@ export const getAccountApi = "http://localhost:5000/user/getaccount";
 export const addTransApi = "http://localhost:5000/api/addtrans";
 
 export const getTransApi = "http://localhost:5000/api";
+
+export const apiEditTrans = "http://localhost:5000/api/edittrans";
+
+export const apiDeleteTrans = "http://localhost:5000/api/deletetrans";

@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from "react";
 import { Chart, ArcElement, ChartData, ChartOptions } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
-import axios, { AxiosResponse, AxiosError } from "axios";
 import { useSelector, useDispatch } from "react-redux";
-// import { Account, Objects, Budget, Trans, User } from "../../shared/modals";
-// import { apiTrans } from "../../shared/api";
-// import { getTrans } from "../../redux/actions";
-// import "../pages/style.css";
+import { AppState } from "../../redux/store";
+import { Shares } from "../../dataTypes";
+
 Chart.register(ArcElement);
 
 interface DoughnutProps {
@@ -15,42 +12,24 @@ interface DoughnutProps {
 }
 
 const DoughnutShow = () => {
-  // const [newData, setNewData] = useState<Objects>();
-  // const objects: any = useSelector<Objects>((state) => state.objects);
-  // const account: any = useSelector<Account>((state) => state.account);
-  // const budget: any = useSelector<Budget>((state) => state.budget);
-  // const { email } = account;
-  // const { totalAmount } = budget;
-  // const dispatch = useDispatch();
-  // const getTransactions = async () => {
-  //   await axios
-  //     .get(`${apiTrans}/${email}`)
-  //     .then((res: AxiosResponse) => dispatch(getTrans(res.data)))
-  //     .catch((err: AxiosError) => console.log(err));
-  // };
-  // useEffect(() => {
-  //   getTransactions();
-  // }, []);
+  const totalAmount = useSelector<AppState, number>(
+    (state) => state.budget.totalAmount
+  );
+  const shares = useSelector<AppState, Shares[]>((state) => state.shares);
+  const getPercent = () => {
+    const res = shares.map((share: Shares) => {
+      return (share.percent * 360) / 100;
+    });
+    return res;
+  };
 
-  // const getObjects = () => {
-  //   const getObj = objects.map((obj: any) => {
-  //     return (obj.percent * 100) / 360;
-  //   });
-  //   setNewData(getObj);
-  // };
-  // useEffect(() => {
-  //   if (objects) {
-  //     getObjects();
-  //   }
-  // }, [objects]);
-
-  const data: any = {
+  const data = {
     type: "doughnut",
 
     datasets: [
       {
         labels: ["availBalPercent", "Savings", "Expense", "Investment"],
-        data: [30, 20, 20, 30],
+        data: getPercent(),
         backgroundColor: [
           "rgb(155, 05, 186,0.7)",
           "rgb(255, 99, 132,0.7)",
@@ -76,19 +55,19 @@ const DoughnutShow = () => {
     ],
   };
 
-  const options: any = {
-    onClick: () => {
-      window.location.href = `/budget`;
-    },
-    plugins: {
-      responsive: true,
-    },
-  };
+  // const options = {
+  //   onClick: () => {
+  //     window.location.href = `/dashboard/budget`;
+  //   },
+  //   plugins: {
+  //     responsive: true,
+  //   },
+  // };
 
   return (
     <div className="nut">
-      {/* Available Balance--{totalAmount} */}
-      <Doughnut data={data} options={options} />
+      Available Balance--{totalAmount}
+      <Doughnut data={data} />
     </div>
   );
 };
