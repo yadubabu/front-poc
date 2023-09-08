@@ -15,11 +15,15 @@ export type TransAction = {
   type: string;
   payload: Trans[];
 };
-const transReducer = (state = initialValue, action: TransAction) => {
+const transReducer = (transState = initialValue, action: TransAction) => {
+  console.log(action.payload);
+
   if (action.type === Types.GET_TRANS) {
     return [...action.payload];
+  } else if (action.type === Types.DELETE_TRANS) {
+    return [...action.payload];
   } else {
-    return state;
+    return transState;
   }
 };
 

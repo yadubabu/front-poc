@@ -1,6 +1,9 @@
 import Table from "react-bootstrap/Table";
 import { useState, useEffect } from "react";
-import { getTransactions } from "../../redux/actions/transactionActions";
+import {
+  getTransactions,
+  removeTransactions,
+} from "../../redux/actions/transactionActions";
 import { useDispatch, useSelector } from "react-redux";
 import { Trans } from "../../dataTypes";
 import { AppState } from "../../redux/store";
@@ -26,7 +29,7 @@ function TransactionsHistory() {
     console.log(id);
   };
   const deleteTransaction = async (id: string) => {
-    console.log(id);
+    dispatch(removeTransactions(id));
   };
   return (
     <Table striped="columns">

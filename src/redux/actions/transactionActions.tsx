@@ -16,11 +16,12 @@ export const getTransactions = (email: string) => {
 //     dispatch({ type: Types.ADD_TRANS, payload: response.data });
 //   };
 // };
-// export const deleteTransactions = (id: string) => {
-//   return async function (dispatch: Dispatch<AnyAction>) {
-//     const response: AxiosResponse = await axios.delete(
-//       `${apiDeleteTrans}/${id}`
-//     );
-//     dispatch({ type: Types.DELETE_TRANS, payload: response.data });
-//   };
-// };
+export const removeTransactions = (id: string) => {
+  return async function (dispatch: Dispatch<AnyAction>) {
+    const response: AxiosResponse = await axios.delete(
+      `${apiDeleteTrans}/${id}`
+    );
+
+    dispatch({ type: Types.DELETE_TRANS, payload: response.data });
+  };
+};
