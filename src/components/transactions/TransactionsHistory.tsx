@@ -6,21 +6,23 @@ import axios, { AxiosResponse } from "axios";
 import { getTransApi } from "../../redux/apis";
 import { Trans } from "../../dataTypes";
 import { AppState } from "../../redux/store";
+import { Dispatch, AnyAction } from "redux";
+import { TransAction } from "../../redux/reducers/transReducer";
 
 function TransactionsHistory() {
-  const dispatch = useDispatch();
+  const dispatch: Dispatch<any> = useDispatch();
   const email = useSelector<AppState, string>((state) => state.user.email);
 
-  const fetchTransaction = async () => {
-    const res: AxiosResponse<any, any> = await axios.get(
-      `${getTransApi}/${email}`
-    );
-    if (res) {
-      dispatch(getTransactions(res.data));
-    }
-  };
+  // const fetchTransaction = async () => {
+  //   const res: AxiosResponse<any, any> = await axios.get(
+  //     `${getTransApi}/${email}`
+  //   );
+  //   if (res) {
+  //     dispatch(getTransactions(res.data));
+  //   }
+  // };
   useEffect(() => {
-    fetchTransaction();
+    dispatch(getTransactions(email));
   }, []);
   const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
 

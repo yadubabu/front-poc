@@ -1,10 +1,12 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { getTransApi } from "../apis";
 import { Types } from "../enums/constants";
-import { Trans } from "../../dataTypes";
-import { TransAction } from "../reducers/transReducer";
+import { Dispatch, AnyAction } from "redux";
 
-export const getTransactions = (transactions: Trans[]): TransAction => ({
-  type: Types.GET_TRANS,
-  payload: transactions,
-});
+export const getTransactions = (email: string) => {
+  return async function (dispatch: Dispatch<AnyAction>) {
+    const response: AxiosResponse = await axios.get(`${getTransApi}/${email}`);
+
+    dispatch({ type: Types.GET_TRANS, payload: response.data });
+  };
+};

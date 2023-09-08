@@ -3,6 +3,7 @@ import { createStore } from "redux";
 import { applyMiddleware, compose } from "redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import reducers from "./reducers";
+import thunk from "redux-thunk";
 import promiseMiddleware from "redux-promise";
 import { Auth, Account, Budget, Trans, User } from "../dataTypes";
 
@@ -20,8 +21,8 @@ declare global {
   }
 }
 const composeEnhansers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const createStoreWithMiddleware = composeEnhansers(
-  applyMiddleware(promiseMiddleware)
-)(createStore);
+const createStoreWithMiddleware = composeEnhansers(applyMiddleware(thunk))(
+  createStore
+);
 
 export const store = createStoreWithMiddleware(reducers);
