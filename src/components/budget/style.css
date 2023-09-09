@@ -5,6 +5,10 @@
 
 @media (min-width: 786px) {
   .setBtn {
-    margin-left: 170px;
+    /* margin-left: 170px; */
   }
+}
+
+.setForm {
+  background-color: antiquewhite;
 }

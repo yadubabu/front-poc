@@ -41,31 +41,19 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/dashboard/budget/setbudget" element={<SetBudget />} />
+          <Route path="/budget/setbudget" element={<SetBudget />} />
+          <Route path="/budget/savingsbudget" element={<SavingsBudget />} />
+          <Route path="/budget/expensebudget" element={<ExpenseBudget />} />
           <Route
-            path="/dashboard/budget/savingsbudget"
-            element={<SavingsBudget />}
-          />
-          <Route
-            path="/dashboard/budget/expensebudget"
-            element={<ExpenseBudget />}
-          />
-          <Route
-            path="/dashboard/budget/investmentbudget"
+            path="/budget/investmentbudget"
             element={<InvestmentBudget />}
           />
           <Route
-            path="/dashboard/transactions/tracker"
+            path="/transactions/tracker"
             element={<TransactionsTracker />}
           />
-          <Route
-            path="/dashboard/transactions/add"
-            element={<TransactionsForm />}
-          />
-          <Route
-            path="/dashboard/transactions/edit"
-            element={<TransactionsHistory />}
-          />
+          <Route path="/transactions/add" element={<TransactionsForm />} />
+          <Route path="/transactions/edit" element={<TransactionsHistory />} />
 
           <Route path="/about" element={<About />} />
         </Routes>

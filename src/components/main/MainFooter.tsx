@@ -13,20 +13,14 @@ const MainFooter = () => {
     <div className="footer">
       <Row>
         <Col sm={4} className="trans">
-          <NavLink
-            className="text-decoration-none h6"
-            to="/dashboard/transactions/add"
-          >
+          <NavLink className="text-decoration-none h6" to="/transactions/add">
             {" "}
             <img src={formImg} alt="" width={200} height={200} />
             <h6 className="mx-3 my-3">Add Your Transactions</h6>
           </NavLink>
         </Col>
         <Col sm={4} className="trans">
-          <NavLink
-            className="text-decoration-none h6"
-            to="/dashboard/transactions/edit"
-          >
+          <NavLink className="text-decoration-none h6" to="/transactions/edit">
             <img src={historyImg} alt="" width={200} height={200} />
             <h6 className="mx-4 my-3">Transaction History</h6>
           </NavLink>
@@ -34,7 +28,7 @@ const MainFooter = () => {
         <Col sm={4} className="trans">
           <NavLink
             className="text-decoration-none h6"
-            to="/dashboard/transactions/tracker"
+            to="/transactions/tracker"
           >
             <img src={trackerImg} alt="" width={200} height={200} />
             <h6 className="mx-4 my-3">Transaction Tracker</h6>
