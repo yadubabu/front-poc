@@ -14,4 +14,4 @@ export const addTransApi = "http://localhost:5000/api/addtrans";
 
 export const apiEditTrans = "http://localhost:5000/api/edittrans";
 
-export const apiDeleteTrans = "http://localhost:5000/api/delete";
+export const apiDeleteTrans = "http://localhost:5000/api/deletetrans";

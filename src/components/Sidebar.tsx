@@ -19,7 +19,7 @@ const Sidebar = () => {
   const dispatch: Dispatch<any> = useDispatch();
   useEffect(() => {
     dispatch(getTransactions(email));
-  }, [trans]);
+  }, []);
   useEffect(() => {
     dispatch(getAccount(email));
   }, [auth]);

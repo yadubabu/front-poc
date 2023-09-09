@@ -87,3 +87,22 @@
     align-items: center;
   }
 }
+.formTrans {
+  position: relative;
+}
+.thank {
+  position: absolute;
+  z-index: 1;
+  height: 100px;
+  background-color: rgb(168, 101, 101);
+  top: 50px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 100px;
+}
+.none {
+  display: none;
+}

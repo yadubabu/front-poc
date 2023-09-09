@@ -30,9 +30,6 @@ function TransactionsHistory() {
   const deleteTransaction = async (id: string) => {
     const res = await axios.delete(`${apiDeleteTrans}/${id}`);
     console.log(res.data);
-
-    // .then((res:AxiosResponse)=>console.log('deleted'))
-    // .catch((err:AxiosError)=>console.log(err))
   };
   return (
     <div className="row">

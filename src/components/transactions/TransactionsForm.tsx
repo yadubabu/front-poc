@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useSelector, useDispatch } from "react-redux";
-import axios, { AxiosResponse, AxiosError } from "axios";
+import axios from "axios";
 import { User } from "../../dataTypes";
 import { getTransApi, addTransApi } from "../../redux/apis";
 import Sidebar from "../Sidebar";
+import ThankYouPage from "./ThankYouPage";
+import { Trans } from "../../dataTypes";
+import "./style.css";
+import { FieldValues } from "react-hook-form/dist/types";
 
 const TransactionsForm = () => {
   const [msg, setMsg] = useState("");
   let user: any = JSON.parse(sessionStorage.getItem("data") || "{}");
   const { register, handleSubmit } = useForm();
-  const submitTrans = async (data: any) => {
+
+  const submitTrans = async (data: FieldValues) => {
     const { name, type, amount, transdate } = data;
     await axios
       .post(`${addTransApi}`, {
@@ -20,17 +24,16 @@ const TransactionsForm = () => {
         amount,
         transdate,
       })
-      .then(() => setMsg("Transaction added"))
+      .then((res) => setMsg(res.data))
+
       .catch((err) => console.log(err));
   };
 
   return (
-    <div className="row">
-      {msg === "Transaction added" ? (
+    <div className="formTrans row">
+      {msg === "added successfully" ? (
         <>
-          {setTimeout(() => {
-            window.location.href = "/dashboard";
-          }, 2000)}
+          <ThankYouPage />
         </>
       ) : (
         ""

@@ -18,6 +18,7 @@ import Logout from "./pages/Logout";
 import TransactionsTracker from "./components/transactions/TransactionsTracker";
 import TransactionsForm from "./components/transactions/TransactionsForm";
 import TransactionsHistory from "./components/transactions/TransactionsHistory";
+import ThankYouPage from "./components/transactions/ThankYouPage";
 const App = () => {
   const dispatch = useDispatch();
 
@@ -52,6 +53,7 @@ const App = () => {
             path="/transactions/tracker"
             element={<TransactionsTracker />}
           />
+          <Route path="/transactions/thankyou" element={<ThankYouPage />} />
           <Route path="/transactions/add" element={<TransactionsForm />} />
           <Route path="/transactions/edit" element={<TransactionsHistory />} />
 
