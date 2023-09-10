@@ -1,36 +1,37 @@
 import Table from "react-bootstrap/Table";
-import { useState, useEffect } from "react";
-import {
-  getTransactions,
-  removeTransactions,
-} from "../../redux/actions/transactionActions";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Trans } from "../../dataTypes";
 import { AppState } from "../../redux/store";
-import { Dispatch, AnyAction } from "redux";
 import { Button } from "react-bootstrap";
-import axios, { AxiosError, AxiosResponse } from "axios";
-import { apiDeleteTrans } from "../../redux/apis";
+import axios, { AxiosResponse } from "axios";
+import { apiDeleteTrans, apiEditTrans } from "../../redux/apis";
 import Sidebar from "../Sidebar";
+import { useState } from "react";
+import TransFormCard from "./TransFormCard";
 
 function TransactionsHistory() {
   const [showEdit, setShowEdit] = useState(false);
-  const [show, setShow] = useState({
-    display: "none",
-  });
-  const dispatch: Dispatch<any> = useDispatch();
-  const email = useSelector<AppState, string>((state) => state.user.email);
-
   const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
 
   const editInput = async (id: string) => {
-    const res: AxiosResponse = await axios.put(`${apiDeleteTrans}/${id}`);
-    console.log(res);
+    console.log(id);
+    if (id) {
+      const res: Trans[] = trans.filter((el) => el._id === id);
+
+      if (res[0].name) {
+        return (
+          <>
+            <input type="text" value={res[0].name} />
+          </>
+        );
+      } else {
+        return res[0].name;
+      }
+    }
+    // const res: AxiosResponse = await axios.put(`${apiEditTrans}/${id}`);
+    // console.log(res.data);
   };
-  const deleteTransaction = async (id: string) => {
-    const res = await axios.delete(`${apiDeleteTrans}/${id}`);
-    console.log(res.data);
-  };
+
   return (
     <div className="row">
       <div className="col-2">
@@ -52,23 +53,13 @@ function TransactionsHistory() {
             {trans.map((tran: Trans, index: number) => {
               return (
                 <>
-                  <tr>
-                    <td>{index + 1}</td>
-                    <td>{tran.name}</td>
-                    <td>{tran.type}</td>
-                    <td>{tran.amount}</td>
-                    <td>
-                      <Button onClick={() => editInput(`${tran._id}`)}>
-                        Edit
-                      </Button>
-                      <Button
-                        className="btn btn-danger"
-                        onClick={() => deleteTransaction(`${tran._id}`)}
-                      >
-                        Delete
-                      </Button>
-                    </td>
-                  </tr>
+                  <TransFormCard
+                    index={index + 1}
+                    id={tran._id}
+                    name={tran.name}
+                    type={tran.type}
+                    amount={tran.amount}
+                  />
                 </>
               );
             })}

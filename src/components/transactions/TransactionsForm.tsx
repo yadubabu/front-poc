@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { User } from "../../dataTypes";
-import { getTransApi, addTransApi } from "../../redux/apis";
+import { addTransApi } from "../../redux/apis";
 import Sidebar from "../Sidebar";
 import ThankYouPage from "./ThankYouPage";
-import { Trans } from "../../dataTypes";
 import "./style.css";
 import { FieldValues } from "react-hook-form/dist/types";
 
 const TransactionsForm = () => {
   const [msg, setMsg] = useState("");
-  let user: any = JSON.parse(sessionStorage.getItem("data") || "{}");
+  let user = JSON.parse(sessionStorage.getItem("data") || "{}");
   const { register, handleSubmit } = useForm();
 
   const submitTrans = async (data: FieldValues) => {
@@ -25,7 +23,6 @@ const TransactionsForm = () => {
         transdate,
       })
       .then((res) => setMsg(res.data))
-
       .catch((err) => console.log(err));
   };
 

@@ -18,7 +18,7 @@ const DoughnutShow = () => {
   const shares = useSelector<AppState, Shares[]>((state) => state.shares);
   const getPercent = () => {
     const res = shares.map((share: Shares) => {
-      return (share.percent * 360) / 100;
+      return (share.percent * 100) / 360;
     });
     return res;
   };
@@ -28,16 +28,14 @@ const DoughnutShow = () => {
 
     datasets: [
       {
-        labels: ["availBalPercent", "Savings", "Expense", "Investment"],
+        labels: ["Savings", "Expense", "Investment"],
         data: getPercent(),
         backgroundColor: [
-          "rgb(155, 05, 186,0.7)",
           "rgb(255, 99, 132,0.7)",
           "rgb(54, 162, 235,0.7)",
           "rgb(255, 205, 86,0.7)",
         ],
         borderColor: [
-          "rgb(155, 05, 186,1)",
           "rgb(255, 99, 132,1)",
           "rgb(54, 162, 235,1)",
           "rgb(255, 205, 86,1)",
@@ -45,12 +43,7 @@ const DoughnutShow = () => {
         borderWidth: 1,
         borderRadius: 10,
         spacing: 3,
-        hoverBackgroundColor: [
-          "rgb(155, 05, 186,1)",
-          "#e62d55",
-          "#0793f1",
-          "#ecbf4c",
-        ],
+        hoverBackgroundColor: ["#e62d55", "#0793f1", "#ecbf4c"],
       },
     ],
   };

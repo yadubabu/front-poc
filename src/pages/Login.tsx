@@ -80,10 +80,7 @@ const Login = () => {
                 </Form.Label>
                 <Col sm="9">
                   <Form.Control
-                    {...((register("email") as unknown) as Record<
-                      any,
-                      unknown
-                    >)}
+                    {...(register("email") as unknown as Record<any, unknown>)}
                     type="email"
                     placeholder="Enter your Email"
                   />
@@ -102,7 +99,7 @@ const Login = () => {
                 </Form.Label>
                 <Col sm="9">
                   <Form.Control
-                    {...((register("password") as unknown) as Record<
+                    {...(register("password") as unknown as Record<
                       any,
                       unknown
                     >)}

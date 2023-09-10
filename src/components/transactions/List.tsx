@@ -20,20 +20,11 @@ const List = () => {
   const totalAmount = useSelector<AppState, number>(
     (state) => state.budget.totalAmount
   );
-  console.log(totalSavings, totalExpense);
-  const savingPercent = Math.round((totalSavings * 100) / totalAmount);
-  const expensePercent = Math.round((totalExpense * 100) / totalAmount);
-  const investPercent = Math.round((totalInvestment * 100) / totalAmount);
-  const availBalPercent = Math.round(
-    100 - (savingPercent + expensePercent + investPercent)
-  );
+  const savingPercent = Math.round((totalSavings / totalAmount) * 100);
+  const expensePercent = Math.round((totalExpense / totalAmount) * 100);
+  const investPercent = Math.round((totalInvestment / totalAmount) * 100);
 
   const shares: Shares[] = [
-    {
-      type: "Balance",
-      color: "rgb(155, 05, 186,0.7)",
-      percent: availBalPercent,
-    },
     {
       type: "Savings",
       color: "rgb(255, 99, 132)",
