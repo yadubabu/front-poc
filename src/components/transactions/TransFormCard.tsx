@@ -2,34 +2,39 @@ import { Button } from "react-bootstrap";
 import axios from "axios";
 import { useState } from "react";
 import { apiDeleteTrans, apiEditTrans } from "../../redux/apis";
+import { Trans } from "../../dataTypes";
 type Props = {
+  transaction: Trans;
   index: number;
-  id: string;
-  name: string;
-  type: string;
-  amount: number;
 };
-const deleteTransaction = async (id: string) => {
-  const res = await axios.delete(`${apiDeleteTrans}/${id}`);
-  console.log(res.data);
-};
-const TransFormCard = (props: Props) => {
-  const [showEdit, setShowEdit] = useState(false);
 
-  const [name, setName] = useState("");
-  const [type, setType] = useState("");
-  const [amount, setAmount] = useState(0);
+const TransFormCard = (props: Props) => {
+  const { _id, email, name, type, amount } = props.transaction;
+
+  const [showEdit, setShowEdit] = useState(false);
+  const [transName, setTransName] = useState("");
+  const [transType, setTransType] = useState("");
+  const [transAmount, setTransAmount] = useState(0);
 
   const submitForm = async (id: string) => {
-    const res = await axios.put(`${apiEditTrans}/${id}`, {
-      name,
-      type,
-      amount,
-    });
-    if (res) {
-      alert("edit successfully");
-      setShowEdit(false);
+    if (transName !== "" || transType !== "" || transAmount !== 0) {
+      const res = await axios.put(`${apiEditTrans}/${id}`, {
+        email,
+        name: transName,
+        type: transType,
+        amount: transAmount,
+      });
+      if (res) {
+        alert("Edited successfully");
+        setShowEdit(false);
+      }
+    } else {
+      alert("Please select transaction and add your values");
     }
+  };
+  const deleteTransaction = async (id: string) => {
+    const res = await axios.delete(`${apiDeleteTrans}/${id}`);
+    console.log(res.data);
   };
   return (
     <>
@@ -39,18 +44,19 @@ const TransFormCard = (props: Props) => {
           {showEdit ? (
             <input
               type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={transName}
+              onChange={(e) => setTransName(e.target.value)}
             />
           ) : (
-            <>{props.name}</>
+            <>{name}</>
           )}
         </td>
         <td onClick={() => setShowEdit(true)}>
           {showEdit ? (
             <select
+              value={transType}
               onChange={(e: React.ChangeEvent<HTMLSelectElement | any>) =>
-                setType(e.target.value)
+                setTransType(e.target.value)
               }
             >
               <option value="Select categoery">Select</option>
@@ -59,29 +65,33 @@ const TransFormCard = (props: Props) => {
               <option value="savings">Savings</option>
             </select>
           ) : (
-            <>{props.type}</>
+            <>{type}</>
           )}
         </td>
         <td onClick={() => setShowEdit(true)}>
           {showEdit ? (
             <input
               type="number"
-              value={amount}
+              value={transAmount}
               onChange={(e: React.ChangeEvent<HTMLInputElement | any>) =>
-                setAmount(e.target.value)
+                setTransAmount(e.target.value)
               }
             />
           ) : (
-            <>{props.type}</>
+            <>{amount}</>
           )}
         </td>
-        <td>
-          <button type="submit" onClick={() => submitForm(props.id)}>
+        <td className="d-flex align-items-center justify-content-center">
+          <button
+            className="btn btn-primary"
+            type="submit"
+            onClick={() => submitForm(_id)}
+          >
             Edit
           </button>
           <Button
             className="btn btn-danger"
-            onClick={() => deleteTransaction(`${props.id}`)}
+            onClick={() => deleteTransaction(`${_id}`)}
           >
             Delete
           </Button>

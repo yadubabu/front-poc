@@ -5,7 +5,11 @@ import { Dispatch, AnyAction } from "redux";
 
 export const getTransactions = (email: string) => {
   return async function (dispatch: Dispatch<AnyAction>) {
-    const response: AxiosResponse = await axios.get(`${getTransApi}/${email}`);
-    dispatch({ type: Types.GET_TRANS, payload: response.data });
+    await axios
+      .get(`${getTransApi}/${email}`)
+      .then((res: AxiosResponse) => {
+        dispatch({ type: Types.GET_TRANS, payload: res.data });
+      })
+      .catch((err: AxiosError) => console.log(err));
   };
 };

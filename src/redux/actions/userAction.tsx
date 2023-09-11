@@ -1,10 +1,9 @@
 import { Types } from "../enums/constants";
+import { userService } from "../../services/userService";
 
 export const userAction = () => {
-  const user = JSON.parse(sessionStorage.getItem("data") || "{}");
-
   return {
     type: Types.SET_USER,
-    payload: user,
+    payload: userService(),
   };
 };

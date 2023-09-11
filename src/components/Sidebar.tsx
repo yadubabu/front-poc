@@ -14,12 +14,11 @@ const Sidebar = () => {
   const email = useSelector<AppState, string>((state) => state.user.email);
   const name = useSelector<AppState, string>((state) => state.user.name);
   const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
-  const account = useSelector<AppState>((state) => state.account);
   const auth = useSelector<AppState>((state) => state.auth);
   const dispatch: Dispatch<any> = useDispatch();
   useEffect(() => {
     dispatch(getTransactions(email));
-  }, [trans]);
+  }, [auth]);
   useEffect(() => {
     dispatch(getAccount(email));
   }, [auth]);
