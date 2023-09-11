@@ -4,7 +4,11 @@ import Navbar from "react-bootstrap/Navbar";
 import "./style.css";
 import { useSelector } from "react-redux";
 import { AppState } from "../redux/store";
-import { User } from "../dataTypes";
+import { AiFillHome } from "react-icons/ai";
+import { RiLoginCircleFill } from "react-icons/ri";
+import { GiArchiveRegister } from "react-icons/gi";
+import { BsFillChatLeftDotsFill } from "react-icons/bs";
+import { RiLogoutCircleRFill } from "react-icons/ri";
 
 const NavBar = () => {
   const auth = useSelector<AppState>((state) => state.auth);
@@ -14,26 +18,72 @@ const NavBar = () => {
     <Navbar bg="dark" expand="lg" variant="light">
       <Container fluid>
         <Navbar.Brand className="p-2 h1 text-success" href="/">
-          <span className="text-danger">MV</span>BudgetPlanner
+          <span className="text-light">MV</span>BudgetPlanner
         </Navbar.Brand>
         <span className="h5 text-light">
           Hello!!
           <span className="text-success">{auth ? name : "Guest"}</span>
         </span>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav ">
-          <Nav className="me-auto justify-content-center align-items-center">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/login">{auth ? "" : "Login"}</Nav.Link>
+        <Navbar.Toggle aria-controls="basic-navbar-nav " />
+        <Navbar.Collapse className="navs" id="navs basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link className=" text-light" href="/">
+              <span className="text-success ">
+                <AiFillHome />
+              </span>
+              Home
+            </Nav.Link>
+            <Nav.Link className="text-light" href="/login">
+              {auth ? (
+                ""
+              ) : (
+                <>
+                  <span className="text-success ">
+                    <RiLoginCircleFill />
+                  </span>
+                  Login
+                </>
+              )}
+            </Nav.Link>
             {auth ? (
-              <Nav.Link href="/register" style={{ display: "none" }}>
+              <Nav.Link
+                className="text-light"
+                href="/register"
+                style={{ display: "none" }}
+              >
+                {" "}
+                <span className="text-success">
+                  <GiArchiveRegister />
+                </span>{" "}
                 Register
               </Nav.Link>
             ) : (
-              <Nav.Link href="/register">Register</Nav.Link>
+              <Nav.Link className="text-light" href="/register">
+                <span className="text-success ">
+                  <GiArchiveRegister />
+                </span>{" "}
+                Register
+              </Nav.Link>
             )}
-            <Nav.Link href="/about">About</Nav.Link>
-            <Nav.Link href="/logout">{auth ? "Logout" : ""}</Nav.Link>
+            <Nav.Link className="text-light" href="/about">
+              <span className="text-success ">
+                <BsFillChatLeftDotsFill />
+              </span>
+              About
+            </Nav.Link>
+            <Nav.Link className="text-light" href="/logout">
+              {auth ? (
+                <>
+                  Logout
+                  <span className="text-success">
+                    {" "}
+                    <RiLogoutCircleRFill />
+                  </span>
+                </>
+              ) : (
+                ""
+              )}
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

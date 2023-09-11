@@ -12,3 +12,39 @@
 .setForm {
   background-color: antiquewhite;
 }
+.savings {
+  background-color: antiquewhite;
+  border-radius: 10px;
+}
+.expense {
+  background-color: antiquewhite;
+  border-radius: 10px;
+}
+.investment {
+  background-color: antiquewhite;
+  border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+  .savings {
+    position: absolute;
+    top: 13vh;
+    left: 10px;
+    margin-left: 30px;
+    bottom: 8px;
+  }
+  .expense {
+    position: absolute;
+    top: 13vh;
+    left: 10px;
+    margin-left: 30px;
+    bottom: 8px;
+  }
+  .investment {
+    position: absolute;
+    top: 13vh;
+    left: 10px;
+    margin-left: 30px;
+    bottom: 8px;
+  }
+}

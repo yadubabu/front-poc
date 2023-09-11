@@ -53,13 +53,13 @@ const Login = () => {
       <div className="logImg">
         <img src={logImg} alt="" />
       </div>
-      <div className="mt-3 md-6 login" id="login">
-        <span className="text-success h4"> {msg}</span>
+      <div className="mt-1 mb-3 login" id="login">
         {msg === "Successfully Login" ? (
           <>
             {setTimeout(() => {
               window.location.href = "/dashboard";
             }, 2000)}
+            && {alert(msg)}
           </>
         ) : (
           ""
@@ -67,13 +67,13 @@ const Login = () => {
         {!auth && (
           <>
             <Form
-              className="m-5 p-3 loginForm"
+              className=" loginForm p-3"
               onSubmit={handleSubmit(submitHandle)}
             >
               <Form.Group
                 as={Row}
-                className="mt-3 m-2"
                 controlId="formPlaintextEmail"
+                className="m-3"
               >
                 <Form.Label column sm="3">
                   Email
@@ -90,14 +90,14 @@ const Login = () => {
                 </Col>
               </Form.Group>
               <Form.Group
+                className="m-3"
                 as={Row}
-                className="mb-3 m-2"
                 controlId="formPlaintextPassword"
               >
                 <Form.Label column sm="3">
                   Password
                 </Form.Label>
-                <Col sm="9">
+                <Col sm="8" className="mx-1">
                   <Form.Control
                     {...(register("password") as unknown as Record<
                       any,
@@ -111,10 +111,10 @@ const Login = () => {
                   </small>
                 </Col>
               </Form.Group>
-              <Form.Group as={Row} className="mb-3">
-                <Col sm="4" className="mb-2 mt-2">
+              <Form.Group as={Row}>
+                <Col sm="3" className="mb-1">
                   <Form.Control
-                    className="logBtn btn btn-warning"
+                    className="logBtn btn btn-success"
                     type="submit"
                     value="Login"
                     style={{ width: "100px" }}

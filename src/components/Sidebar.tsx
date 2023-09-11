@@ -13,7 +13,6 @@ import { Trans } from "../dataTypes";
 const Sidebar = () => {
   const email = useSelector<AppState, string>((state) => state.user.email);
   const name = useSelector<AppState, string>((state) => state.user.name);
-  const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
   const auth = useSelector<AppState>((state) => state.auth);
   const dispatch: Dispatch<any> = useDispatch();
   useEffect(() => {
@@ -31,7 +30,7 @@ const Sidebar = () => {
         Welcome!
         <span>{name}</span>
       </h5>
-      <Nav className="sideNavs flex-column align-items-center justify-content-center my-5">
+      <Nav className="sideNavs flex-column ">
         <Nav.Link href="/dashboard">DASH BOARD</Nav.Link>
         <Nav.Link href="/budget/setbudget">Set Budget</Nav.Link>
         <Nav.Link href="/budget/savingsbudget">Total-Savings</Nav.Link>

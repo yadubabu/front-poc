@@ -4,12 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "../../redux/store";
 import { sharesAction } from "../../redux/actions/sharesAction";
 import { Dispatch } from "react";
-import { Auth } from "../../dataTypes";
 
 const List = () => {
   const dispatch: Dispatch<any> = useDispatch();
-  // const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
-  const auth = useSelector<Auth>((state) => state.auth);
   const totalSavings = useSelector<AppState, number>(
     (state) => state.account.totalSavings
   );

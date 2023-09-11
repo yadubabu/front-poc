@@ -6,3 +6,6 @@
   --black: #231f20;
   --form-box: #6b6b6b;
 }
+body {
+  background-color: #231f20;
+}
