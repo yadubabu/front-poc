@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-import { useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
 import axios from "axios";
 import { registerApi } from "../redux/apis";
 import { useSelector } from "react-redux";
@@ -16,7 +16,7 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ mode: "onChange" });
-  const submitHandle = async (data: any) => {
+  const submitHandle = async (data: FieldValues) => {
     const { name, email, password, confirmpassword, pancard, phone } = data;
     if (
       name === "" ||

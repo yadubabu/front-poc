@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-import { useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
 import axios from "axios";
 import { loginApi } from "../redux/apis";
 import { useSelector } from "react-redux";
@@ -18,7 +18,7 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ mode: "onChange" });
-  const submitHandle = async (data: any) => {
+  const submitHandle = async (data: FieldValues) => {
     const { email, password } = data;
     if (email === "" || password === "") {
       setMsg("All fields are mandatory");

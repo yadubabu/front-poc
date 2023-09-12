@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-import { useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
 import "../style.css";
 import axios from "axios";
 import { setbudgetApi } from "../../../redux/apis";
@@ -13,7 +13,7 @@ const SetBudget = () => {
   let user: any = JSON.parse(sessionStorage.getItem("data") || "{}");
   console.log(user.email);
   const { register, handleSubmit } = useForm();
-  const submitHandle = async (data: any) => {
+  const submitHandle = async (data: FieldValues) => {
     const { totalAmount, expenseBudget, investmentBudget } = data;
     if (
       parseInt(expenseBudget) + parseInt(investmentBudget) >
