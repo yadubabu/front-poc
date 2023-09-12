@@ -5,6 +5,7 @@ import Sidebar from "../../Sidebar";
 import "../style.css";
 import { GetSavings } from "../utils/getData";
 import { useEffect } from "react";
+import Badge from "react-bootstrap/Badge";
 
 function SavingsBudget() {
   const total = useSelector<AppState, number>(
@@ -33,7 +34,10 @@ function SavingsBudget() {
         </p>
         <hr />
         <div className="m-2">
-          <p className="m-2">List of Savings</p>
+          <p className="m-2 text-center">
+            {" "}
+            <Badge bg="success">List of Savings</Badge>
+          </p>
           {GetSavings()}
         </div>
       </div>

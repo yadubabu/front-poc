@@ -20,7 +20,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     dispatch(getTransactions(email));
-  }, [auth]);
+  }, [auth, trans]);
   useEffect(() => {
     dispatch(getAccount(email));
   }, [auth]);
