@@ -14,7 +14,10 @@ const Sidebar = () => {
   const email = useSelector<AppState, string>((state) => state.user.email);
   const name = useSelector<AppState, string>((state) => state.user.name);
   const auth = useSelector<AppState>((state) => state.auth);
+  const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
+
   const dispatch: Dispatch<any> = useDispatch();
+
   useEffect(() => {
     dispatch(getTransactions(email));
   }, [auth]);
@@ -26,19 +29,39 @@ const Sidebar = () => {
   }, [auth]);
   return (
     <div className="sidebar m-2">
-      <h5>
-        Welcome!
-        <span>{name}</span>
-      </h5>
-      <Nav className="sideNavs flex-column ">
-        <Nav.Link href="/dashboard">DASH BOARD</Nav.Link>
-        <Nav.Link href="/budget/setbudget">Set Budget</Nav.Link>
-        <Nav.Link href="/budget/savingsbudget">Total-Savings</Nav.Link>
-        <Nav.Link href="/budget/expensebudget">Total-Expenses</Nav.Link>
-        <Nav.Link href="/budget/investmentbudget">Total-Investments</Nav.Link>
-        <Nav.Link href="/transactions/tracker">Transactions-Tracker</Nav.Link>
-        <Nav.Link href="/transactions/add">Add-Transactions</Nav.Link>
-        <Nav.Link href="/transactions/edit">Transactions-History</Nav.Link>
+      <h6 className="text-center">Welcome!</h6>
+      <p className="text-light text-center">{name}</p>
+      <Nav className="sideNavs flex-column align-items-center ">
+        <Nav.Link className="text-success p-2 m-2" href="/dashboard">
+          DASH BOARD
+        </Nav.Link>
+        <Nav.Link className="text-success p-2 m-2" href="/budget/setbudget">
+          Set Budget
+        </Nav.Link>
+        <Nav.Link className="text-success p-2 m-2" href="/budget/savingsbudget">
+          Total-Savings
+        </Nav.Link>
+        <Nav.Link className="text-success p-2 m-2" href="/budget/expensebudget">
+          Total-Expenses
+        </Nav.Link>
+        <Nav.Link
+          className="text-success p-2 m-2"
+          href="/budget/investmentbudget"
+        >
+          Total-Investments
+        </Nav.Link>
+        <Nav.Link className="text-success p-2 m-2" href="/transactions/tracker">
+          Transactions-Tracker
+        </Nav.Link>
+        <Nav.Link className="text-success p-2 m-2" href="/transactions/add">
+          Add-Transactions
+        </Nav.Link>
+        <Nav.Link className="text-success p-2 m-2" href="/transactions/edit">
+          Transactions-History
+        </Nav.Link>
+        <Nav.Link className="text-success p-2 m-2" href="/transactions/edit">
+          FAQ's
+        </Nav.Link>
       </Nav>
     </div>
   );

@@ -19,6 +19,7 @@ import TransactionsTracker from "./components/transactions/TransactionsTracker";
 import TransactionsForm from "./components/transactions/TransactionsForm";
 import TransactionsHistory from "./components/transactions/TransactionsHistory";
 import ThankYouPage from "./components/transactions/ThankYouPage";
+import FAQ from "./pages/FAQ";
 const App = () => {
   const dispatch = useDispatch();
 
@@ -58,6 +59,7 @@ const App = () => {
           <Route path="/transactions/edit" element={<TransactionsHistory />} />
 
           <Route path="/about" element={<About />} />
+          <Route path="/faq" element={<FAQ />} />
         </Routes>
       </Router>
     </div>

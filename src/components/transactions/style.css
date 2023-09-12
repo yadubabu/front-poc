@@ -50,41 +50,52 @@
   font-size: xx-small;
 }
 .tracker {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: antiquewhite;
-  margin-top: 10px;
+  background-color: rgb(34, 33, 33);
+  box-shadow: inset 0px 0px 14px 0px rgba(61, 60, 60, 0.85);
   border-radius: 10px;
+  padding: 10px;
+  color: whitesmoke;
+  position: absolute;
+  top: 73px;
+  left: 187px;
+  height: 102%;
+  width: 83%;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 .doughnut {
-  width: 50%;
+  width: 100%;
   height: auto;
 }
 .list {
-  width: 50%;
+  width: 100%;
   height: auto;
-  margin: 15px;
+  bottom: 30px;
+  margin: 20px;
 }
-@media (min-width: 786px) {
+@media (max-width: 786px) {
   .tracker {
+    height: 80%;
+    width: 82%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    top: 73px;
+    left: 57px;
+    bottom: 10px;
   }
   .doughnut {
-    width: 25vw;
+    width: 150vw;
     height: auto;
-    margin-left: 100px;
-    align-items: center;
   }
+
   .list {
-    width: 25vw;
+    width: 40vw;
+
     height: auto;
-    margin-left: 100px;
-    align-items: center;
   }
 }
 .formTrans {
@@ -94,7 +105,7 @@
   position: absolute;
   z-index: 1;
   height: 100px;
-  background-color: rgb(168, 101, 101);
+  background-color: rgb(68, 145, 119);
   top: 50px;
   border-radius: 20px;
   display: flex;
@@ -105,4 +116,39 @@
 }
 .none {
   display: none;
+}
+.transForm h3 {
+  padding-top: 10px;
+}
+.transForm {
+  color: whitesmoke;
+  position: absolute;
+  display: flex;
+  left: 300px;
+  top: 30px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(34, 33, 33);
+  box-shadow: inset 0px 0px 14px 0px rgba(61, 60, 60, 0.85);
+  border-radius: 10px;
+}
+@media (max-width: 768px) {
+  .transForm {
+    left: 150px;
+    top: 30px;
+  }
+}
+#form {
+  padding: 10px;
+  margin: 10px;
+}
+.tab {
+  top: 10px;
+  border-radius: 10px;
+}
+.editDel {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }

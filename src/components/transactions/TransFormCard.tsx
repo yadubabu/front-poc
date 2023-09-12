@@ -1,6 +1,8 @@
+import { useRef } from "react";
+
 import { Button } from "react-bootstrap";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { apiDeleteTrans, apiEditTrans } from "../../redux/apis";
 import { Trans } from "../../dataTypes";
 type Props = {
@@ -10,7 +12,8 @@ type Props = {
 
 const TransFormCard = (props: Props) => {
   const { _id, email, name, type, amount } = props.transaction;
-
+  const ref = useRef(null);
+  const ele = ref.current;
   const [showEdit, setShowEdit] = useState(false);
   const [transName, setTransName] = useState("");
   const [transType, setTransType] = useState("");
@@ -36,11 +39,15 @@ const TransFormCard = (props: Props) => {
     const res = await axios.delete(`${apiDeleteTrans}/${id}`);
     console.log(res.data);
   };
+
   return (
     <>
       <tr>
-        <td>{props.index}</td>
-        <td onClick={() => setShowEdit(true)}>
+        <td style={{ color: "whitesmoke" }}>{props.index}</td>
+        <td
+          style={{ color: "whitesmoke" }}
+          onClick={() => setShowEdit(showEdit)}
+        >
           {showEdit ? (
             <input
               type="text"
@@ -81,7 +88,7 @@ const TransFormCard = (props: Props) => {
             <>{amount}</>
           )}
         </td>
-        <td className="d-flex align-items-center justify-content-center">
+        <td className="editDel">
           <button
             className="btn btn-primary"
             type="submit"

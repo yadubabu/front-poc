@@ -22,14 +22,14 @@ function SavingsBudget() {
         <Sidebar />
       </div>
       <div className="savings my-2 col-10">
-        <h4>Total Amount for spent:{total}</h4>
+        <h4>Available Amount:{total}</h4>
         <ProgressBar className="m-5">
           <ProgressBar animated variant="success" now={totalPart} />
           <ProgressBar animated variant="primary" now={savingsPart} />
         </ProgressBar>
         <p>
-          <span className="tot">Balance</span>
-          <span className="tot">Total Savings</span>
+          <span className="tot">Previous Balance--{total - totalSavings}</span>
+          <span className="tot">Total Savings--{totalSavings}</span>
         </p>
         <hr />
         <div className="m-2">

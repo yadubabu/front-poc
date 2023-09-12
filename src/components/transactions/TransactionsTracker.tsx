@@ -11,18 +11,24 @@ const TransactionsTracker = () => {
       <div className="col-2">
         <Sidebar />
       </div>
-      <div className=" col-10">
-        <div className="tracker">
-          <Row className="col-5 doughnut">
+      <div className=" col-12">
+        <div className="tracker row">
+          <div className="col-4">
+            <DoughnutShow />
+          </div>
+          <div className="col-4">
+            <List />
+          </div>
+          {/* <Row className="col-5 ">
             <Col sm="8">
               <DoughnutShow />
             </Col>
           </Row>
-          <Row className="col-5 list">
+          <Row className="col-5 ">
             <Col lg="12">
               <List />
             </Col>
-          </Row>
+          </Row> */}
         </div>
       </div>
     </div>

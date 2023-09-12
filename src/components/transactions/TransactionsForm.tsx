@@ -10,7 +10,7 @@ import { FieldValues } from "react-hook-form/dist/types";
 const TransactionsForm = () => {
   const [msg, setMsg] = useState("");
   let user = JSON.parse(sessionStorage.getItem("data") || "{}");
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const submitTrans = async (data: FieldValues) => {
     const { name, type, amount, transdate } = data;
@@ -23,6 +23,7 @@ const TransactionsForm = () => {
         transdate,
       })
       .then((res) => setMsg(res.data))
+      .then(() => reset())
       .catch((err) => console.log(err));
   };
 
@@ -38,40 +39,37 @@ const TransactionsForm = () => {
       <div className="col-2">
         <Sidebar />
       </div>
-      <div className="col-10">
-        <h3>Transactions</h3>
+      <div className="transForm col-6 m-2 p-2">
+        <h3>Transactions Form</h3>
         <form id="form" onSubmit={handleSubmit(submitTrans)}>
           <div>
             <div>
               <input
                 type="text"
                 placeholder="Salary,House,Rent,SIP"
-                className="form-control m-1"
-                {...(register("name") as unknown as Record<any, unknown>)}
+                className="form-control m-2"
+                {...register("name")}
               />
             </div>
-            <select
-              className="form-control m-1"
-              {...(register("type") as unknown as Record<any, unknown>)}
-            >
+            <select className="form-control m-2" {...register("type")}>
               <option value="Select categoery">Select</option>
               <option value="investment">Investment</option>
               <option value="expense">Expense</option>
               <option value="savings">Savings</option>
             </select>
-            <div className="input-group">
+            <div>
               <input
                 type="number"
                 placeholder="Amount"
-                className="form-control m-1"
-                {...(register("amount") as unknown as Record<any, unknown>)}
+                className="form-control m-2"
+                {...register("amount")}
               />
             </div>
             <div>
               <input
                 type="date"
-                {...(register("transdate") as unknown as Record<any, unknown>)}
-                className="form-control m-1"
+                {...register("transdate")}
+                className="form-control m-2"
               />
             </div>
 

@@ -9,14 +9,14 @@ const Dashboard = () => {
   return (
     <div>
       <Row>
-        <Col sm={2}>
+        <Col className="col-2">
           <Sidebar />
         </Col>
         <Col>
-          <Row sm={10}>
+          <Row className="col-12">
             <MainHead />
           </Row>
-          <Row sm={10}>
+          <Row className="col-12">
             <MainFooter />
           </Row>
         </Col>

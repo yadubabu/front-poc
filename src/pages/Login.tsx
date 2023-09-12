@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -16,8 +15,14 @@ const Login = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
-  } = useForm({ mode: "onChange" });
+  } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
   const submitHandle = async (data: FieldValues) => {
     const { email, password } = data;
     if (email === "" || password === "") {
@@ -31,6 +36,7 @@ const Login = () => {
     });
     if (result) {
       sessionStorage.setItem("data", JSON.stringify(result.data));
+      reset();
       setMsg(result.data.msg);
     }
   };
@@ -58,8 +64,7 @@ const Login = () => {
           <>
             {setTimeout(() => {
               window.location.href = "/dashboard";
-            }, 2000)}
-            && {alert(msg)}
+            }, 0)}
           </>
         ) : (
           ""
@@ -80,7 +85,7 @@ const Login = () => {
                 </Form.Label>
                 <Col sm="9">
                   <Form.Control
-                    {...(register("email") as unknown as Record<any, unknown>)}
+                    {...register("email")}
                     type="email"
                     placeholder="Enter your Email"
                   />
@@ -99,10 +104,7 @@ const Login = () => {
                 </Form.Label>
                 <Col sm="8" className="mx-1">
                   <Form.Control
-                    {...(register("password") as unknown as Record<
-                      any,
-                      unknown
-                    >)}
+                    {...register("password")}
                     type="password"
                     placeholder="Enter your password"
                   />

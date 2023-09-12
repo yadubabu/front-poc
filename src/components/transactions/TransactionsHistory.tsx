@@ -15,14 +15,14 @@ function TransactionsHistory() {
       </div>
       <div className="col-10">
         {" "}
-        <Table className="m-5" striped="columns" bordered>
+        <Table className="mt-3" striped="columns" variant="dark" bordered>
           <thead>
             <tr>
-              <th>S.no</th>
-              <th>Name</th>
-              <th>Type</th>
-              <th>Amount</th>
-              <th>Action(Edit/Delete)</th>
+              <th className="text-success">S.no</th>
+              <th className="text-success">Name</th>
+              <th className="text-success">Type</th>
+              <th className="text-success">Amount</th>
+              <th className="text-success">Action(Edit/Delete)</th>
             </tr>
           </thead>
           <tbody>

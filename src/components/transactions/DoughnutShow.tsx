@@ -1,6 +1,6 @@
 import { Chart, ArcElement, ChartData, ChartOptions } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { AppState } from "../../redux/store";
 import { Shares } from "../../dataTypes";
 
@@ -48,19 +48,19 @@ const DoughnutShow = () => {
     ],
   };
 
-  // const options = {
-  //   onClick: () => {
-  //     window.location.href = `/dashboard/budget`;
-  //   },
-  //   plugins: {
-  //     responsive: true,
-  //   },
-  // };
+  const options: DoughnutProps | any = {
+    onClick: () => {
+      window.location.href = `/transactions/edit`;
+    },
+    plugins: {
+      responsive: true,
+    },
+  };
 
   return (
     <div className="nut">
       Available Balance--{totalAmount}
-      <Doughnut data={data} />
+      <Doughnut data={data} options={options} />
     </div>
   );
 };

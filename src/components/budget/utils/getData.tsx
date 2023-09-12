@@ -4,6 +4,17 @@ import { AppState } from "../../../redux/store";
 import "./style.css";
 export const GetSavings = () => {
   const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
+  const getSalary = () => {
+    return trans
+      .filter((tran) => tran.type === "savings")
+      .filter((el) => el.name === "Salary")
+      .map((e) => e.amount)
+      .reduce((a: number, c: number) => {
+        return a + c;
+      }, 0);
+  };
+  console.log(getSalary());
+
   return (
     <>
       {trans

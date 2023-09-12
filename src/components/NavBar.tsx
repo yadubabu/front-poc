@@ -74,11 +74,11 @@ const NavBar = () => {
             <Nav.Link className="text-light" href="/logout">
               {auth ? (
                 <>
-                  Logout
                   <span className="text-success">
                     {" "}
                     <RiLogoutCircleRFill />
                   </span>
+                  Logout
                 </>
               ) : (
                 ""
