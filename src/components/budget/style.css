@@ -93,5 +93,6 @@
     bottom: 8px;
   }
 }
-.saveTitle {
+.cash {
+  justify-content: space-around;
 }

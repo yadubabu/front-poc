@@ -4,6 +4,7 @@ import { AppState } from "../../../redux/store";
 import Sidebar from "../../Sidebar";
 import "../style.css";
 import { GetExpenses } from "../utils/getData";
+import Badge from "react-bootstrap/Badge";
 
 function ExpenseBudget() {
   const expense = useSelector<AppState, number>(
@@ -21,18 +22,25 @@ function ExpenseBudget() {
         <Sidebar />
       </div>
       <div className="expense my-2 col-10">
-        <h4>Total Amount for spent:{expense}</h4>
+        <h4>Allocated Expense Amount:{expense}</h4>
         <ProgressBar className="m-5">
           <ProgressBar animated variant="success" now={totalPart} />
           <ProgressBar animated variant="danger" now={expensePart} />
         </ProgressBar>
         <p>
-          <span className="tot">Remaining Expense Amount</span>
-          <span className="tot">Spent on Expenses</span>
+          <span className="tot text-success">
+            Remaining Expense Amount--{expense - totalExpense}
+          </span>
+          <span className="tot text-danger">
+            Spent on Expenses--{totalExpense}
+          </span>
         </p>
         <hr />
         <div className="m-2">
-          <p className="m-2">List of Expenses</p>
+          <p className="m-2 text-center">
+            {" "}
+            <Badge bg="success">List of Expenses</Badge>
+          </p>
           {GetExpenses()}
         </div>
       </div>

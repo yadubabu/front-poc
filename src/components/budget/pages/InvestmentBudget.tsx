@@ -21,14 +21,18 @@ function InvestmentBudget() {
         <Sidebar />
       </div>
       <div className="investment my-2 col-10">
-        <h4>Limit on Investments:{investment}</h4>
+        <h4>Allocated Amount Investments:{investment}</h4>
         <ProgressBar className="m-5">
           <ProgressBar animated variant="success" now={totalPart} />
           <ProgressBar animated variant="danger" now={investmentPart} />
         </ProgressBar>
         <p>
-          <span className="tot">Remaining Investment Amount</span>
-          <span className="tot">Spent on Investment</span>
+          <span className="tot text-success">
+            Remaining Investment Amount--{investment - totalInvestment}
+          </span>
+          <span className="tot text-danger">
+            Spent on Investment--{totalInvestment}
+          </span>
         </p>
         <hr />
         <div className="m-2">

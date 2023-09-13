@@ -4,7 +4,7 @@ import { AppState } from "../../../redux/store";
 import Sidebar from "../../Sidebar";
 import "../style.css";
 import { GetSavings } from "../utils/getData";
-import { useEffect } from "react";
+import cashImg from "../../../assets/sold.png";
 import Badge from "react-bootstrap/Badge";
 
 function SavingsBudget() {
@@ -22,8 +22,12 @@ function SavingsBudget() {
       <div className="col-2">
         <Sidebar />
       </div>
-      <div className="savings my-2 col-10">
-        <h4>Available Amount:{total}</h4>
+      <div className="savings my-2 col-10 ">
+        <div className="d-flex align-items-center cash">
+          <h4>Cash in Hand</h4>
+          <img src={cashImg} alt="" width={35} height={35} />
+          <span className="h1 text-light"> {total}</span>
+        </div>
         <ProgressBar className="m-5">
           <ProgressBar animated variant="success" now={totalPart} />
           <ProgressBar animated variant="primary" now={savingsPart} />

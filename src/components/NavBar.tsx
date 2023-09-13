@@ -20,9 +20,11 @@ const NavBar = () => {
         <Navbar.Brand className="p-2 h1 text-success" href="/">
           <span className="text-light">MV</span>BudgetPlanner
         </Navbar.Brand>
-        <span className="h5 text-light">
+        <span className="h6 text-light">
           Hello!!
-          <span className="text-success">{auth ? name : "Guest"}</span>
+          <span className="text-success h5">
+            {auth ? name.toUpperCase() : "Guest"}
+          </span>
         </span>
         <Navbar.Toggle aria-controls="basic-navbar-nav " />
         <Navbar.Collapse className="navs" id="navs basic-navbar-nav">
