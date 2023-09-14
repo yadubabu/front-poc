@@ -28,11 +28,11 @@ const TransactionsForm = () => {
   };
 
   return (
-    <div className="formTrans row">
+    <div className="formTrans row ">
       {msg === "added successfully" ? (
-        <>
+        <div>
           <ThankYouPage />
-        </>
+        </div>
       ) : (
         ""
       )}

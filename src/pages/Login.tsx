@@ -12,12 +12,7 @@ import logImg from "../assets/home1.jpg";
 const Login = () => {
   const auth = useSelector<Auth>((state) => state.auth);
   const [msg, setMsg] = useState("");
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: {
       email: "",
       password: "",
@@ -25,11 +20,7 @@ const Login = () => {
   });
   const submitHandle = async (data: FieldValues) => {
     const { email, password } = data;
-    if (email === "" || password === "") {
-      setMsg("All fields are mandatory");
-    } else if (password.length < 6 || password.length > 10) {
-      setMsg("Password should be 6 characters");
-    }
+
     const result = await axios.post(loginApi, {
       email,
       password,
@@ -40,20 +31,7 @@ const Login = () => {
       setMsg(result.data.msg);
     }
   };
-  const registerOptions = {
-    email: { required: "Email cannot be blank" },
-    password: {
-      required: "Password is required",
-      minLength: {
-        value: 6,
-        message: "Password must be atleast 6 characters",
-      },
-      maxLength: {
-        value: 10,
-        message: "Password not more than 10 characters",
-      },
-    },
-  };
+
   return (
     <>
       <div className="logImg">

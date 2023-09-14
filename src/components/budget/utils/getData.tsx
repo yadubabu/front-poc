@@ -2,12 +2,20 @@ import { useSelector } from "react-redux";
 import { Trans } from "../../../dataTypes";
 import { AppState } from "../../../redux/store";
 import "./style.css";
-import soldImg from "../../../assets/sold.png";
 import salImg from "../../../assets/salary.png";
 import { BsMotherboardFill } from "react-icons/bs";
+import { AiFillGold } from "react-icons/ai";
+import { GiIsland } from "react-icons/gi";
+
 export const GetSavings = () => {
   const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
   const totalSavings = useSelector<AppState, number>(
+    ({ account }) => account.totalSavings
+  );
+  const totalExpenses = useSelector<AppState, number>(
+    ({ account }) => account.totalSavings
+  );
+  const totalInvestments = useSelector<AppState, number>(
     ({ account }) => account.totalSavings
   );
   const getSalary = () => {
@@ -20,60 +28,64 @@ export const GetSavings = () => {
       }, 0);
   };
   const getSoldIncomes = () => {
-    return trans
+    const sold = trans
       .filter((tran) => tran.type === "savings")
       .filter((el) => el.name === "Sold car")
       .map((e) => e.amount)
       .reduce((a: number, c: number) => {
         return a + c;
       }, 0);
+    if (sold) {
+      return sold;
+    } else {
+      return 0;
+    }
   };
-  const getTotalSavings = () => {
-    return trans
-      .filter((tran) => tran.type === "savings")
-      .map((el) => el.amount)
-      .reduce((a: number, c: number) => {
-        return a + c;
-      }, 0);
-  };
+
   return (
     <>
-      <div className="save d-flex">
-        <span className="h6 text-light">
-          Earnings By Salary <img src={salImg} alt="" width={50} height={50} />
-        </span>
-        <span className="h2 text-light">{getSalary()}</span>
-      </div>
-      <div className="save d-flex">
-        <span className="h6 text-light">
-          Earnings By Soldings{" "}
-          {/* <img src={soldImg} alt="" width={35} height={35} /> */}
-        </span>
-        <span className="h2 text-light">{getSoldIncomes()}</span>
-      </div>
-      {getTotalSavings() === totalSavings ? (
+      {getSalary() === 0 ? (
+        ""
+      ) : (
+        <div className="save d-flex">
+          <span className="h6 text-light">
+            Earnings By Salary{" "}
+            <img src={salImg} alt="" width={50} height={50} />
+          </span>
+          <span className="h2 text-light">{getSalary()}</span>
+        </div>
+      )}
+      {getSoldIncomes() === 0 ? (
         ""
       ) : (
         <>
           <div className="save d-flex">
-            <span className="h6 text-light">
-              Earnings By Others{" "}
-              <span className="text-success">
-                {" "}
-                <BsMotherboardFill />{" "}
-              </span>
-            </span>
-
-            <span className="h2 text-light">
-              {totalSavings - getSalary() - getSoldIncomes()}
-            </span>
+            <span className="h6 text-light">Earnings By Soldings </span>
+            <span className="h2 text-light">{getSoldIncomes()}</span>
           </div>
         </>
+      )}
+      {totalSavings === getSalary() + getSoldIncomes() ? (
+        ""
+      ) : (
+        <div className="save d-flex">
+          <span className="h6 text-light">
+            Earnings By Others{" "}
+            <span className="text-success">
+              {" "}
+              <BsMotherboardFill />{" "}
+            </span>
+          </span>
+
+          <span className="h2 text-light">
+            {totalSavings - getSalary() - getSoldIncomes()}
+          </span>
+        </div>
       )}
       <hr />
       <div className="save d-flex">
         <span className="h6 text-light">Total Savings</span>
-        <span className="h2 text-light">{getTotalSavings()}</span>
+        <span className="h2 text-light">{totalSavings}</span>
       </div>
     </>
   );
@@ -127,25 +139,25 @@ export const GetExpenses = () => {
   return (
     <>
       <div className="save d-flex">
-        <span className="h6 text-light">Expense on Rents </span>
-        <span className="h2 text-light">{getRents()}</span>
+        <span className="h6">Expense on Rents </span>
+        <span className="h6 text-light">{getRents()}</span>
       </div>
       <div className="save d-flex">
-        <span className="h6 text-light">Expense on Groceries </span>
-        <span className="h2 text-light">{getGroceries()}</span>
+        <span className="h6">Expense on Groceries </span>
+        <span className="h6 text-light">{getGroceries()}</span>
       </div>
       <div className="save d-flex">
-        <span className="h6 text-light">Expense on Shoppings </span>
-        <span className="h2 text-light">{getShoppingExpense()}</span>
+        <span className="h6">Expense on Shoppings </span>
+        <span className="h6 text-light">{getShoppingExpense()}</span>
       </div>
       <div className="save d-flex">
-        <span className="h6 text-light">Expense on Others </span>
-        <span className="h2 text-light">{getOtherExpenses()}</span>
+        <span className="h6">Expense on Others </span>
+        <span className="h6 text-light">{getOtherExpenses()}</span>
       </div>
 
       <hr />
       <div className="save d-flex">
-        <span className="h6 text-light">Total Savings</span>
+        <span className="h6">Total Savings</span>
         <span className="h2 text-light">{getTotalExpenses()}</span>
       </div>
     </>
@@ -183,22 +195,38 @@ export const GetInvestment = () => {
   return (
     <>
       <div className="save d-flex">
-        <span className="h6 text-light">Investments on Gold </span>
-        <span className="h2 text-light">{getGoldInvestments()}</span>
+        <span className="h6">
+          Investments on Gold{" "}
+          <span className="text-warning">
+            <AiFillGold />
+          </span>
+        </span>
+
+        <span className="h6 text-light">{getGoldInvestments()}</span>
       </div>
       <div className="save d-flex">
-        <span className="h6 text-light">Investments on Land </span>
-        <span className="h2 text-light">{getLandInvestment()}</span>
+        <span className="h6">
+          Investments on Land
+          <span className="text-danger">
+            <GiIsland />
+          </span>{" "}
+        </span>
+        <span className="h6 text-light">{getLandInvestment()}</span>
       </div>
       <div className="save d-flex">
-        <span className="h6 text-light">Expense on Others </span>
-        <span className="h2 text-light">
+        <span className="h6">
+          Expense on Others{" "}
+          <span className="text-primary">
+            <BsMotherboardFill />
+          </span>
+        </span>
+        <span className="h6 text-light">
           {getTotalInvestments() - getGoldInvestments() - getLandInvestment()}
         </span>
       </div>
       <hr />
       <div className="save d-flex">
-        <span className="h6 text-light">Total Savings</span>
+        <span className="h6 ">Total Investments</span>
         <span className="h2 text-light">{getTotalInvestments()}</span>
       </div>
     </>

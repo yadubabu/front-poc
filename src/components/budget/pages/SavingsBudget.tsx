@@ -33,8 +33,12 @@ function SavingsBudget() {
           <ProgressBar animated variant="primary" now={savingsPart} />
         </ProgressBar>
         <p>
-          <span className="tot">Previous Balance--{total - totalSavings}</span>
-          <span className="tot">Total Savings--{totalSavings}</span>
+          <span className="tot text-success">
+            Previous Balance--{total - totalSavings}
+          </span>
+          <span className="tot text-primary">
+            Total Savings--{totalSavings}
+          </span>
         </p>
         <hr />
         <div className="m-2">

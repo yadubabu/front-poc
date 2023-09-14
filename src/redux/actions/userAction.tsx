@@ -1,5 +1,5 @@
 import { Types } from "../enums/constants";
-import { userService } from "../../services/userService";
+import { userService } from "../services/allServices";
 
 export const userAction = () => {
   return {

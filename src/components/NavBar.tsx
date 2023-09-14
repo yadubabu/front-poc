@@ -9,6 +9,7 @@ import { RiLoginCircleFill } from "react-icons/ri";
 import { GiArchiveRegister } from "react-icons/gi";
 import { BsFillChatLeftDotsFill } from "react-icons/bs";
 import { RiLogoutCircleRFill } from "react-icons/ri";
+import { BiSolidDashboard } from "react-icons/bi";
 
 const NavBar = () => {
   const auth = useSelector<AppState>((state) => state.auth);
@@ -20,7 +21,7 @@ const NavBar = () => {
         <Navbar.Brand className="p-2 h1 text-success" href="/">
           <span className="text-light">MV</span>BudgetPlanner
         </Navbar.Brand>
-        <span className="h6 text-light">
+        <span className="h6 hello text-secondary">
           Hello!!
           <span className="text-success h5">
             {auth ? name.toUpperCase() : "Guest"}
@@ -35,6 +36,26 @@ const NavBar = () => {
               </span>
               Home
             </Nav.Link>
+            {!auth ? (
+              <Nav.Link
+                className="text-light"
+                href="/dashboard"
+                style={{ display: "none" }}
+              >
+                {" "}
+                <span className="text-success">
+                  <BiSolidDashboard />
+                </span>{" "}
+                Dashbord
+              </Nav.Link>
+            ) : (
+              <Nav.Link className="text-light" href="/dashboard">
+                <span className="text-success ">
+                  <BiSolidDashboard />
+                </span>{" "}
+                Dashboard
+              </Nav.Link>
+            )}{" "}
             <Nav.Link className="text-light" href="/login">
               {auth ? (
                 ""

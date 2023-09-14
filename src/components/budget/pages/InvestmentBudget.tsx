@@ -4,6 +4,7 @@ import { AppState } from "../../../redux/store";
 import Sidebar from "../../Sidebar";
 import "../style.css";
 import { GetInvestment } from "../utils/getData";
+import Badge from "react-bootstrap/Badge";
 
 function InvestmentBudget() {
   const investment = useSelector<AppState, number>(
@@ -21,22 +22,28 @@ function InvestmentBudget() {
         <Sidebar />
       </div>
       <div className="investment my-2 col-10">
-        <h4>Allocated Amount Investments:{investment}</h4>
+        <div className="mt-2 text-secondary">
+          Allocated Amount Investments:
+          <span className="h3 text-light">{investment}</span>
+        </div>
         <ProgressBar className="m-5">
           <ProgressBar animated variant="success" now={totalPart} />
           <ProgressBar animated variant="danger" now={investmentPart} />
         </ProgressBar>
-        <p>
-          <span className="tot text-success">
+        <p className="tot d-flex">
+          <span className=" text-success">
             Remaining Investment Amount--{investment - totalInvestment}
           </span>
-          <span className="tot text-danger">
+          <span className=" text-danger">
             Spent on Investment--{totalInvestment}
           </span>
         </p>
         <hr />
         <div className="m-2">
-          <p className="m-2">List of Investments</p>
+          <p className="m-2 text-center">
+            {" "}
+            <Badge bg="success">List of Investments</Badge>
+          </p>{" "}
           {GetInvestment()}
         </div>
       </div>

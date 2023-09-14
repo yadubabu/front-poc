@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
@@ -7,7 +7,6 @@ import Dashboard from "./pages/Dashboard";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import { useDispatch, useSelector } from "react-redux";
-import { authAction } from "./redux/actions/authAction";
 import { Auth } from "./dataTypes";
 import { userAction } from "./redux/actions/userAction";
 import SetBudget from "./components/budget/pages/SetBudget";
@@ -20,13 +19,14 @@ import TransactionsForm from "./components/transactions/TransactionsForm";
 import TransactionsHistory from "./components/transactions/TransactionsHistory";
 import ThankYouPage from "./components/transactions/ThankYouPage";
 import FAQ from "./pages/FAQ";
-const App = () => {
-  const dispatch = useDispatch();
+import { authService } from "./redux/services/allServices";
+import { Dispatch } from "redux";
 
+const App = () => {
+  const dispatch: Dispatch<any> = useDispatch();
   useEffect(() => {
-    const getAuth = sessionStorage.getItem("data");
-    dispatch(authAction(Boolean(getAuth)));
-  }, []);
+    dispatch(authService());
+  });
   const auth = useSelector<Auth>((state) => state.auth);
   useEffect(() => {
     if (auth) {
@@ -42,6 +42,8 @@ const App = () => {
           <Route path="/logout" element={<Logout />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/about" element={<About />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/budget/setbudget" element={<SetBudget />} />
           <Route path="/budget/savingsbudget" element={<SavingsBudget />} />
@@ -57,9 +59,6 @@ const App = () => {
           <Route path="/transactions/thankyou" element={<ThankYouPage />} />
           <Route path="/transactions/add" element={<TransactionsForm />} />
           <Route path="/transactions/edit" element={<TransactionsHistory />} />
-
-          <Route path="/about" element={<About />} />
-          <Route path="/faq" element={<FAQ />} />
         </Routes>
       </Router>
     </div>

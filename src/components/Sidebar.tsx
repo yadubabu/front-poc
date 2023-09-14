@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
-import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import { useDispatch, useSelector } from "react-redux";
-import { userAction } from "../redux/actions/userAction";
-import { getBudget } from "../redux/actions/budgetActions";
-import { getAccount } from "../redux/actions/accountAction";
 import { Dispatch } from "redux";
 import "./style.css";
 import { AppState } from "../redux/store";
-import { getTransactions } from "../redux/actions/transactionActions";
 import { Trans } from "../dataTypes";
+import {
+  accountService,
+  budgetService,
+  transactionService,
+} from "../redux/services/allServices";
+
 const Sidebar = () => {
   const email = useSelector<AppState, string>((state) => state.user.email);
   const name = useSelector<AppState, string>((state) => state.user.name);
@@ -19,22 +20,19 @@ const Sidebar = () => {
   const dispatch: Dispatch<any> = useDispatch();
 
   useEffect(() => {
-    dispatch(getTransactions(email));
+    dispatch(transactionService(email));
   }, [auth, trans]);
   useEffect(() => {
-    dispatch(getAccount(email));
+    dispatch(accountService(email));
   }, [auth]);
   useEffect(() => {
-    dispatch(getBudget(email));
+    dispatch(budgetService(email));
   }, [auth]);
   return (
     <div className="sidebar m-2">
       <h6 className="text-center">Welcome!</h6>
       <p className="text-light text-center">{name}</p>
       <Nav className="sideNavs flex-column align-items-center ">
-        <Nav.Link className="text-success p-2 m-2" href="/dashboard">
-          DASH BOARD
-        </Nav.Link>
         <Nav.Link className="text-success p-2 m-2" href="/budget/setbudget">
           Set Budget
         </Nav.Link>
@@ -50,12 +48,13 @@ const Sidebar = () => {
         >
           Total-Investments
         </Nav.Link>
-        <Nav.Link className="text-success p-2 m-2" href="/transactions/tracker">
-          Transactions-Tracker
-        </Nav.Link>
         <Nav.Link className="text-success p-2 m-2" href="/transactions/add">
           Add-Transactions
         </Nav.Link>
+        <Nav.Link className="text-success p-2 m-2" href="/transactions/tracker">
+          Transactions-Tracker
+        </Nav.Link>
+
         <Nav.Link className="text-success p-2 m-2" href="/transactions/edit">
           Transactions-History
         </Nav.Link>
