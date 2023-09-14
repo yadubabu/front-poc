@@ -21,7 +21,7 @@ function InvestmentBudget() {
       <div className="col-2">
         <Sidebar />
       </div>
-      <div className="investment my-2 col-10">
+      <div className="investment my-2 col-10 text-center">
         <div className="mt-2 text-secondary">
           Allocated Amount Investments:
           <span className="h3 text-light">{investment}</span>
@@ -30,11 +30,11 @@ function InvestmentBudget() {
           <ProgressBar animated variant="success" now={totalPart} />
           <ProgressBar animated variant="danger" now={investmentPart} />
         </ProgressBar>
-        <p className="tot d-flex">
-          <span className=" text-success">
+        <p className="invest">
+          <span className="remain text-success">
             Remaining Investment Amount--{investment - totalInvestment}
           </span>
-          <span className=" text-danger">
+          <span className="spent text-danger">
             Spent on Investment--{totalInvestment}
           </span>
         </p>

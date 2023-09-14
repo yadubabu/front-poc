@@ -12,8 +12,6 @@ type Props = {
 
 const TransFormCard = (props: Props) => {
   const { _id, email, name, type, amount } = props.transaction;
-  const ref = useRef(null);
-  const ele = ref.current;
   const [showEdit, setShowEdit] = useState(false);
   const [transName, setTransName] = useState("");
   const [transType, setTransType] = useState("");

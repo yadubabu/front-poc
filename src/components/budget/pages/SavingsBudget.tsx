@@ -24,7 +24,7 @@ function SavingsBudget() {
       </div>
       <div className="savings my-2 col-10 ">
         <div className="d-flex align-items-center cash">
-          <h4>Cash in Hand</h4>
+          <p className="h6 text-secodary">Cash in Hand</p>
           <img src={cashImg} alt="" width={35} height={35} />
           <span className="h1 text-light"> {total}</span>
         </div>
@@ -32,11 +32,11 @@ function SavingsBudget() {
           <ProgressBar animated variant="success" now={totalPart} />
           <ProgressBar animated variant="primary" now={savingsPart} />
         </ProgressBar>
-        <p>
-          <span className="tot text-success">
+        <p className="saves">
+          <span className="previous text-success">
             Previous Balance--{total - totalSavings}
           </span>
-          <span className="tot text-primary">
+          <span className="saveadd text-primary">
             Total Savings--{totalSavings}
           </span>
         </p>

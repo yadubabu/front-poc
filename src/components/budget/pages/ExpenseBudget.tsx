@@ -21,17 +21,18 @@ function ExpenseBudget() {
       <div className="col-2">
         <Sidebar />
       </div>
-      <div className="expense my-2 col-10">
-        <h4>Allocated Expense Amount:{expense}</h4>
+      <div className="expense my-2 col-10 text-center">
+        <h6 className="text-secondary">Allocated Expense Amount</h6>
+        <span className="h4">{expense}</span>
         <ProgressBar className="m-5">
           <ProgressBar animated variant="success" now={totalPart} />
           <ProgressBar animated variant="danger" now={expensePart} />
         </ProgressBar>
-        <p>
-          <span className="tot text-success">
+        <p className="exe">
+          <span className="remain text-success">
             Remaining Expense Amount--{expense - totalExpense}
           </span>
-          <span className="tot text-danger">
+          <span className="spent text-danger">
             Spent on Expenses--{totalExpense}
           </span>
         </p>

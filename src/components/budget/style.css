@@ -100,3 +100,40 @@
   align-items: center;
   justify-content: space-around;
 }
+.exe {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 auto;
+  margin-top: -20px;
+}
+.invest {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 auto;
+  margin-top: -20px;
+}
+.remain {
+  margin-left: -105px;
+  margin-top: -40px;
+}
+.spent {
+  margin-right: -105px;
+  margin-top: -40px;
+}
+.previous {
+  margin-left: -180px;
+  margin-top: -40px;
+}
+.saveadd {
+  margin-right: -180px;
+  margin-top: -40px;
+}
+.saves {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 auto;
+  margin-top: -20px;
+}

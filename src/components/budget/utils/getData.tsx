@@ -12,16 +12,10 @@ export const GetSavings = () => {
   const totalSavings = useSelector<AppState, number>(
     ({ account }) => account.totalSavings
   );
-  const totalExpenses = useSelector<AppState, number>(
-    ({ account }) => account.totalSavings
-  );
-  const totalInvestments = useSelector<AppState, number>(
-    ({ account }) => account.totalSavings
-  );
   const getSalary = () => {
     return trans
       .filter((tran) => tran.type === "savings")
-      .filter((el) => el.name === "Salary")
+      .filter((el) => el.name === "Salary" || el.name === "salary")
       .map((e) => e.amount)
       .reduce((a: number, c: number) => {
         return a + c;
@@ -94,18 +88,19 @@ export const GetSavings = () => {
   );
 };
 export const GetExpenses = () => {
-  const getTotalExpenses = () => {
-    return trans
-      .filter((tran) => tran.type === "expense")
-      .map((el) => el.amount)
-      .reduce((a: number, c: number) => {
-        return a + c;
-      }, 0);
-  };
+  const totalExpense = useSelector<AppState, number>(
+    ({ account }) => account.totalExpense
+  );
   const getRents = () => {
     return trans
       .filter((tran) => tran.type === "expense")
-      .filter((el) => el.name === "Rent")
+      .filter(
+        (el) =>
+          el.name.split(" ")[0] === "Rent" ||
+          el.name.split(" ")[1] === "Rent" ||
+          el.name.split(" ")[0] === "rent" ||
+          el.name.split(" ")[1] === "rent"
+      )
       .map((e) => e.amount)
       .reduce((a: number, c: number) => {
         return a + c;
@@ -114,7 +109,13 @@ export const GetExpenses = () => {
   const getGroceries = () => {
     return trans
       .filter((tran) => tran.type === "expense")
-      .filter((el) => el.name === "Groceries")
+      .filter(
+        (el) =>
+          el.name === "Groceries" ||
+          el.name.split(" ")[0] === "buy" ||
+          el.name.split(" ")[0] === "Buy" ||
+          el.name === "groceries"
+      )
       .map((e) => e.amount)
       .reduce((a: number, c: number) => {
         return a + c;
@@ -123,63 +124,84 @@ export const GetExpenses = () => {
   const getShoppingExpense = () => {
     return trans
       .filter((tran) => tran.type === "expense")
-      .filter((el) => el.name === "Shopping")
+      .filter((el) => el.name === "Shopping" || el.name === "shopping")
       .map((e) => e.amount)
       .reduce((a: number, c: number) => {
         return a + c;
       }, 0);
   };
-  const getOtherExpenses = () => {
-    return trans
-      .filter((tran) => tran.type === "expense")
-      .filter((el) => el.name === "Others")
-      .map((e) => e.amount)
-      .reduce((a: number, c: number) => {
-        return a + c;
-      }, 0);
-  };
+
   const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
   return (
     <>
-      <div className="save d-flex">
-        <span className="h6">Expense on Rents </span>
-        <span className="h6 text-light">{getRents()}</span>
-      </div>
-      <div className="save d-flex">
-        <span className="h6">Expense on Groceries </span>
-        <span className="h6 text-light">{getGroceries()}</span>
-      </div>
-      <div className="save d-flex">
-        <span className="h6">Expense on Shoppings </span>
-        <span className="h6 text-light">{getShoppingExpense()}</span>
-      </div>
-      <div className="save d-flex">
-        <span className="h6">Expense on Others </span>
-        <span className="h6 text-light">{getOtherExpenses()}</span>
-      </div>
-
+      {getRents() === 0 ? (
+        ""
+      ) : (
+        <div className="save d-flex p-1">
+          <span className="h6">Expense on Rents </span>
+          <span className="h6 text-light">{getRents()}</span>
+        </div>
+      )}
+      {getGroceries() === 0 ? (
+        ""
+      ) : (
+        <div className="save d-flex p-1">
+          <span className="h6">Expense on Groceries </span>
+          <span className="h6 text-light">{getGroceries()}</span>
+        </div>
+      )}
+      {getShoppingExpense() === 0 ? (
+        ""
+      ) : (
+        <div className="save d-flex p-1">
+          <span className="h6">Expense on Shoppings </span>
+          <span className="h6 text-light">{getShoppingExpense()}</span>
+        </div>
+      )}
+      {totalExpense === getRents() + getGroceries() + getShoppingExpense() ? (
+        ""
+      ) : (
+        <div className="save d-flex p-1">
+          <span className="h6">Expense on Others </span>
+          <span className="h6 text-light">
+            {totalExpense - getRents() - getShoppingExpense() - getGroceries()}
+          </span>
+        </div>
+      )}
       <hr />
       <div className="save d-flex">
-        <span className="h6">Total Savings</span>
-        <span className="h2 text-light">{getTotalExpenses()}</span>
+        <span className="h6">Total Expenses</span>
+        <span className="h2 text-light">{totalExpense}</span>
       </div>
     </>
   );
 };
 
 export const GetInvestment = () => {
-  const getTotalInvestments = () => {
+  const totalInvestment = useSelector<AppState, number>(
+    ({ account }) => account.totalInvestment
+  );
+
+  const getGoldInvestments = () => {
     return trans
       .filter((tran) => tran.type === "investment")
-      .map((el) => el.amount)
+      .filter(
+        (el) =>
+          el.name.split(" ")[1] === "Gold" || el.name.split(" ")[1] === "gold"
+      )
+      .map((e) => e.amount)
       .reduce((a: number, c: number) => {
         return a + c;
       }, 0);
   };
-  const getGoldInvestments = () => {
+  const getStocks = () => {
     return trans
       .filter((tran) => tran.type === "investment")
-      .filter((el) => el.name === "Buy Gold")
+      .filter(
+        (el) =>
+          el.name.split(" ")[1] === "stocks" ||
+          el.name.split(" ")[1] === "Stocks"
+      )
       .map((e) => e.amount)
       .reduce((a: number, c: number) => {
         return a + c;
@@ -188,7 +210,10 @@ export const GetInvestment = () => {
   const getLandInvestment = () => {
     return trans
       .filter((tran) => tran.type === "investment")
-      .filter((el) => el.name === "Buy Land")
+      .filter(
+        (el) =>
+          el.name.split(" ")[1] === "land" || el.name.split(" ")[1] === "Land"
+      )
       .map((e) => e.amount)
       .reduce((a: number, c: number) => {
         return a + c;
@@ -197,40 +222,65 @@ export const GetInvestment = () => {
   const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
   return (
     <>
-      <div className="save d-flex">
-        <span className="h6">
-          Investments on Gold{" "}
-          <span className="text-warning">
-            <AiFillGold />
+      {getGoldInvestments() === 0 ? (
+        ""
+      ) : (
+        <div className="save d-flex p-1">
+          <span className="h6">
+            Investments on Gold{" "}
+            <span className="text-warning">
+              <AiFillGold />
+            </span>
           </span>
-        </span>
 
-        <span className="h6 text-light">{getGoldInvestments()}</span>
-      </div>
-      <div className="save d-flex">
-        <span className="h6">
-          Investments on Land
-          <span className="text-danger">
-            <GiIsland />
-          </span>{" "}
-        </span>
-        <span className="h6 text-light">{getLandInvestment()}</span>
-      </div>
-      <div className="save d-flex">
-        <span className="h6">
-          Expense on Others{" "}
-          <span className="text-primary">
-            <BsMotherboardFill />
+          <span className="h6 text-light">{getGoldInvestments()}</span>
+        </div>
+      )}
+      {getLandInvestment() === 0 ? (
+        ""
+      ) : (
+        <div className="save d-flex p-1">
+          <span className="h6">
+            Investments on Land
+            <span className="text-danger">
+              <GiIsland />
+            </span>{" "}
           </span>
-        </span>
-        <span className="h6 text-light">
-          {getTotalInvestments() - getGoldInvestments() - getLandInvestment()}
-        </span>
-      </div>
+          <span className="h6 text-light">{getLandInvestment()}</span>
+        </div>
+      )}
+      {getStocks() === 0 ? (
+        ""
+      ) : (
+        <div className="save d-flex p-1">
+          <span className="h6">Investments on Stocks </span>
+
+          <span className="h6 text-light">{getStocks()}</span>
+        </div>
+      )}
+      {totalInvestment ===
+      getGoldInvestments() + getLandInvestment() + getStocks() ? (
+        ""
+      ) : (
+        <div className="save d-flex p-1">
+          <span className="h6">
+            Investments on Others{" "}
+            <span className="text-primary">
+              <BsMotherboardFill />
+            </span>
+          </span>
+          <span className="h6 text-light">
+            {totalInvestment -
+              getGoldInvestments() -
+              getLandInvestment() -
+              getStocks()}
+          </span>
+        </div>
+      )}
       <hr />
-      <div className="save d-flex">
+      <div className="save d-flex ">
         <span className="h6 ">Total Investments</span>
-        <span className="h2 text-light">{getTotalInvestments()}</span>
+        <span className="h2 text-light">{totalInvestment}</span>
       </div>
     </>
   );

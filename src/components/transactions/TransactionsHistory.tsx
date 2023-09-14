@@ -15,7 +15,7 @@ function TransactionsHistory() {
       </div>
       <div className="col-10">
         {" "}
-        <Table className="mt-3" striped="columns" variant="dark" bordered>
+        <Table className="tab mt-2" striped="columns" variant="dark" bordered>
           <thead>
             <tr>
               <th className="text-success">S.no</th>
@@ -26,13 +26,15 @@ function TransactionsHistory() {
             </tr>
           </thead>
           <tbody>
-            {trans.map((tran: Trans, index: number) => {
-              return (
-                <>
-                  <TransFormCard index={index + 1} transaction={tran} />
-                </>
-              );
-            })}
+            {trans
+              .slice(trans.length - 9, trans.length)
+              .map((tran: Trans, index: number) => {
+                return (
+                  <>
+                    <TransFormCard index={index + 1} transaction={tran} />
+                  </>
+                );
+              })}
           </tbody>
         </Table>
       </div>
