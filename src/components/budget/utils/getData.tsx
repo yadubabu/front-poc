@@ -28,15 +28,18 @@ export const GetSavings = () => {
       }, 0);
   };
   const getSoldIncomes = () => {
-    const sold = trans
+    const soldings = trans
       .filter((tran) => tran.type === "savings")
-      .filter((el) => el.name === "Sold car")
+      .filter(
+        (el) =>
+          el.name.split(" ")[0] === "sold" || el.name.split(" ")[0] === "Sold"
+      )
       .map((e) => e.amount)
       .reduce((a: number, c: number) => {
         return a + c;
       }, 0);
-    if (sold) {
-      return sold;
+    if (soldings) {
+      return soldings;
     } else {
       return 0;
     }
