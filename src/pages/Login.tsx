@@ -8,16 +8,23 @@ import { loginApi } from "../redux/apis";
 import { useSelector } from "react-redux";
 import { Auth } from "../dataTypes";
 import logImg from "../assets/home1.jpg";
+import LoginErrors from "../validators/login/LoginErrors";
+import { LoginOptions } from "../validators/login/LoginOptions";
 
-const Login = () => {
+type FormData = {
+  email: string;
+  password: string;
+};
+
+const Login: React.FC = () => {
   const auth = useSelector<Auth>((state) => state.auth);
   const [msg, setMsg] = useState("");
-  const { register, handleSubmit, reset } = useForm({
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-  });
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>({ mode: "onChange" });
   const submitHandle = async (data: FieldValues) => {
     const { email, password } = data;
 
@@ -63,12 +70,12 @@ const Login = () => {
                 </Form.Label>
                 <Col sm="9">
                   <Form.Control
-                    {...register("email")}
-                    type="email"
+                    {...register("email", LoginOptions.email)}
+                    type="text"
                     placeholder="Enter your Email"
                   />
-                  <small className="text-danger">
-                    {/* {errors?.email && errors.email?.message} */}
+                  <small className="h6 text-danger">
+                    {errors.email && <LoginErrors msg={errors.email.message} />}
                   </small>
                 </Col>
               </Form.Group>
@@ -82,12 +89,14 @@ const Login = () => {
                 </Form.Label>
                 <Col sm="8" className="mx-1">
                   <Form.Control
-                    {...register("password")}
+                    {...register("password", LoginOptions.password)}
                     type="password"
                     placeholder="Enter your password"
                   />
-                  <small className="text-danger">
-                    {/* {errors?.password && errors.password?.message} */}
+                  <small className="h6 text-danger">
+                    {errors.password && (
+                      <LoginErrors msg={errors.password.message} />
+                    )}
                   </small>
                 </Col>
               </Form.Group>
