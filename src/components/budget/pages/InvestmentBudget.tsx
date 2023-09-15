@@ -23,7 +23,7 @@ function InvestmentBudget() {
       </div>
       <div className="investment my-2 col-10 text-center">
         <div className="mt-2 text-secondary">
-          Allocated Amount Investments:
+          <h6>Allocated Amount Investments</h6>
           <span className="h3 text-light">{investment}</span>
         </div>
         <ProgressBar className="m-5">
