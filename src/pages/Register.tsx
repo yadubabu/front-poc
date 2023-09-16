@@ -9,6 +9,18 @@ import { useSelector } from "react-redux";
 import { Auth } from "../dataTypes";
 import logImg from "../assets/home1.jpg";
 import "./style.css";
+import { registerOptions } from "../validators/register/registerOptions";
+import RegisterErrors from "../validators/register/RegisterErrors";
+
+type FormData = {
+  name: string;
+  email: string;
+  password: string;
+  confirmpassword: string;
+  pancard: string;
+  phone: number;
+};
+
 const Register = () => {
   const auth = useSelector<Auth>((state) => state.auth);
   const [msg, setMsg] = useState("");
@@ -17,23 +29,10 @@ const Register = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({ mode: "onChange" });
+  } = useForm<FormData>({ mode: "onChange" });
   const submitHandle = async (data: FieldValues) => {
     const { name, email, password, confirmpassword, pancard, phone } = data;
-    if (
-      name === "" ||
-      email === "" ||
-      password === "" ||
-      confirmpassword === "" ||
-      pancard === "" ||
-      phone === ""
-    ) {
-      setMsg("All fields are mandatory");
-    } else if (password.length < 6 || password.length > 10) {
-      setMsg("Password should be 6 characters");
-    } else if (password !== confirmpassword) {
-      setMsg("password and confirmPassword should be equal");
-    }
+
     const response = await axios.post(`${registerApi}`, {
       name,
       email,
@@ -55,11 +54,7 @@ const Register = () => {
       </div>
       <div className="register">
         {msg === "Successfully Registered" ? (
-          <>
-            {setTimeout(() => {
-              window.location.href = "/login";
-            }, 500)}
-          </>
+          <>{(window.location.href = "/login")}</>
         ) : (
           ""
         )}
@@ -76,11 +71,15 @@ const Register = () => {
                 </Form.Label>
                 <Col sm="8">
                   <Form.Control
-                    {...(register("name") as unknown as Record<any, unknown>)}
+                    {...register("name", registerOptions.name)}
                     type="text"
                     placeholder="Enter your name"
                   />
-                  <small className="text-danger"></small>
+                  <small className="h6 text-danger">
+                    {errors.name && (
+                      <RegisterErrors msg={errors.name.message} />
+                    )}
+                  </small>{" "}
                 </Col>
               </Form.Group>
               <Form.Group
@@ -93,11 +92,15 @@ const Register = () => {
                 </Form.Label>
                 <Col sm="8">
                   <Form.Control
-                    {...(register("email") as unknown as Record<any, unknown>)}
-                    type="email"
+                    {...register("email", registerOptions.email)}
+                    type="text"
                     placeholder="Enter your Email"
                   />
-                  <small className="text-danger"></small>
+                  <small className="h6 text-danger">
+                    {errors.email && (
+                      <RegisterErrors msg={errors.email.message} />
+                    )}
+                  </small>{" "}
                 </Col>
               </Form.Group>
               <Form.Group
@@ -110,16 +113,15 @@ const Register = () => {
                 </Form.Label>
                 <Col sm="8">
                   <Form.Control
-                    {...(register("password") as unknown as Record<
-                      any,
-                      unknown
-                    >)}
+                    {...register("password", registerOptions.password)}
                     type="password"
                     placeholder="Enter your password"
                   />
-                  <small className="text-danger">
-                    {/* {errors?.password && errors.password?.message} */}
-                  </small>
+                  <small className="h6 text-danger">
+                    {errors.password && (
+                      <RegisterErrors msg={errors.password.message} />
+                    )}
+                  </small>{" "}
                 </Col>
               </Form.Group>
               <Form.Group
@@ -132,16 +134,18 @@ const Register = () => {
                 </Form.Label>
                 <Col sm="8">
                   <Form.Control
-                    {...(register("confirmpassword") as unknown as Record<
-                      any,
-                      unknown
-                    >)}
+                    {...register(
+                      "confirmpassword",
+                      registerOptions.confirmpassword
+                    )}
                     type="password"
                     placeholder="Enter your confirm password"
                   />
-                  <small className="text-danger">
-                    {/* {errors?.password && errors.password?.message} */}
-                  </small>
+                  <small className="h6 text-danger">
+                    {errors.confirmpassword && (
+                      <RegisterErrors msg={errors.confirmpassword.message} />
+                    )}
+                  </small>{" "}
                 </Col>
               </Form.Group>
               <Form.Group
@@ -154,16 +158,15 @@ const Register = () => {
                 </Form.Label>
                 <Col sm="8">
                   <Form.Control
-                    {...(register("pancard") as unknown as Record<
-                      any,
-                      unknown
-                    >)}
+                    {...register("pancard", registerOptions.pancard)}
                     type="text"
                     placeholder="Enter your Pancard nunber"
                   />
-                  <small className="text-danger">
-                    {/* {errors?.password && errors.password?.message} */}
-                  </small>
+                  <small className="h6 text-danger">
+                    {errors.pancard && (
+                      <RegisterErrors msg={errors.pancard.message} />
+                    )}
+                  </small>{" "}
                 </Col>
               </Form.Group>
               <Form.Group
@@ -176,11 +179,15 @@ const Register = () => {
                 </Form.Label>
                 <Col sm="8">
                   <Form.Control
-                    {...(register("phone") as unknown as Record<any, unknown>)}
+                    {...register("phone", registerOptions.phone)}
                     type="number"
                     placeholder="Enter your Phone"
                   />
-                  <small className="text-danger"></small>
+                  <small className="h6 text-danger">
+                    {errors.phone && (
+                      <RegisterErrors msg={errors.phone.message} />
+                    )}
+                  </small>{" "}
                 </Col>
               </Form.Group>
               <Form.Group

@@ -30,12 +30,14 @@ const TransFormCard = (props: Props) => {
         setShowEdit(false);
       }
     } else {
-      alert("Please select transaction and add your values");
+      alert("Please select transaction and add new values");
     }
   };
   const deleteTransaction = async (id: string) => {
     const res = await axios.delete(`${apiDeleteTrans}/${id}`);
-    console.log(res.data);
+    if (res) {
+      alert("One record is Deleted");
+    }
   };
 
   return (

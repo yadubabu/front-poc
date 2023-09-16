@@ -58,6 +58,7 @@
 @media (min-width: 786px) {
   #login {
     margin: 0 330px;
+    height: 64vh;
   }
   .loginForm {
     padding: 10px;
@@ -98,6 +99,7 @@
   width: 600px;
   height: 400px;
 }
+
 @media (max-width: 786px) {
   .budgetCard {
     width: 380px;
@@ -111,7 +113,7 @@
   color: whitesmoke;
   position: absolute;
   top: 80px;
-  left: 340px;
+  left: 40px;
   border-radius: 10px;
   background-color: rgb(34, 33, 33);
   box-shadow: inset 0px 0px 14px 0px rgba(61, 60, 60, 0.85);
@@ -120,4 +122,18 @@
 }
 .register:hover {
   opacity: 1;
+}
+@media (min-width: 786px) {
+  .register {
+    left: 300px;
+  }
+}
+.faq {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(34, 33, 33);
+  box-shadow: inset 0px 0px 14px 0px rgba(61, 60, 60, 0.85);
+  margin: 25px;
+  border-radius: 10px;
+  padding: 10px;
 }

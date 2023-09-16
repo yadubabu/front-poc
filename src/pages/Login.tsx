@@ -101,7 +101,7 @@ const Login: React.FC = () => {
                 </Col>
               </Form.Group>
               <Form.Group as={Row}>
-                <Col sm="3" className="mb-1">
+                <Col sm="3" className="p-3">
                   <Form.Control
                     className="logBtn btn btn-success"
                     type="submit"

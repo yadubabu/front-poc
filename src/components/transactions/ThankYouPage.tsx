@@ -6,12 +6,12 @@ const ThankYouPage = () => {
   const [key, setKey] = useState("thank");
   return (
     <div className={key}>
-      <h3 className="text-light">Your Transaction added Successfully</h3>
-      <div className="d-flex thank-btn">
-        <NavLink className="btn btn-light" to="/dashboard">
+      <h5 className="text-success">Your Transaction added Successfully</h5>
+      <div className="d-flex thank-btn mt-2 ">
+        <NavLink className="btn m-1" to="/dashboard">
           Back to Dashboard
         </NavLink>
-        <button onClick={() => setKey("none")} className="btn btn-light">
+        <button onClick={() => setKey("none")} className="btn">
           Make another transaction?
         </button>
       </div>

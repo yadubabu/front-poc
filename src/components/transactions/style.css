@@ -105,7 +105,7 @@
   position: absolute;
   z-index: 1;
   height: 100px;
-  background-color: rgb(74, 172, 139);
+  background-color: rgb(194, 201, 199);
   top: 50px;
   border-radius: 20px;
   display: flex;
@@ -113,13 +113,16 @@
   align-items: center;
   justify-content: center;
   margin: auto auto;
-  left: 50px;
-  right: 50px;
+  left: 250px;
+  right: 250px;
+  margin-left: 90px;
+  margin-right: 30px;
 }
 .thank-btn {
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   margin: 10px 20px;
+  background-color: light;
 }
 .none {
   display: none;

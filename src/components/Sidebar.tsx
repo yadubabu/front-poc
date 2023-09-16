@@ -58,7 +58,7 @@ const Sidebar = () => {
         <Nav.Link className="text-success p-2 m-2" href="/transactions/edit">
           Transactions-History
         </Nav.Link>
-        <Nav.Link className="text-success p-2 m-2" href="/transactions/edit">
+        <Nav.Link className="text-success p-2 m-2" href="/faq">
           FAQ's
         </Nav.Link>
       </Nav>
