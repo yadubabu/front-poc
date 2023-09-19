@@ -7,6 +7,7 @@ import { Auth } from "../dataTypes";
 import LoginErrors from "../validators/login/LoginErrors";
 import { LoginOptions } from "../validators/login/LoginOptions";
 import LoadingPage from "./LoadingPage";
+import MessageModal from "../components/MessageModal";
 
 type FormData = {
   email: string;
@@ -14,6 +15,7 @@ type FormData = {
 };
 
 const Login = () => {
+  const [showModal, setShowModal] = useState(false);
   const auth = useSelector<Auth>((state) => state.auth);
   const [msg, setMsg] = useState("");
   const {
@@ -30,31 +32,23 @@ const Login = () => {
     });
     if (result) {
       sessionStorage.setItem("data", JSON.stringify(result.data));
+      setShowModal(true);
       reset();
       setMsg(result.data.msg);
     }
   };
-
   return (
     <>
-      {msg}
-      {/* {msg ? msg : ""}
-      {msg === "Successfully Login" ? (
-        <>
-          {setTimeout(() => {
-            window.location.href = "/dashboard";
-          }, 1000) && (
-            <>
-              <LoadingPage />
-            </>
-          )}
-        </>
-      ) : (
-        ""
-      )} */}
       {!auth && (
         <>
           <form className="form" onSubmit={handleSubmit(submitHandle)}>
+            {msg === "Successfully Login" ? (
+              <>
+                <MessageModal msg={msg} />
+              </>
+            ) : (
+              <span className="text-danger text-center">{msg}</span>
+            )}
             <div className="row m-4">
               <label className="col-3 m-1">Email</label>
               <input

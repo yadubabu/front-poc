@@ -39,11 +39,11 @@ const SetBudget = () => {
   };
 
   return (
-    <div className="row">
+    <div className="row" style={{ background: "gray" }}>
       <div className="col-2">
         <Sidebar />
       </div>
-      <div className="col-10 ">
+      <div className="col-9 m-4">
         {msg ? <span className="text-danger">{msg}</span> : ""}
         <>
           <Form

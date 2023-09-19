@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "react-bootstrap/Nav";
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "redux";
@@ -16,12 +16,13 @@ const Sidebar = () => {
   const name = useSelector<AppState, string>((state) => state.user.name);
   const auth = useSelector<AppState>((state) => state.auth);
   const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
+  const [current, setCurrent] = useState({ border: "none", color: "white" });
 
   const dispatch: Dispatch<any> = useDispatch();
 
   useEffect(() => {
     dispatch(transactionService(email));
-  }, [auth, trans]);
+  }, [trans, auth]);
   useEffect(() => {
     dispatch(accountService(email));
   }, [auth]);
@@ -31,26 +32,36 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <Nav className="sideNavs">
-        <Nav.Link className="text-dark p-2 m-2" href="/budget/setbudget">
+        <Nav.Link
+          style={current}
+          className="text-light p-2 m-2"
+          href="/budget/setbudget"
+          onClick={() =>
+            setCurrent({ border: "2px solid yellow", color: "black" })
+          }
+        >
           Set Budget
         </Nav.Link>
-        <Nav.Link className="text-dark p-2 m-2" href="/budget/savingsbudget">
+        <Nav.Link className="text-light p-2 m-2" href="/budget/savingsbudget">
           Total-Savings
         </Nav.Link>
-        <Nav.Link className="text-dark p-2 m-2" href="/budget/expensebudget">
+        <Nav.Link className="text-light p-2 m-2" href="/budget/expensebudget">
           Total-Expenses
         </Nav.Link>
-        <Nav.Link className="text-dark p-2 m-2" href="/budget/investmentbudget">
+        <Nav.Link
+          className="text-light p-2 m-2"
+          href="/budget/investmentbudget"
+        >
           Total-Investments
         </Nav.Link>
-        <Nav.Link className="text-dark p-2 m-2" href="/transactions/add">
+        <Nav.Link className="text-light p-2 m-2" href="/transactions/add">
           Add-Transactions
         </Nav.Link>
-        <Nav.Link className="text-dark p-2 m-2" href="/transactions/tracker">
+        <Nav.Link className="text-light p-2 m-2" href="/transactions/tracker">
           Transactions-Tracker
         </Nav.Link>
 
-        <Nav.Link className="text-dark p-2 m-2" href="/transactions/edit">
+        <Nav.Link className="text-light p-2 m-2" href="/transactions/edit">
           Transactions-History
         </Nav.Link>
       </Nav>

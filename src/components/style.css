@@ -1,6 +1,6 @@
 /* Navbar style*/
 .me-auto {
-  margin-left: 300px;
+  margin-left: 350px;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
     "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -16,20 +16,26 @@
   }
 }
 .sidebar {
+  margin-left: 9px;
+  margin-right: -7px;
   border-radius: 10px;
-  margin-right: -10px;
-  background-color: rgb(110, 205, 236);
+  margin-top: 0;
+  background-color: var(--main-card);
   box-shadow: var(--form-shadow);
+  height: 100%;
 }
 .sideNavs {
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: small;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  font-weight: 700;
+  font-weight: 500;
 }
 .navbar {
   display: flex;
@@ -43,4 +49,10 @@
 }
 .hello {
   margin-right: -60px;
+}
+#current {
+  border: solid red 2px;
+}
+#none {
+  display: block;
 }

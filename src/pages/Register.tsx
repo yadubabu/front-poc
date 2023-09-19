@@ -12,7 +12,7 @@ import "./style.css";
 import { registerOptions } from "../validators/register/registerOptions";
 import RegisterErrors from "../validators/register/RegisterErrors";
 import LoadingPage from "./LoadingPage";
-
+import MessageModal from "../components/MessageModal";
 type FormData = {
   name: string;
   email: string;
@@ -23,8 +23,10 @@ type FormData = {
 };
 
 const Register = () => {
+  const [showModal, setShowModal] = useState(false);
   const auth = useSelector<Auth>((state) => state.auth);
   const [msg, setMsg] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -44,25 +46,13 @@ const Register = () => {
     });
     if (response) {
       setMsg("Successfully Registered");
+      setShowModal(true);
       reset();
     }
   };
 
   return (
     <>
-      {msg === "Successfully Registered" ? (
-        <>
-          {setTimeout(() => {
-            (
-              <>
-                <LoadingPage />
-              </>
-            ) && (window.location.href = "/login");
-          })}
-        </>
-      ) : (
-        ""
-      )}
       {!auth && (
         <>
           <form
@@ -70,6 +60,13 @@ const Register = () => {
             id="regi"
             onSubmit={handleSubmit(submitHandle)}
           >
+            {msg === "Successfully Registered" ? (
+              <>
+                <MessageModal msg={msg} />
+              </>
+            ) : (
+              ""
+            )}
             <div className="row m-4">
               <label className="col-4 m-1">Name</label>
               <input

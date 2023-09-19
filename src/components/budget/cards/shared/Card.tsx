@@ -14,20 +14,17 @@ const Cards = (props: Props) => {
         style={{ background: `${props.color}` }}
       >
         <div className="flip-card-inner">
-          <div
-            className="flip-card-front flex-column "
-            // style={{ background: `${props.color}`, marginTop: "20px" }}
-          >
-            <p>{props.title}</p>
-            <p>{props.val}</p>
+          <div className="flip-card-front flex-column ">
+            <p className="h6">{props.title}</p>
+            <p className="h5 p-1">{props.val}</p>
           </div>
           <div
             className="flip-card-back"
             style={{ background: `${props.color}` }}
           >
             <h1 className="h6">{props.title}</h1>
-            <p>We can see {props.title}</p>
-            <a className="text-danger" href={`/budget/${props.name}`}>
+            <p className="text-black">We can see {props.title}</p>
+            <a className="text-black" href={`/budget/${props.name}`}>
               Click Here
             </a>
           </div>

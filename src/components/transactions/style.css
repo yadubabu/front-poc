@@ -179,8 +179,13 @@
   height: 100%;
   margin: 10px;
 }
+
 .list {
   display: flex;
   align-items: center;
   margin-left: 100px;
+}
+.tab tr {
+  background-color: black;
+  color: white;
 }

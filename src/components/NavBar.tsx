@@ -40,20 +40,19 @@ const NavBar = () => {
                 href="/dashboard"
                 style={{ display: "none" }}
               >
-                {" "}
                 <span className="text-warning">
                   <BiSolidDashboard />
-                </span>{" "}
+                </span>
                 Dashbord
               </Nav.Link>
             ) : (
               <Nav.Link className="text-light" href="/dashboard">
                 <span className="text-warning ">
                   <BiSolidDashboard />
-                </span>{" "}
+                </span>
                 Dashboard
               </Nav.Link>
-            )}{" "}
+            )}
             <Nav.Link className="text-light" href="/login">
               {auth ? (
                 ""
@@ -72,17 +71,16 @@ const NavBar = () => {
                 href="/register"
                 style={{ display: "none" }}
               >
-                {" "}
                 <span className="text-warning">
                   <GiArchiveRegister />
-                </span>{" "}
+                </span>
                 Register
               </Nav.Link>
             ) : (
               <Nav.Link className="text-light" href="/register">
                 <span className="text-warning ">
                   <GiArchiveRegister />
-                </span>{" "}
+                </span>
                 Register
               </Nav.Link>
             )}
@@ -96,7 +94,6 @@ const NavBar = () => {
               {auth ? (
                 <>
                   <span className="text-warning">
-                    {" "}
                     <RiLogoutCircleRFill />
                   </span>
                   Logout

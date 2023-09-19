@@ -31,7 +31,10 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-
+.flip-card-back p {
+  font-size: small;
+  font-weight: 400;
+}
 .flip-card-front {
   color: black;
   border-radius: 20px;

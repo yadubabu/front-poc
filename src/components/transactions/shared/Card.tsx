@@ -9,7 +9,7 @@ const Cards = (props: Props) => {
   const getImg = require(`../../../assets/${props.val}.png`);
   return (
     <div className="cards mb-4">
-      <div className="flip-cards" style={{ background: `${props.color}` }}>
+      <div className="flip-cards" style={{ background: `white` }}>
         <div className="flip-cards-inner">
           <div className="flip-cards-front">
             <img src={getImg} alt="" width={200} height={210} />
