@@ -20,25 +20,33 @@ const List = () => {
   const totalAmount = useSelector<AppState, number>(
     (state) => state.budget.totalAmount
   );
-  const savingPercent = Math.round((totalSavings / totalAmount) * 100);
-  const expensePercent = Math.round((totalExpense / totalAmount) * 100);
-  const investPercent = Math.round((totalInvestment / totalAmount) * 100);
+  const savingPercent = Math.round((totalSavings * 100) / totalAmount);
+  const expensePercent = Math.round((totalExpense * 100) / totalAmount);
+  const investPercent = Math.round((totalInvestment * 100) / totalAmount);
+  const availBalPercent = Math.round(
+    100 - (savingPercent + expensePercent + investPercent)
+  );
 
   const shares: Shares[] = [
     {
+      type: "Balance",
+      color: "rgb(27, 77, 14)",
+      percent: availBalPercent,
+    },
+    {
       type: "Savings",
-      color: "rgb(255, 99, 132)",
+      color: "rgb(155, 05, 186)",
       percent: savingPercent,
     },
     {
-      type: "Investment",
-      color: "rgb(54, 162, 235)",
-      percent: investPercent,
+      type: "Expenses",
+      color: "rgb(238, 174, 26)",
+      percent: expensePercent,
     },
     {
-      type: "Expenses",
-      color: "rgb(255, 205, 86)",
-      percent: expensePercent,
+      type: "Investment",
+      color: "rgb(15, 127, 201)",
+      percent: investPercent,
     },
   ];
   useEffect(() => {

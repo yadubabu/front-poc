@@ -7,7 +7,7 @@ const initialValue: Trans[] = [
     name: "",
     type: "",
     amount: 0,
-    transdate: new Date(),
+    transDate: new Date(),
   },
 ];
 

@@ -1,34 +1,22 @@
 import List from "./List";
-import { Col } from "react-bootstrap";
-import { Row } from "react-bootstrap";
 import "./style.css";
 import Sidebar from "../Sidebar";
 import DoughnutShow from "./DoughnutShow";
 
 const TransactionsTracker = () => {
   return (
-    <div className="row">
+    <div className="row transTrack" style={{ background: "gray" }}>
       <div className="col-2">
         <Sidebar />
       </div>
-      <div className=" col-12">
-        <div className="tracker row">
-          <div className="col-4">
+      <div className="track col-10">
+        <div className=" row">
+          <div className="col-5 m-3 mb-5">
             <DoughnutShow />
           </div>
-          <div className="col-4">
+          <div className="list col-4 m-5">
             <List />
           </div>
-          {/* <Row className="col-5 ">
-            <Col sm="8">
-              <DoughnutShow />
-            </Col>
-          </Row>
-          <Row className="col-5 ">
-            <Col lg="12">
-              <List />
-            </Col>
-          </Row> */}
         </div>
       </div>
     </div>

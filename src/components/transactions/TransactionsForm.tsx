@@ -5,6 +5,7 @@ import { addTransApi } from "../../redux/apis";
 import Sidebar from "../Sidebar";
 import ThankYouPage from "./ThankYouPage";
 import "./style.css";
+import "../../pages/style.css";
 import { FieldValues } from "react-hook-form/dist/types";
 
 const TransactionsForm = () => {
@@ -13,14 +14,14 @@ const TransactionsForm = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const submitTrans = async (data: FieldValues) => {
-    const { name, type, amount, transdate } = data;
+    const { name, type, amount, transDate } = data;
     await axios
       .post(`${addTransApi}`, {
         email: user.email,
         name,
         type,
         amount,
-        transdate,
+        transDate,
       })
       .then((res) => setMsg(res.data))
       .then(() => reset())
@@ -28,7 +29,7 @@ const TransactionsForm = () => {
   };
 
   return (
-    <div className="formTrans row ">
+    <div className=" row " style={{ background: "grey" }}>
       {msg === "added successfully" ? (
         <div>
           <ThankYouPage />
@@ -39,44 +40,55 @@ const TransactionsForm = () => {
       <div className="col-2">
         <Sidebar />
       </div>
-      <div className="transForm col-6 m-2 p-2">
-        <h3>Transactions Form</h3>
-        <form id="form" onSubmit={handleSubmit(submitTrans)}>
-          <div>
-            <div>
-              <input
-                type="text"
-                placeholder="Salary,House,Rent,SIP"
-                className="form-control m-2"
-                {...register("name")}
-              />
-            </div>
-            <select className="form-control m-2" {...register("type")}>
+      <div className="col-9 m-2 p-2">
+        <form className="form" id="tran" onSubmit={handleSubmit(submitTrans)}>
+          <h3 className="text-center ">Transactions Form</h3>
+          <div className="row m-4">
+            <label className="col-3 m-1">Name</label>
+            <input
+              type="text"
+              placeholder="Salary,House,Rent,SIP"
+              className="col-8 m-1"
+              {...register("name")}
+            />
+          </div>
+          <div className="row m-4">
+            <label className="col-3 m-1">Type</label>
+            <select className="col-8 m-1" {...register("type")}>
               <option value="Select categoery">Select</option>
               <option value="investment">Investment</option>
               <option value="expense">Expense</option>
               <option value="savings">Savings</option>
             </select>
-            <div>
-              <input
-                type="number"
-                placeholder="Amount"
-                className="form-control m-2"
-                {...register("amount")}
-              />
-            </div>
-            <div>
-              <input
-                type="date"
-                {...register("transdate")}
-                className="form-control m-2"
-              />
-            </div>
+          </div>
+          <div className="row m-4">
+            <label className="col-3 m-1">Amount</label>
 
-            <div className="btn btn-sm d-flex">
-              <button className="btn btn-success m-1">Make Transaction</button>
-              {/* <button className="btn btn-primary" onClick={goHistory}>History</button> */}
-            </div>
+            <input
+              type="number"
+              placeholder="Amount"
+              className="col-8 m-1"
+              {...register("amount")}
+            />
+          </div>
+          <div className="row m-4">
+            <label className="col-3 m-1">Date</label>
+
+            <input
+              type="date"
+              {...register("transDate")}
+              className="col-8 m-1"
+            />
+          </div>
+          <div
+            className="row "
+            style={{ width: "180px", margin: "0 0 20px -75px" }}
+          >
+            <input
+              className="formBtn btn btn-warning center"
+              type="submit"
+              value="Make Transaction"
+            />
           </div>
         </form>
       </div>

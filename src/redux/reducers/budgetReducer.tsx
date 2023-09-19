@@ -6,6 +6,7 @@ const initialValue: Budget = {
   email: "",
   expenseBudget: 0,
   investmentBudget: 0,
+  savingsBudget: 0,
   totalAmount: 0,
 };
 

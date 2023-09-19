@@ -1,0 +1,11 @@
+:root {
+  --bg-primary: dark;
+  --bg-secondary: light;
+  --titles: hsl(120, 100%, 25%);
+  --titles-light: #64b817;
+  --black: #231f20;
+  --form-box: #6b6b6b;
+}
+body {
+  background-color: #231f20;
+}

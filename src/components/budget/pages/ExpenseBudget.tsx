@@ -17,16 +17,16 @@ function ExpenseBudget() {
   const totalPart: number = 100 - expensePart;
 
   return (
-    <div className="row">
+    <div className="row" style={{ background: "grey" }}>
       <div className="col-2">
         <Sidebar />
       </div>
       <div className="expense my-2 col-10 text-center">
-        <h6 className="text-secondary">Allocated Expense Amount</h6>
+        <p className=" text-secodary">Allocated amount for Expenses</p>
         <span className="h4">{expense}</span>
         <ProgressBar className="m-5">
-          <ProgressBar animated variant="success" now={totalPart} />
-          <ProgressBar animated variant="danger" now={expensePart} />
+          <ProgressBar variant="success" now={totalPart} />
+          <ProgressBar variant="danger" now={expensePart} />
         </ProgressBar>
         <p className="exe">
           <span className="remain text-success">
@@ -40,7 +40,7 @@ function ExpenseBudget() {
         <div className="m-2">
           <p className="m-2 text-center">
             {" "}
-            <Badge bg="success">List of Expenses</Badge>
+            <Badge bg="warning text-dark">List of Expenses</Badge>
           </p>
           {GetExpenses()}
         </div>

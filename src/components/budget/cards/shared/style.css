@@ -49,7 +49,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: xx-small;
+  font-size: small;
 }
 @media (max-width: 786px) {
   .cards {

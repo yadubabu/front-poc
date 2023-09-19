@@ -1,0 +1,139 @@
+.setBtn {
+  width: 150px;
+  margin-left: 70px;
+}
+.set {
+  width: 70%;
+  height: auto;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(34, 33, 33);
+  box-shadow: inset 0px 0px 14px 0px rgba(61, 60, 60, 0.85);
+}
+.setForm {
+  color: white;
+  padding: 20px;
+}
+@media (min-width: 786px) {
+  .setBtn {
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 786px) {
+  .setForm {
+    padding: 10px;
+    margin: -10px;
+  }
+}
+.savings h4 {
+  color: rgb(22, 92, 38);
+}
+.savings {
+  background-color: rgb(34, 33, 33);
+  box-shadow: inset 0px 0px 14px 0px rgba(61, 60, 60, 0.85);
+  border-radius: 10px;
+  padding: 10px;
+  color: whitesmoke;
+  position: absolute;
+  top: 65px;
+  left: 165px;
+  height: 102%;
+  margin: 10px;
+}
+.expense {
+  background-color: rgb(34, 33, 33);
+  box-shadow: inset 0px 0px 14px 0px rgba(61, 60, 60, 0.85);
+  border-radius: 10px;
+  padding: 10px;
+  color: whitesmoke;
+  position: absolute;
+  top: 65px;
+  left: 165px;
+  height: 102%;
+  margin: 10px;
+}
+.investment {
+  background-color: rgb(34, 33, 33);
+  box-shadow: inset 0px 0px 14px 0px rgba(61, 60, 60, 0.85);
+  border-radius: 10px;
+  /* padding: 10px; */
+  color: white;
+  position: absolute;
+  top: 65px;
+  left: 165px;
+  height: 102%;
+  margin: 10px;
+}
+
+@media (max-width: 700px) {
+  .savings {
+    position: absolute;
+    top: 13vh;
+    left: 10px;
+    margin-left: 30px;
+    bottom: 8px;
+  }
+  .expense {
+    position: absolute;
+    top: 13vh;
+    left: 10px;
+    margin-left: 30px;
+    bottom: 8px;
+  }
+  .investment {
+    position: absolute;
+    top: 13vh;
+    left: 10px;
+    margin-left: 30px;
+    bottom: 8px;
+  }
+}
+.cash {
+  justify-content: space-around;
+}
+.tot {
+  align-items: center;
+  justify-content: space-around;
+}
+.exe {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 auto;
+  margin-top: -20px;
+}
+.invest {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 auto;
+  margin-top: -20px;
+}
+.remain {
+  margin-left: -105px;
+  margin-top: -40px;
+}
+.spent {
+  margin-right: -105px;
+  margin-top: -40px;
+}
+.previous {
+  margin-left: -180px;
+  margin-top: -40px;
+}
+.saveadd {
+  margin-right: -180px;
+  margin-top: -40px;
+}
+.saves {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 auto;
+  margin-top: -20px;
+}

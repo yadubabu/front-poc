@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import { Row } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
@@ -7,12 +6,12 @@ import MainFooter from "../components/main/MainFooter";
 
 const Dashboard = () => {
   return (
-    <div>
-      <Row>
+    <div className="dash">
+      <Row className="p-2">
         <Col className="col-2">
           <Sidebar />
         </Col>
-        <Col>
+        <Col className="col-10">
           <Row className="col-12">
             <MainHead />
           </Row>

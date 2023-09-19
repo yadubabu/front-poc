@@ -8,43 +8,42 @@ import cashImg from "../../../assets/sold.png";
 import Badge from "react-bootstrap/Badge";
 
 function SavingsBudget() {
-  const total = useSelector<AppState, number>(
-    (state) => state.budget.totalAmount
+  const savingsBudget = useSelector<AppState, number>(
+    (state) => state.budget.savingsBudget
   );
   const totalSavings = useSelector<AppState, number>(
     (state) => state.account.totalSavings
   );
-  const savingsPart: number = (totalSavings * 100) / total;
+  const savingsPart: number = (totalSavings * 100) / savingsBudget;
   const totalPart: number = 100 - savingsPart;
 
   return (
-    <div className="row">
+    <div className="row" style={{ background: "grey" }}>
       <div className="col-2">
         <Sidebar />
       </div>
       <div className="savings my-2 col-10 ">
-        <div className="d-flex align-items-center cash">
-          <p className="h6 text-secodary">Cash in Hand</p>
-          <img src={cashImg} alt="" width={35} height={35} />
-          <span className="h1 text-light"> {total}</span>
+        <div className="save">
+          <p className=" text-secodary">Allocated amount for Savings</p>
+          <span className="h3 text-dark"> {savingsBudget}</span>
         </div>
-        <ProgressBar className="m-5">
-          <ProgressBar animated variant="success" now={totalPart} />
-          <ProgressBar animated variant="primary" now={savingsPart} />
+        <ProgressBar className="m-3">
+          <ProgressBar variant="success" now={totalPart} />
+          <ProgressBar variant="primary" now={savingsPart} />
         </ProgressBar>
         <p className="saves">
           <span className="previous text-success">
-            Previous Balance--{total - totalSavings}
+            Remaining Balance--{savingsBudget - totalSavings}
           </span>
           <span className="saveadd text-primary">
-            Total Savings--{totalSavings}
+            Spent Savings--{totalSavings}
           </span>
         </p>
         <hr />
         <div className="m-2">
           <p className="m-2 text-center">
             {" "}
-            <Badge bg="success">List of Savings</Badge>
+            <Badge bg="warning text-dark">List of Savings</Badge>
           </p>
           {GetSavings()}
         </div>

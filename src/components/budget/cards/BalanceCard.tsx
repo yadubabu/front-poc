@@ -13,7 +13,7 @@ const BalanceCard = () => {
         val={totalAmount}
         name="setbudget"
         title="Available Balance"
-        color="lightgreen"
+        color="rgb(27, 77, 14)"
       />
     </div>
   );

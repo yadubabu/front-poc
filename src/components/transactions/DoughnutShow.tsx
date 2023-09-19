@@ -28,22 +28,29 @@ const DoughnutShow = () => {
 
     datasets: [
       {
-        labels: ["Savings", "Expense", "Investment"],
+        labels: ["Balance", "Savings", "Expense", "Investment"],
         data: getPercent(),
         backgroundColor: [
-          "rgb(255, 99, 132,0.7)",
-          "rgb(54, 162, 235,0.7)",
-          "rgb(255, 205, 86,0.7)",
+          "rgb(27, 77, 14)",
+          "rgb(155, 05, 186)",
+          "rgb(238, 174, 26)",
+          "rgb(15, 127, 201)",
         ],
         borderColor: [
-          "rgb(255, 99, 132,1)",
-          "rgb(54, 162, 235,1)",
-          "rgb(255, 205, 86,1)",
+          "rgb(27, 77, 14)",
+          "rgb(155, 05, 186)",
+          "rgb(238, 174, 26)",
+          "rgb(15, 127, 201)",
         ],
         borderWidth: 1,
-        borderRadius: 10,
+        borderRadius: 5,
         spacing: 3,
-        hoverBackgroundColor: ["#e62d55", "#0793f1", "#ecbf4c"],
+        hoverBackgroundColor: [
+          "rgb(27, 77, 14)",
+          "rgb(155, 05, 186)",
+          "rgb(238, 174, 26)",
+          "rgb(15, 127, 201)",
+        ],
       },
     ],
   };
@@ -58,8 +65,8 @@ const DoughnutShow = () => {
   };
 
   return (
-    <div className="nut">
-      Available Balance--{totalAmount}
+    <div className="flex-column">
+      <h5 className="text-center m-3"> Available Balance--{totalAmount}</h5>
       <Doughnut data={data} options={options} />
     </div>
   );

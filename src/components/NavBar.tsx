@@ -16,22 +16,20 @@ const NavBar = () => {
   const name = useSelector<AppState, string>((state) => state.user.name);
 
   return (
-    <Navbar bg="dark" expand="lg" variant="light">
-      <Container fluid>
-        <Navbar.Brand className="p-2 h1 text-success" href="/">
+    <Navbar bg="black" expand="lg" variant="light">
+      <Container>
+        <Navbar.Brand className="h1 text-warning" href="/">
           <span className="text-light">MV</span>BudgetPlanner
         </Navbar.Brand>
-        <span className="h6 hello text-secondary">
+        <span className="p-1 h6 hello text-secondary">
           Hello!!
-          <span className="text-success h5">
-            {auth ? name.toUpperCase() : "Guest"}
-          </span>
+          <span className="p-1 text-warning h5">{auth ? name : "Guest"}</span>
         </span>
         <Navbar.Toggle aria-controls="basic-navbar-nav " />
         <Navbar.Collapse className="navs" id="navs basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link className=" text-light" href="/">
-              <span className="text-success ">
+          <Nav className="p-2 me-auto text-center">
+            <Nav.Link className="text-light" href="/">
+              <span className="text-warning ">
                 <AiFillHome />
               </span>
               Home
@@ -43,14 +41,14 @@ const NavBar = () => {
                 style={{ display: "none" }}
               >
                 {" "}
-                <span className="text-success">
+                <span className="text-warning">
                   <BiSolidDashboard />
                 </span>{" "}
                 Dashbord
               </Nav.Link>
             ) : (
               <Nav.Link className="text-light" href="/dashboard">
-                <span className="text-success ">
+                <span className="text-warning ">
                   <BiSolidDashboard />
                 </span>{" "}
                 Dashboard
@@ -61,7 +59,7 @@ const NavBar = () => {
                 ""
               ) : (
                 <>
-                  <span className="text-success ">
+                  <span className="text-warning ">
                     <RiLoginCircleFill />
                   </span>
                   Login
@@ -75,21 +73,21 @@ const NavBar = () => {
                 style={{ display: "none" }}
               >
                 {" "}
-                <span className="text-success">
+                <span className="text-warning">
                   <GiArchiveRegister />
                 </span>{" "}
                 Register
               </Nav.Link>
             ) : (
               <Nav.Link className="text-light" href="/register">
-                <span className="text-success ">
+                <span className="text-warning ">
                   <GiArchiveRegister />
                 </span>{" "}
                 Register
               </Nav.Link>
             )}
             <Nav.Link className="text-light" href="/about">
-              <span className="text-success ">
+              <span className="text-warning ">
                 <BsFillChatLeftDotsFill />
               </span>
               About
@@ -97,7 +95,7 @@ const NavBar = () => {
             <Nav.Link className="text-light" href="/logout">
               {auth ? (
                 <>
-                  <span className="text-success">
+                  <span className="text-warning">
                     {" "}
                     <RiLogoutCircleRFill />
                   </span>

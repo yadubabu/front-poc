@@ -19,6 +19,7 @@ export interface Budget {
   totalAmount: number;
   expenseBudget: number;
   investmentBudget: number;
+  savingsBudget: number;
 }
 
 export interface Trans {
@@ -27,7 +28,7 @@ export interface Trans {
   name: string;
   type: string;
   amount: number;
-  transdate: Date;
+  transDate: Date;
 }
 
 export interface Shares {

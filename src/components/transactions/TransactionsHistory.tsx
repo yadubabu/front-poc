@@ -9,20 +9,20 @@ function TransactionsHistory() {
   const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
 
   return (
-    <div className="row">
-      <div className="col-2">
+    <div className="row" style={{ background: "gray" }}>
+      <div className="col-2 side">
         <Sidebar />
       </div>
-      <div className="col-10">
+      <div className="col-10 mt-2">
         {" "}
-        <Table className="tab mt-2" striped="columns" variant="dark" bordered>
+        <Table className="tab" striped="columns" variant="secondary" bordered>
           <thead>
             <tr>
-              <th className="text-success">S.no</th>
-              <th className="text-success">Name</th>
-              <th className="text-success">Type</th>
-              <th className="text-success">Amount</th>
-              <th className="text-success">Action(Edit/Delete)</th>
+              <th className="text-dark text-center">S.no</th>
+              <th className="text-dark text-center">Name</th>
+              <th className="text-dark text-center">Type</th>
+              <th className="text-dark text-center">Amount</th>
+              <th className="text-dark text-center">Action(Edit/Delete)</th>
             </tr>
           </thead>
           <tbody>

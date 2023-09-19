@@ -13,7 +13,7 @@ const TotalExpenses = () => {
         val={totalExpense}
         name="expensebudget"
         title="Total Expenses"
-        color="rgb(255, 205, 86)"
+        color="rgb(238, 174, 26)"
       />
     </div>
   );
