@@ -56,10 +56,11 @@ const Register = () => {
       {!auth && (
         <>
           <form
-            className="form "
+            className="form mb-5"
             id="regi"
             onSubmit={handleSubmit(submitHandle)}
           >
+            <div className="h2 text-center">Register Here!</div>
             {msg === "Successfully Registered" ? (
               <>
                 <MessageModal msg={msg} />
@@ -150,10 +151,16 @@ const Register = () => {
             </div>
             <div className="row col-3 m-4 ">
               <input
-                className="formBtn btn btn-warning center"
+                className="formBtn text-sm bg-warning text-dark uppercase h-8 rounded-full"
                 type="submit"
                 value="Register"
               />
+            </div>
+            <div className="text-center text-secondary ">
+              Already have an account?
+              <a href="/login" className="text-primary ">
+                Login Here!
+              </a>
             </div>
           </form>
         </>

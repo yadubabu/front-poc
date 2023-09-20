@@ -1,21 +1,12 @@
-:root {
-  --backGround: #687f9ece;
-  --text-color: light;
-  --tab-color: rgba(228, 228, 55, 0.884);
-  --font-base: Inter, Helvetica Neue, Helvetica, Arial, sans-serif;
-  --font-title: Degular, Inter, Helvetica Neue, Helvetica, Arial, sans-serif;
-  --non-latin-font: Helvetica Neue, Helvetica, Arial, sans-serif;
-  --sidebar: #424242;
-  --main-card: rgb(32, 32, 32);
-  -webkit-font-smoothing: antialiased;
-  --form-bg: rgb(250, 250, 247);
-  --form-shadow: inset 0px 0px 14px 0px rgba(61, 60, 60, 0.85);
-}
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 body {
   background-image: url("./assets/temp.jpg");
-  background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-position: center;
-  overflow: hidden;
+  /* overflow: hidden; */
+  width: 100%;
+  height: 100%;
 }

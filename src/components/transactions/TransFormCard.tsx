@@ -18,7 +18,7 @@ const TransFormCard = (props: Props) => {
   const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
 
   const { _id, email, name, type, amount } = props.transaction;
-  const [editId, setEditId] = useState("");
+  const [editId, setEditId] = useState("-1");
   const [transName, setTransName] = useState("");
   const [transType, setTransType] = useState("");
   const [transAmount, setTransAmount] = useState(0);
@@ -42,7 +42,7 @@ const TransFormCard = (props: Props) => {
       });
       if (res) {
         setMsg(res.data);
-        setEditId("");
+        setEditId("-1");
       }
     } else {
       alert("Please select transaction and add new values");
@@ -64,7 +64,7 @@ const TransFormCard = (props: Props) => {
           <MessageModal msg={msg} />
         </>
       )}
-      {editId === "" ? (
+      {editId === "-1" ? (
         <>
           <tr>
             <td>{props.index}</td>

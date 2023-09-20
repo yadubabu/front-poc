@@ -35,10 +35,11 @@
 }
 /* Login Styles*/
 .form {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   width: 50%;
   margin: 100px 300px;
   height: auto;
-  background-color: var(--form-bg);
+  background-color: whitesmoke;
   padding: 10px;
   border-radius: 10px;
   opacity: 0.5;
@@ -47,15 +48,16 @@
   opacity: 1;
 }
 .formBtn {
-  margin: 0 180px;
+  margin: 0 170px;
 }
+
 @media (max-width: 786px) {
   .form {
     width: 70%;
     margin: 100px 100px;
   }
   .formBtn {
-    margin-left: 130px;
+    margin-left: 115px;
   }
 }
 #regi {

@@ -14,20 +14,20 @@ import DoughnutShow from "../transactions/DoughnutShow";
 const MainFooter = () => {
   return (
     <div className="footer">
-      <Row>
-        <Col sm={4} className="trans">
+      <Row className="w-100">
+        <Col className="w-1/3">
           {" "}
           <h5>
             <Card title="Add Transactions" color="gray" val="add" />
           </h5>
         </Col>
-        <Col sm={4} className="trans">
+        <Col className="w-1/3">
           {" "}
           <h5>
             <Card title="Transactions History" color="gray" val="edit" />
           </h5>
         </Col>
-        <Col sm={4} className="trans">
+        <Col className="w-1/3">
           <h5>
             <Card title="Transactions Tracker" color="gray" val="tracker" />
           </h5>

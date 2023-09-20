@@ -8,10 +8,11 @@ type Props = {
 const Cards = (props: Props) => {
   const getImg = require(`../../../assets/${props.val}.png`);
   return (
-    <div className="cards mb-4">
-      <div className="flip-cards" style={{ background: `white` }}>
+    <div className="cards bg-gray-200">
+      <div className="flip-cards ">
         <div className="flip-cards-inner">
-          <div className="flip-cards-front">
+          <div className="flip-cards-front  h5">
+            {props.title}
             <img src={getImg} alt="" width={200} height={210} />
           </div>
           <div

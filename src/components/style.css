@@ -1,12 +1,14 @@
 /* Navbar style*/
 .me-auto {
   margin-left: 350px;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-    "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: var(--nav-list);
   font-size: small;
 }
-
+.logo {
+  font-family: Gill Sans ", " Gill Sans MT ", Calibri, " Trebuchet MS
+    ", sans-serif";
+  font-weight: 700;
+}
 @media (max-width: 786px) {
   .sidebar {
     display: none;
