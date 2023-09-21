@@ -24,11 +24,11 @@ const DoughnutShow = () => {
   };
 
   const data = {
+    labels: ["Balance", "Savings", "Expense", "Investment"],
     type: "doughnut",
 
     datasets: [
       {
-        labels: ["Balance", "Savings", "Expense", "Investment"],
         data: getPercent(),
         backgroundColor: [
           "rgb(27, 77, 14)",
@@ -45,22 +45,27 @@ const DoughnutShow = () => {
         borderWidth: 1,
         borderRadius: 5,
         spacing: 3,
-        hoverBackgroundColor: [
-          "rgb(27, 77, 14)",
-          "rgb(155, 05, 186)",
-          "rgb(238, 174, 26)",
-          "rgb(15, 127, 201)",
-        ],
+        // hoverBackgroundColor: [
+        //   "rgb(27, 77, 14)",
+        //   "rgb(155, 05, 186)",
+        //   "rgb(238, 174, 26)",
+        //   "rgb(15, 127, 201)",
+        // ],
       },
     ],
   };
 
   const options: DoughnutProps | any = {
     onClick: () => {
-      window.location.href = `/transactions/edit`;
+      // const labels: string[] = ["Balance", "Savings", "Expense", "Investment"];
+      // alert(labels.filter((label) => label).map((ele: string) => ele));
+      window.location.href = "/transactions/edit";
     },
     plugins: {
       responsive: true,
+    },
+    tooltips: {
+      enabled: true, // Enable tooltips on hover
     },
   };
 
