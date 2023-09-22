@@ -9,8 +9,8 @@ import TotalInvestments from "../budget/cards/TotalInvestments";
 
 const MainHead = () => {
   return (
-    <div className="head">
-      <Row className="budgetCards ">
+    <div className="row bg-white h-100 m-2 rounded-xl justify-content-center p-2">
+      <Row>
         <Col sm={3}>
           <BalanceCard />
         </Col>

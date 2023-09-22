@@ -22,7 +22,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     dispatch(transactionService(email));
-  }, [trans, auth]);
+  }, []);
   useEffect(() => {
     dispatch(accountService(email));
   }, [auth]);

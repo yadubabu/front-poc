@@ -34,12 +34,11 @@ const MessageModal = (props: Props) => {
         </Modal.Header>
 
         <Modal.Body>
-          <p className="h3 text-center text-success">{props.msg}</p>
+          <p className="h3 text-center text-indigo-700">{props.msg}</p>
         </Modal.Body>
 
         <Button
-          variant="warning"
-          className="formBtn mb-20  text-sm bg-warning text-dark uppercase h-8 rounded-full"
+          className="formBtn my-10 text-sm bg-indigo-100 text-indigo-900 uppercase h-8 rounded-full"
           onClick={() => {
             window.location.href = `/${key}`;
           }}

@@ -6,19 +6,19 @@ import MainFooter from "../components/main/MainFooter";
 
 const Dashboard = () => {
   return (
-    <div className="bg-gray-400 w-auto h-screen">
+    <div className="bg-indigo-200 w-100 h-100">
       <div className="row">
-        <Col className="col-2 bg-black m-2 h-screen mx-4">
+        <div className="mx-1 col-2 h-screen rounded-xl bg-indigo-900 p-1 text-indigo-100 m-1">
           <Sidebar />
-        </Col>
-        <Col className="col-9">
-          <Row className="col-12 bg-white w-100  m-2.5 h-auto">
+        </div>
+        <div className="col">
+          <div className="row-3 h-1/4 w-100 ">
             <MainHead />
-          </Row>
-          <Row className="col-12 bg-white w-100 m-2.5 h-auto">
+          </div>
+          <div className="row-9 w-100 h-auto">
             <MainFooter />
-          </Row>
-        </Col>
+          </div>
+        </div>
       </div>
     </div>
   );

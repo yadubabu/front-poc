@@ -1,15 +1,13 @@
-import { Chart, ArcElement, ChartData, ChartOptions } from "chart.js";
+import { Chart, ArcElement, ChartData, ChartOptions, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import { useSelector } from "react-redux";
 import { AppState } from "../../redux/store";
 import { Shares } from "../../dataTypes";
-
-Chart.register(ArcElement);
-
-interface DoughnutProps {
-  options: ChartOptions<"doughnut">;
-  data: ChartData<"doughnut">;
-}
+import { Tooltip } from "chart.js";
+import { DoughnutProps } from "../../dataTypes";
+import { DoughnutData } from "../../dataTypes";
+import { DoughnutOptions } from "../../dataTypes";
+Chart.register(ArcElement, Tooltip, Legend);
 
 const DoughnutShow = () => {
   const totalAmount = useSelector<AppState, number>(
@@ -23,10 +21,9 @@ const DoughnutShow = () => {
     return res;
   };
 
-  const data = {
+  const data: DoughnutData = {
     labels: ["Balance", "Savings", "Expense", "Investment"],
     type: "doughnut",
-
     datasets: [
       {
         data: getPercent(),
@@ -45,20 +42,18 @@ const DoughnutShow = () => {
         borderWidth: 1,
         borderRadius: 5,
         spacing: 3,
-        // hoverBackgroundColor: [
-        //   "rgb(27, 77, 14)",
-        //   "rgb(155, 05, 186)",
-        //   "rgb(238, 174, 26)",
-        //   "rgb(15, 127, 201)",
-        // ],
+        hoverBackgroundColor: [
+          "rgb(27, 77, 14)",
+          "rgb(155, 05, 186)",
+          "rgb(238, 174, 26)",
+          "rgb(15, 127, 201)",
+        ],
       },
     ],
   };
 
-  const options: DoughnutProps | any = {
+  const options: DoughnutOptions | any = {
     onClick: () => {
-      // const labels: string[] = ["Balance", "Savings", "Expense", "Investment"];
-      // alert(labels.filter((label) => label).map((ele: string) => ele));
       window.location.href = "/transactions/edit";
     },
     plugins: {

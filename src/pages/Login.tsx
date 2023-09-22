@@ -49,7 +49,10 @@ const Login = () => {
             ) : (
               <span className="text-danger text-center">{msg}</span>
             )}
-            <h1 className="text-center h3" style={{ fontFamily: "sans-serif" }}>
+            <h1
+              className="text-center h3 font-bold text-indigo-900"
+              style={{ fontFamily: "sans-serif" }}
+            >
               Login Here!
             </h1>
             <div className="row m-4">
@@ -80,14 +83,14 @@ const Login = () => {
             </div>
             <div className="row col-3 m-4 ">
               <input
-                className="formBtn text-sm bg-warning text-dark uppercase h-8 rounded-full"
+                className="formBtn text-sm bg-indigo-700 text-indigo-100 uppercase h-8 rounded-full"
                 type="submit"
                 value="Login"
               />
             </div>
             <div className="text-center text-secondary mb-2">
               You Don't have an account?
-              <a href="/register" className="text-primary ">
+              <a href="/register" className="text-indigo-900 ">
                 Register Here!
               </a>
             </div>

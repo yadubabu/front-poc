@@ -1,3 +1,5 @@
+import { ChartDataset, ChartData, ChartOptions } from "chart.js";
+
 export interface Auth {
   auth: boolean;
 }
@@ -30,7 +32,24 @@ export interface Trans {
   amount: number;
   transDate: Date;
 }
-
+export interface DoughnutProps {
+  options: ChartOptions<"doughnut">;
+  data: ChartData<"doughnut">;
+}
+export interface DoughnutData {
+  labels: string[];
+  type: string;
+  datasets: ChartDataset<"doughnut", number[]>[];
+}
+export interface DoughnutOptions extends DoughnutProps {
+  onClick: () => void;
+  plugins: {
+    responsive: boolean;
+  };
+  tooltips: {
+    enabled: boolean;
+  };
+}
 export interface Shares {
   type: string;
   color: string;
