@@ -11,13 +11,13 @@ import { NavLink } from "react-router-dom";
 import Card from "../transactions/shared/Card";
 import DoughnutShow from "../transactions/DoughnutShow";
 import Entries from "../transactions/Entreis";
+import Form from "../transactions/Form";
 
 const MainFooter = () => {
   return (
     <div className="bg-white rounded-xl m-1 justify-content-around p-1 flex">
       <div className="w-1/3 p-3 m-3 h-80 rounded-xl bg-indigo-100">
-        Add
-        {/* <TransactionsForm /> */}
+        <Form />
       </div>
       <div className="w-60 p-3 m-3 h-80 rounded-xl bg-indigo-100">
         <DoughnutShow />

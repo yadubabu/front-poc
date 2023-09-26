@@ -32,48 +32,48 @@ const Sidebar = () => {
   return (
     <div className=" flex-col text-center  text-xs align-items-center justify-content-around">
       <ul className="">
-        <li className="p-3 m-3">
+        <li className="p-3 m-2">
           {" "}
           <a href="/dashboard" className=" uppercase text-light">
             Dashboard
           </a>
         </li>
-        <li className="p-3 m-3">
+        <li className="p-3 m-2">
           {" "}
           <a href="/budget/setbudget" className="text-light">
             Set Budget
           </a>
         </li>
-        <li className="p-3 m-3">
+        <li className="p-3 m-2">
           {" "}
           <a href="/budget/totalsavings" className="text-light">
             Total Savings{" "}
           </a>
         </li>
-        <li className="p-3 m-3">
+        <li className="p-3 m-2">
           {" "}
           <a href="/budget/totalexpense" className=" text-light">
             Total Expenses{" "}
           </a>
         </li>
-        <li className="p-3 m-3">
+        <li className="p-3 m-2">
           {" "}
           <a href="/budget/totalinvestment" className=" text-light">
             Total Investments{" "}
           </a>
         </li>
-        <li className="p-3 m-3">
+        <li className="p-3 m-2">
           <a href="/transactions/add" className="text-light">
             Add Transactions
           </a>
         </li>
-        <li className="p-3 m-3">
+        <li className="p-3 m-2">
           {" "}
           <a href="/transactions/edit" className="text-light">
             Transactions History{" "}
           </a>
         </li>
-        <li className="p-3 m-3">
+        <li className="p-3 m-2">
           {" "}
           <a href="/transactions/tracker" className="text-light">
             Transactions Tracker{" "}
