@@ -8,14 +8,14 @@ const Dashboard = () => {
   return (
     <div className="bg-indigo-200 w-100 h-100">
       <div className="row">
-        <div className="mx-1 col-2 h-screen rounded-xl bg-indigo-900 p-1 text-indigo-100 m-1">
+        <div className="col-2 m-3 p-1 bg-indigo-900 rounded-xl">
           <Sidebar />
         </div>
-        <div className="col">
-          <div className="row-3 h-1/4 w-100 ">
+        <div className="col-9 m-2 p-1">
+          <div className="row-2 h-1/4 w-100 ">
             <MainHead />
           </div>
-          <div className="row-9 w-100 h-auto">
+          <div className="row-9 w-100 h-3/4">
             <MainFooter />
           </div>
         </div>

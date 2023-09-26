@@ -22,7 +22,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     dispatch(transactionService(email));
-  }, []);
+  }, [trans, auth]);
   useEffect(() => {
     dispatch(accountService(email));
   }, [auth]);
@@ -30,11 +30,63 @@ const Sidebar = () => {
     dispatch(budgetService(email));
   }, [auth]);
   return (
-    <div className="sidebar">
-      <Nav className="sideNavs">
+    <div className=" flex-col text-center  text-xs align-items-center justify-content-around">
+      <ul className="">
+        <li className="p-3 m-3">
+          {" "}
+          <a href="/dashboard" className=" uppercase text-light">
+            Dashboard
+          </a>
+        </li>
+        <li className="p-3 m-3">
+          {" "}
+          <a href="/budget/setbudget" className="text-light">
+            Set Budget
+          </a>
+        </li>
+        <li className="p-3 m-3">
+          {" "}
+          <a href="/budget/totalsavings" className="text-light">
+            Total Savings{" "}
+          </a>
+        </li>
+        <li className="p-3 m-3">
+          {" "}
+          <a href="/budget/totalexpense" className=" text-light">
+            Total Expenses{" "}
+          </a>
+        </li>
+        <li className="p-3 m-3">
+          {" "}
+          <a href="/budget/totalinvestment" className=" text-light">
+            Total Investments{" "}
+          </a>
+        </li>
+        <li className="p-3 m-3">
+          <a href="/transactions/add" className="text-light">
+            Add Transactions
+          </a>
+        </li>
+        <li className="p-3 m-3">
+          {" "}
+          <a href="/transactions/edit" className="text-light">
+            Transactions History{" "}
+          </a>
+        </li>
+        <li className="p-3 m-3">
+          {" "}
+          <a href="/transactions/tracker" className="text-light">
+            Transactions Tracker{" "}
+          </a>
+        </li>
+      </ul>
+      {/* <Nav className="flex-col">
+        <Nav.Link href="/dashboard" className="uppercase text-light text-xs">
+          Dashboard
+        </Nav.Link>
         <Nav.Link
           style={current}
-          className="text-light p-2 m-2"
+          className="text-light"
           href="/budget/setbudget"
           onClick={() =>
             setCurrent({ border: "2px solid yellow", color: "black" })
@@ -64,7 +116,7 @@ const Sidebar = () => {
         <Nav.Link className="text-light p-2 m-2" href="/transactions/edit">
           Transactions-History
         </Nav.Link>
-      </Nav>
+      </Nav> */}
     </div>
   );
 };
