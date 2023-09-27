@@ -25,16 +25,16 @@ const Sidebar = () => {
   }, [trans, auth]);
   useEffect(() => {
     dispatch(accountService(email));
-  }, [auth]);
+  }, [trans, auth]);
   useEffect(() => {
     dispatch(budgetService(email));
-  }, [auth]);
+  }, [trans, auth]);
   return (
-    <div className=" flex-col text-center  text-xs align-items-center justify-content-around">
-      <ul className="">
+    <div className="h-90 m-3 bg-indigo-900 rounded-xl text-xs align-items-center justify-content-center text-center">
+      <ul className="mb-3">
         <li className="p-3 m-2">
           {" "}
-          <a href="/dashboard" className=" uppercase text-light">
+          <a href="/dashboard" className="font-bold uppercase text-light">
             Dashboard
           </a>
         </li>
@@ -80,43 +80,6 @@ const Sidebar = () => {
           </a>
         </li>
       </ul>
-      {/* <Nav className="flex-col">
-        <Nav.Link href="/dashboard" className="uppercase text-light text-xs">
-          Dashboard
-        </Nav.Link>
-        <Nav.Link
-          style={current}
-          className="text-light"
-          href="/budget/setbudget"
-          onClick={() =>
-            setCurrent({ border: "2px solid yellow", color: "black" })
-          }
-        >
-          Set Budget
-        </Nav.Link>
-        <Nav.Link className="text-light p-2 m-2" href="/budget/savingsbudget">
-          Total-Savings
-        </Nav.Link>
-        <Nav.Link className="text-light p-2 m-2" href="/budget/expensebudget">
-          Total-Expenses
-        </Nav.Link>
-        <Nav.Link
-          className="text-light p-2 m-2"
-          href="/budget/investmentbudget"
-        >
-          Total-Investments
-        </Nav.Link>
-        <Nav.Link className="text-light p-2 m-2" href="/transactions/add">
-          Add-Transactions
-        </Nav.Link>
-        <Nav.Link className="text-light p-2 m-2" href="/transactions/tracker">
-          Transactions-Tracker
-        </Nav.Link>
-
-        <Nav.Link className="text-light p-2 m-2" href="/transactions/edit">
-          Transactions-History
-        </Nav.Link>
-      </Nav> */}
     </div>
   );
 };

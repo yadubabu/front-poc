@@ -12,17 +12,23 @@ import Card from "../transactions/shared/Card";
 import DoughnutShow from "../transactions/DoughnutShow";
 import Entries from "../transactions/Entreis";
 import Form from "../transactions/Form";
+import List from "../transactions/List";
 
 const MainFooter = () => {
   return (
-    <div className="bg-white rounded-xl m-1 justify-content-around p-1 flex">
-      <div className="w-1/3 p-3 m-3 h-80 rounded-xl bg-indigo-100">
+    <div className="m-3  bg-white rounded-xl justify-content-around flex">
+      <div className="w-1/3 bg-indigo-100 m-2 h-65 rounded-xl p-3">
         <Form />
       </div>
-      <div className="w-60 p-3 m-3 h-80 rounded-xl bg-indigo-100">
-        <DoughnutShow />
+      <div className="w-1/3 bg-indigo-100 m-2 rounded-xl p-3">
+        <div>
+          <DoughnutShow />
+        </div>
+        <div className="hidden">
+          <List />
+        </div>
       </div>
-      <div className="w-1/4 p-3 m-3 h-80 rounded-xl bg-indigo-100">
+      <div className="w-1/3 bg-indigo-100 m-2 rounded-xl p-3">
         <Entries />
       </div>
     </div>

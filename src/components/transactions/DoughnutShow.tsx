@@ -4,9 +4,10 @@ import { useSelector } from "react-redux";
 import { AppState } from "../../redux/store";
 import { Shares } from "../../dataTypes";
 import { Tooltip } from "chart.js";
-import { DoughnutProps } from "../../dataTypes";
 import { DoughnutData } from "../../dataTypes";
 import { DoughnutOptions } from "../../dataTypes";
+import List from "./List";
+
 Chart.register(ArcElement, Tooltip, Legend);
 
 const DoughnutShow = () => {
@@ -16,7 +17,7 @@ const DoughnutShow = () => {
   const shares = useSelector<AppState, Shares[]>((state) => state.shares);
   const getPercent = () => {
     const res = shares.map((share: Shares) => {
-      return (share.percent * 100) / 360;
+      return share.percent;
     });
     return res;
   };
@@ -53,9 +54,9 @@ const DoughnutShow = () => {
   };
 
   const options: DoughnutOptions | any = {
-    onClick: () => {
-      window.location.href = "/transactions/edit";
-    },
+    // onClick: () => {
+    //   window.location.href = "/transactions/edit";
+    // },
     plugins: {
       responsive: true,
     },
@@ -66,8 +67,14 @@ const DoughnutShow = () => {
 
   return (
     <div className="flex-column">
-      <h5 className="text-center m-3"> Available Balance--{totalAmount}</h5>
-      <Doughnut data={data} options={options} />
+      <h5 className="text-center m-3 text-md text-indigo-700 font-bold">
+        {" "}
+        Available Balance--{totalAmount}
+      </h5>
+      <div className="p-1">
+        {" "}
+        <Doughnut data={data} options={options} />
+      </div>
     </div>
   );
 };

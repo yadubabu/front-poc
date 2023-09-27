@@ -5,19 +5,15 @@ import DoughnutShow from "./DoughnutShow";
 
 const TransactionsTracker = () => {
   return (
-    <div className="row transTrack" style={{ background: "gray" }}>
-      <div className="col-2">
+    <div className="row bg-indigo-200">
+      <div className="col-3">
         <Sidebar />
       </div>
-      <div className="track col-10">
-        <div className=" row">
-          <div className="col-5 m-3 mb-5">
-            <DoughnutShow />
-          </div>
-          <div className="list col-4 m-5">
-            <List />
-          </div>
-        </div>
+      <div className="col-4">
+        <DoughnutShow />
+      </div>
+      <div className="col-4">
+        <List />
       </div>
     </div>
   );

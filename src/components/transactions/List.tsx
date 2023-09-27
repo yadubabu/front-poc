@@ -56,7 +56,7 @@ const List = () => {
   console.log(shares);
 
   return (
-    <div className="flex justify-content max-w-xs-mx-auto">
+    <div className="flex-col mt-5 font-bold align-center justify-around max-w-xs-mx-auto">
       {shares.map((share: Shares) => {
         return (
           <div className="list">

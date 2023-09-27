@@ -11,7 +11,7 @@ const Entries = (props: Props) => {
 
   return (
     <div>
-      <h5 className="text-indigo-700 font-bold p-2 text-center text-xl">
+      <h5 className="text-indigo-700 text-md font-bold p-2 text-center text-xl">
         Recent Transactions
       </h5>
       {trans !== null &&
@@ -31,10 +31,14 @@ const Entries = (props: Props) => {
             return (
               <div className="p-1">
                 <div
-                  style={{ background: `${style()}` }}
-                  className="text-center p-1 rounded-md"
+                  style={{
+                    color: `${style()}`,
+                    borderLeft: `8px solid ${style()}`,
+                  }}
+                  className="flex align-center justify-between font-bold text-xs p-2 rounded-md"
                 >
                   <span className="">{val.name}</span>
+                  <span>{val.amount}</span>
                 </div>
               </div>
             );

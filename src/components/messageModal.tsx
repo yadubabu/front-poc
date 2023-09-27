@@ -23,14 +23,16 @@ const MessageModal = (props: Props) => {
         display: "block",
         position: "absolute",
         marginLeft: "30px",
-        top: "174px",
+        top: "148px",
         overflow: "hidden",
         borderRadius: "10px",
       }}
     >
       <Modal.Dialog>
         <Modal.Header>
-          <Modal.Title></Modal.Title>
+          <Modal.Title>
+            <p style={{ marginLeft: "220px" }}> &#128512;</p>
+          </Modal.Title>
         </Modal.Header>
 
         <Modal.Body>

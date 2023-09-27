@@ -15,7 +15,7 @@ function TransactionsHistory() {
       </div>
       <div className="col-10 mt-3">
         {" "}
-        <Table className="tab" striped="row" variant="primary" bordered>
+        <Table className="" striped="row" variant="primary" bordered>
           <thead>
             <tr>
               <th
@@ -53,7 +53,7 @@ function TransactionsHistory() {
           <tbody>
             {trans !== null &&
               trans
-                .slice(trans.length - trans.length, 7)
+                .slice(trans.length - trans.length, 8)
                 .map((tran: Trans, index: number) => {
                   return (
                     <>

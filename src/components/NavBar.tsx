@@ -27,7 +27,7 @@ const NavBar = () => {
         <ul className="flex">
           <li>
             <a href="/" className="flex text-indigo-100 m-2 uppercase text-xs">
-              <span className="p-1 text-black ">
+              <span className="p-1 text-warning ">
                 <AiFillHome />
               </span>
               <span>Home</span>
@@ -43,7 +43,7 @@ const NavBar = () => {
                   href="/login"
                   className="flex text-indigo-100 m-2 uppercase text-xs"
                 >
-                  <span className="p-1 text-black ">
+                  <span className="p-1 text-warning ">
                     <RiLoginCircleFill />
                   </span>
                   Login{" "}
@@ -61,7 +61,7 @@ const NavBar = () => {
                   href="/register"
                   className="flex text-indigo-100 m-2 uppercase text-xs"
                 >
-                  <span className="p-1 text-black ">
+                  <span className="p-1 text-warning ">
                     <GiArchiveRegister />
                   </span>
                   Register
@@ -74,7 +74,7 @@ const NavBar = () => {
               href="/about"
               className="flex text-indigo-100 m-2 uppercase text-xs"
             >
-              <span className="p-1 text-black ">
+              <span className="p-1 text-warning ">
                 <BsFillChatLeftDotsFill />
               </span>
               About{" "}
@@ -88,7 +88,7 @@ const NavBar = () => {
                   href="/logout"
                   className="flex text-indigo-100 m-2 uppercase text-xs"
                 >
-                  <span className="p-1 text-black">
+                  <span className="p-1 text-warning">
                     <RiLogoutCircleRFill />
                   </span>
                   Logout

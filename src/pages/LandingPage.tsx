@@ -14,15 +14,19 @@ const LandingPage = () => {
       {!auth && (
         <div className="landModal">
           <p className="h2 text-indigo-100">Start Your </p>
-          <p className="title text-warning text-large font-bold spacing h1 ">
+          <p className="title text-warning text-5xl font-bold spacing h1 ">
             FINANCIAL FUTURE PLAN
           </p>
           <p className="text-light content">{budgetContent}</p>
           <a href="/login">
-            <Button className="bg-indigo text-indigo-100">Login</Button>{" "}
+            <Button className=" text-light" variant="warning">
+              Login
+            </Button>{" "}
           </a>
           <a href="/register">
-            <Button className="bg-indigo text-indigo-100">Register</Button>{" "}
+            <Button className="text-light" variant="warning">
+              Register
+            </Button>{" "}
           </a>
         </div>
       )}
