@@ -66,7 +66,10 @@ const DoughnutShow = () => {
 
   return (
     <div className="flex-column">
-      <h5 className="text-center m-3"> Available Balance--{availableAmount}</h5>
+      <h5 className="text-center m-2  text-indigo-700 font-bold">
+        {" "}
+        Available Balance--{availableAmount}
+      </h5>
       <Doughnut data={data} options={options} />
     </div>
   );

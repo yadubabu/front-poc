@@ -27,7 +27,7 @@ const Form = () => {
 
   return (
     <div className="flex-col align-center justify-center ">
-      <h3 className="m-2 p-1 text-center font-bold text-indigo-700 h5">
+      <h3 className="m-1 p-1 text-center font-bold text-indigo-700 h5">
         Add Transactions
       </h3>
       <form
@@ -70,11 +70,11 @@ const Form = () => {
             className="w-2/3 text-xs"
           />
         </div>
-        <div className="row ml-10 ">
+        <div className="row align-center justify-center ">
           <input
-            className="bg-indigo-700 text-light rounded-full  m-2 center text-xs p-1 w-auto align-items-center justify-content-center"
+            className="bg-indigo-700 text-light rounded-xl  m-2 center text-xs p-1 w-auto p-2"
             type="submit"
-            value="Make Transaction"
+            value="Add"
           />
         </div>
       </form>

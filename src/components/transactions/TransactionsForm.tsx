@@ -7,6 +7,7 @@ import ThankYouPage from "./ThankYouPage";
 import "./style.css";
 import "../../pages/style.css";
 import { FieldValues } from "react-hook-form/dist/types";
+import MessageModal from "../MessageModal";
 
 const TransactionsForm = () => {
   const [msg, setMsg] = useState("");
@@ -29,63 +30,62 @@ const TransactionsForm = () => {
   };
 
   return (
-    <div className=" row " style={{ background: "grey" }}>
+    <div className="row bg-indigo-200">
       {msg === "added successfully" ? (
         <div>
-          <ThankYouPage />
+          <MessageModal msg={msg} />
         </div>
       ) : (
         ""
       )}
-      <div className="col-2">
+      <div className="w-1/4 hidden lg:block">
         <Sidebar />
       </div>
-      <div className="col-9 m-2 p-2">
-        <form className="form" id="tran" onSubmit={handleSubmit(submitTrans)}>
-          <h3 className="text-center ">Transactions Form</h3>
-          <div className="row m-4">
-            <label className="col-3 m-1">Name</label>
+      <div className="w-3/5 bg-white m-3 p-5 rounded-xl ">
+        <form onSubmit={handleSubmit(submitTrans)} className="flex-col  ">
+          <p className="text-center h3 text-indigo-700 m-1 p-1">
+            Transactions Form
+          </p>
+          <div className="row m-4 align-center justify-center">
+            <label className="col-2 m-1 font-bold text-sm">Name</label>
             <input
               type="text"
               placeholder="Salary,House,Rent,SIP"
-              className="col-8 m-1"
+              className="col-6 m-1 text-xs"
               {...register("name")}
             />
           </div>
-          <div className="row m-4">
-            <label className="col-3 m-1">Type</label>
-            <select className="col-8 m-1" {...register("type")}>
+          <div className="row m-4 align-center justify-center">
+            <label className="col-2 m-1 font-bold text-sm">Type</label>
+            <select className="col-6 m-1" {...register("type")}>
               <option value="Select categoery">Select</option>
               <option value="investment">Investment</option>
               <option value="expense">Expense</option>
               <option value="savings">Savings</option>
             </select>
           </div>
-          <div className="row m-4">
-            <label className="col-3 m-1">Amount</label>
+          <div className="row m-4 align-center justify-center">
+            <label className="col-2 m-1 font-bold text-sm">Amount</label>
 
             <input
               type="number"
               placeholder="Amount"
-              className="col-8 m-1"
+              className="col-6 m-1"
               {...register("amount")}
             />
           </div>
-          <div className="row m-4">
-            <label className="col-3 m-1">Date</label>
+          <div className="row m-4 align-center justify-center">
+            <label className="col-2 m-1 font-bold text-sm">Date</label>
 
             <input
               type="date"
               {...register("transDate")}
-              className="col-8 m-1"
+              className="col-6 m-1"
             />
           </div>
-          <div
-            className="row "
-            style={{ width: "180px", margin: "0 0 20px -75px" }}
-          >
+          <div className="row flex justify-center align-center">
             <input
-              className="formBtn btn btn-warning center"
+              className=" p-2 mt-2  bg-indigo-900 w-1/3 text-white rounded-full"
               type="submit"
               value="Make Transaction"
             />
