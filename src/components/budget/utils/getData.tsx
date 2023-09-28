@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Trans } from "../../../dataTypes";
 import { AppState } from "../../../redux/store";
 import "./style.css";
-import salImg from "../../../assets/salary.png";
+import pfImg from "../../../assets/pf.png";
 import { BsMotherboardFill } from "react-icons/bs";
 import { AiFillGold } from "react-icons/ai";
 import { GiIsland } from "react-icons/gi";
@@ -12,21 +12,21 @@ export const GetSavings = () => {
   const totalSavings = useSelector<AppState, number>(
     ({ account }) => account.totalSavings
   );
-  const getSalary = () => {
+  const getPF = () => {
     return trans
       .filter((tran) => tran.type === "savings")
-      .filter((el) => el.name === "Salary" || el.name === "salary")
+      .filter((el) => el.name === "PF" || el.name === "pf")
       .map((e) => e.amount)
       .reduce((a: number, c: number) => {
         return a + c;
       }, 0);
   };
-  const getSoldIncomes = () => {
+  const getFunds = () => {
     const soldings = trans
       .filter((tran) => tran.type === "savings")
       .filter(
         (el) =>
-          el.name.split(" ")[0] === "sold" || el.name.split(" ")[0] === "Sold"
+          el.name.split(" ")[1] === "fund" || el.name.split(" ")[1] === "Fund"
       )
       .map((e) => e.amount)
       .reduce((a: number, c: number) => {
@@ -41,31 +41,29 @@ export const GetSavings = () => {
 
   return (
     <>
-      {getSalary() === 0 ? (
+      {getPF() === 0 ? (
         ""
       ) : (
-        <div className="save d-flex">
-          <span className="h6 text-light">
-            Earnings By Salary{" "}
-            <img src={salImg} alt="" width={50} height={50} />
-          </span>
-          <span className="h2 text-light">{getSalary()}</span>
+        <div className="flex text-dark align-center justify-around">
+          <span className="h4 ">PF</span>
+          <img src={pfImg} alt="" width={15} height={15} />
+          <span className="h4">{getPF()}</span>
         </div>
       )}
-      {getSoldIncomes() === 0 ? (
+      {getFunds() === 0 ? (
         ""
       ) : (
         <>
-          <div className="save d-flex">
+          <div className="flex">
             <span className="h6 text-light">Earnings By Soldings </span>
-            <span className="h2 text-light">{getSoldIncomes()}</span>
+            <span className="h2 text-light">{getFunds()}</span>
           </div>
         </>
       )}
-      {totalSavings === getSalary() + getSoldIncomes() ? (
+      {totalSavings === getPF() + getFunds() ? (
         ""
       ) : (
-        <div className="save d-flex">
+        <div className="">
           <span className="h6 text-light">
             Earnings By Others{" "}
             <span className="text-success">
@@ -75,12 +73,12 @@ export const GetSavings = () => {
           </span>
 
           <span className="h2 text-light">
-            {totalSavings - getSalary() - getSoldIncomes()}
+            {totalSavings - getPF() - getFunds()}
           </span>
         </div>
       )}
       <hr />
-      <div className="save d-flex">
+      <div className=" flex">
         <span className="h6 text-light">Total Savings</span>
         <span className="h2 text-light">{totalSavings}</span>
       </div>
