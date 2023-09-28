@@ -4,6 +4,7 @@ import { Account } from "../../dataTypes";
 const initialValue = {
   _id: "",
   email: "",
+  availableAmount: 0,
   totalSavings: 0,
   totalExpense: 0,
   totalInvestments: 0,

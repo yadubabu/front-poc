@@ -4,10 +4,10 @@ import { Budget } from "../../dataTypes";
 const initialValue: Budget = {
   _id: "",
   email: "",
+  totalBudget: 0,
   expenseBudget: 0,
   investmentBudget: 0,
   savingsBudget: 0,
-  totalAmount: 0,
 };
 
 export type BudgetAction = {

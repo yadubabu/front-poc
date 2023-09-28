@@ -1,4 +1,5 @@
 import "./style.css";
+import { FaRupeeSign } from "react-icons/fa";
 
 type Props = {
   val: number;
@@ -15,8 +16,11 @@ const Cards = (props: Props) => {
       >
         <div className="flip-card-inner">
           <div className="flip-card-front flex-column ">
-            <p className="h6">{props.title}</p>
-            <p className="h5 p-1">{props.val}</p>
+            <p className="h6 font-bold text-black">{props.title}</p>
+            <p className="h5 font-bold p-1 flex text-indigo-100">
+              <FaRupeeSign />
+              {props.val}
+            </p>
           </div>
           <div
             className="flip-card-back"

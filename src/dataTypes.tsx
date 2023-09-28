@@ -5,6 +5,7 @@ export interface Auth {
 }
 export interface Account {
   email: string;
+  availableAmount: number;
   totalSavings: number;
   totalExpense: number;
   totalInvestment: number;
@@ -18,7 +19,7 @@ export interface User {
 export interface Budget {
   _id: string;
   email: string;
-  totalAmount: number;
+  totalBudget: number;
   expenseBudget: number;
   investmentBudget: number;
   savingsBudget: number;

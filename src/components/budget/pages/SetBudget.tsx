@@ -15,18 +15,20 @@ const SetBudget = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const submitHandle = async (data: FieldValues) => {
-    const { totalAmount, expenseBudget, investmentBudget, savingsBudget } =
+    const { totalBudget, expenseBudget, investmentBudget, savingsBudget } =
       data;
     if (
       parseInt(expenseBudget) +
         parseInt(investmentBudget) +
         parseInt(savingsBudget) >
-      parseInt(totalAmount)
+      parseInt(totalBudget)
     ) {
-      setMsg("Limit on expense and investment not exceeds total amount ");
+      setMsg(
+        "Limit on savings,expense and investment not exceeds total amount "
+      );
     }
     const response = await axios.post(`${setbudgetApi}/${email}`, {
-      totalAmount,
+      totalBudget,
       expenseBudget,
       investmentBudget,
       savingsBudget,
@@ -52,12 +54,12 @@ const SetBudget = () => {
             onSubmit={handleSubmit(submitHandle)}
           >
             <div className="row m-4">
-              <label className="col-4 m-1">TotalAmount</label>
+              <label className="col-4 m-1">TotalBudget</label>
               <input
                 type="number"
                 placeholder="Enetr Total Amount"
                 className="col-7 m-1"
-                {...register("totalAmount")}
+                {...register("totalBudget")}
               />
             </div>
             <div className="row m-4">

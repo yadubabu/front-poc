@@ -3,14 +3,14 @@ import { useSelector } from "react-redux";
 import { AppState } from "../../../redux/store";
 
 const BalanceCard = () => {
-  const totalAmount = useSelector<AppState, number>(
-    ({ budget }) => budget.totalAmount
+  const availableAmount = useSelector<AppState, number>(
+    ({ account }) => account.availableAmount
   );
 
   return (
     <div>
       <Cards
-        val={totalAmount}
+        val={availableAmount}
         name="setbudget"
         title="Available Balance"
         color="rgb(27, 77, 14)"

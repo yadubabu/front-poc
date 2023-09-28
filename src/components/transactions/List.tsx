@@ -17,13 +17,14 @@ const List = () => {
     (state) => state.account.totalInvestment
   );
 
-  const totalAmount = useSelector<AppState, number>(
-    (state) => state.budget.totalAmount
+  const totalBudget = useSelector<AppState, number>(
+    (state) => state.budget.totalBudget
   );
-  const savingPercent = Math.round((totalSavings * 100) / totalAmount);
-  const expensePercent = Math.round((totalExpense * 100) / totalAmount);
-  const investPercent = Math.round((totalInvestment * 100) / totalAmount);
-  const availBalPercent = Math.round(
+
+  const savingPercent = Math.round((totalSavings * 100) / totalBudget);
+  const expensePercent = Math.round((totalExpense * 100) / totalBudget);
+  const investPercent = Math.round((totalInvestment * 100) / totalBudget);
+  const availablePercent = Math.round(
     100 - (savingPercent + expensePercent + investPercent)
   );
 
@@ -31,7 +32,7 @@ const List = () => {
     {
       type: "Balance",
       color: "rgb(27, 77, 14)",
-      percent: availBalPercent,
+      percent: availablePercent,
     },
     {
       type: "Savings",
