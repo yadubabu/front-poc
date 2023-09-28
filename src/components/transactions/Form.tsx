@@ -32,7 +32,7 @@ const Form = () => {
       </h3>
       <form
         onSubmit={handleSubmit(submitTrans)}
-        className="space-y-3 mt-3 m-2 "
+        className="space-y-3 mt-4 m-2 align-center justify-center flex-col"
       >
         <div className="row m-2 p-1 ">
           <label className="w-1/3 font-bold text-xs">Name</label>
@@ -62,7 +62,7 @@ const Form = () => {
             {...register("amount")}
           />
         </div>
-        <div className="row m-2 p-1">
+        <div className="row m-2 p-1 align-center justify-center">
           <label className="w-1/3 font-bold text-xs">Date</label>
           <input
             type="date"
@@ -70,7 +70,7 @@ const Form = () => {
             className="w-2/3 text-xs"
           />
         </div>
-        <div className="row align-center justify-center ">
+        <div className="row align-center justify-center mt-4">
           <input
             className="bg-indigo-700 text-light rounded-xl  m-2 center text-xs p-1 w-auto p-2"
             type="submit"

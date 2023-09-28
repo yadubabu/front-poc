@@ -54,7 +54,7 @@ const DoughnutShow = () => {
 
   const options: DoughnutOptions | any = {
     onClick: () => {
-      window.location.href = "/transactions/edit";
+      // window.location.href = "/transactions/edit";
     },
     plugins: {
       responsive: true,
@@ -66,7 +66,7 @@ const DoughnutShow = () => {
 
   return (
     <div className="flex-column">
-      <h5 className="text-center m-2  text-indigo-700 font-bold">
+      <h5 className="text-center m-2 p-1 text-indigo-700 font-bold">
         {" "}
         Available Balance--{availableAmount}
       </h5>

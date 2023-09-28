@@ -26,75 +26,72 @@ const SetBudget = () => {
       setMsg(
         "Limit on savings,expense and investment not exceeds total amount "
       );
-    }
-    const response = await axios.post(`${setbudgetApi}/${email}`, {
-      totalBudget,
-      expenseBudget,
-      investmentBudget,
-      savingsBudget,
-    });
-    if (response) {
-      reset();
-      alert("set limits successfully");
-      window.location.href = "/dashboard";
+    } else {
+      const response = await axios.post(`${setbudgetApi}/${email}`, {
+        totalBudget,
+        expenseBudget,
+        investmentBudget,
+        savingsBudget,
+      });
+      if (response) {
+        reset();
+        alert("set limits successfully");
+        window.location.href = "/dashboard";
+      }
     }
   };
 
   return (
-    <div className="row" style={{ background: "gray" }}>
-      <div className="col-2">
+    <div className="row bg-indigo-200">
+      <div className="col-3">
         <Sidebar />
       </div>
-      <div className="col-9 m-4">
+      <div className="col-8 m-4 p-4 bg-white rounded-xl flex align-center justify-evenly">
         {msg ? <span className="text-danger">{msg}</span> : ""}
         <>
-          <Form
-            className="form"
-            id="setTran"
-            onSubmit={handleSubmit(submitHandle)}
-          >
-            <div className="row m-4">
-              <label className="col-4 m-1">TotalBudget</label>
+          <Form className="flex-col" onSubmit={handleSubmit(submitHandle)}>
+            <p className="text-center h3 text-indigo-700 m-1 p-1 font-bold">
+              Limit Form
+            </p>
+            <div className="row m-4 align-center justify-center flex">
+              <label className="col-5 m-1 font-bold text-sm">TotalBudget</label>
               <input
                 type="number"
-                placeholder="Enetr Total Amount"
-                className="col-7 m-1"
+                placeholder="Enter Total Amount"
+                className="col-6 border-1 text-xs m-1"
                 {...register("totalBudget")}
               />
             </div>
-            <div className="row m-4">
-              <label className="col-4 m-1">Expenses</label>
+            <div className="row m-4 align-center justify-center flex">
+              <label className="col-5 m-1 font-bold text-sm">Expenses</label>
               <input
                 type="number"
                 placeholder="Set Limit on Expenses"
-                className="col-7 m-1"
+                className="col-6 border-1 text-xs m-1"
                 {...register("expenseBudget")}
               />
             </div>
-            <div className="row m-4">
-              <label className="col-4 m-1">Investments</label>
+            <div className="row m-4 align-center justify-center flex">
+              <label className="col-5 m-1 font-bold text-sm">Investments</label>
               <input
                 type="number"
                 placeholder="Set Limit on Investments"
-                className="col-7 m-1"
+                className="col-6 border-1 text-xs m-1"
                 {...register("investmentBudget")}
               />
             </div>
-            <div className="row m-4">
-              <label className="col-4 m-1">Savings</label>
+            <div className="row m-4 align-center justify-center flex">
+              <label className="col-5 m-1 font-bold text-sm">Savings</label>
               <input
                 type="number"
                 placeholder="Set Limit on Savings"
-                className="col-7 m-1"
+                className="col-6 border-1 text-xs m-1"
                 {...register("savingsBudget")}
               />
             </div>
-            <div
-              className="row col-3"
-              style={{ width: "180px", margin: "0 0 20px -16px" }}
-            >
+            <div className="row flex justify-center align-center">
               <input
-                className="formBtn btn btn-warning center"
+                className=" p-2 mt-2  bg-indigo-900 w-1/3 text-white rounded-full"
                 type="submit"
                 value="Set Limit"
               />

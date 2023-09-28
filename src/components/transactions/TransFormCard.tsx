@@ -117,7 +117,7 @@ const TransFormCard = (props: Props) => {
                 }
               />
             </td>
-            <td className="editDel">
+            <td>
               <button
                 className="btn btn-primary"
                 onClick={() => submitForm(`${_id}`)}

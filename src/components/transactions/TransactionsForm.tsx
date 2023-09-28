@@ -38,26 +38,26 @@ const TransactionsForm = () => {
       ) : (
         ""
       )}
-      <div className="w-1/4 hidden lg:block">
+      <div className="col-3">
         <Sidebar />
       </div>
-      <div className="w-3/5 bg-white m-3 p-5 rounded-xl ">
+      <div className="col-8 m-4 p-4 bg-white rounded-xl flex align-center justify-evenly ">
         <form onSubmit={handleSubmit(submitTrans)} className="flex-col  ">
-          <p className="text-center h3 text-indigo-700 m-1 p-1">
+          <p className="text-center h3 font-bold text-indigo-700 m-1 p-1">
             Transactions Form
           </p>
           <div className="row m-4 align-center justify-center">
-            <label className="col-2 m-1 font-bold text-sm">Name</label>
+            <label className="col-3 m-1 p-1 font-bold text-sm">Name</label>
             <input
               type="text"
               placeholder="Salary,House,Rent,SIP"
-              className="col-6 m-1 text-xs"
+              className="col-6 m-1 text-xs border-1 "
               {...register("name")}
             />
           </div>
           <div className="row m-4 align-center justify-center">
-            <label className="col-2 m-1 font-bold text-sm">Type</label>
-            <select className="col-6 m-1" {...register("type")}>
+            <label className="col-3 m-1 p-1 font-bold text-sm">Type</label>
+            <select className="col-6 m-1 border-1" {...register("type")}>
               <option value="Select categoery">Select</option>
               <option value="investment">Investment</option>
               <option value="expense">Expense</option>
@@ -65,27 +65,27 @@ const TransactionsForm = () => {
             </select>
           </div>
           <div className="row m-4 align-center justify-center">
-            <label className="col-2 m-1 font-bold text-sm">Amount</label>
+            <label className="col-3 m-1 p-1 font-bold text-sm">Amount</label>
 
             <input
               type="number"
               placeholder="Amount"
-              className="col-6 m-1"
+              className="col-6 m-1 border-1"
               {...register("amount")}
             />
           </div>
           <div className="row m-4 align-center justify-center">
-            <label className="col-2 m-1 font-bold text-sm">Date</label>
+            <label className="col-3 m-1 p-1 font-bold text-sm">Date</label>
 
             <input
               type="date"
               {...register("transDate")}
-              className="col-6 m-1"
+              className="col-6 m-1 border-1"
             />
           </div>
           <div className="row flex justify-center align-center">
             <input
-              className=" p-2 mt-2  bg-indigo-900 w-1/3 text-white rounded-full"
+              className=" p-2 mt-2  bg-indigo-900 w-auto text-white rounded-full "
               type="submit"
               value="Make Transaction"
             />

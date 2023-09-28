@@ -16,7 +16,7 @@ import List from "../transactions/List";
 
 const MainFooter = () => {
   return (
-    <div className="m-3  bg-white rounded-xl justify-content-around flex">
+    <div className="m-4 bg-white rounded-xl justify-content-around flex">
       <div className="w-1/3 bg-indigo-100 m-2 h-65 rounded-xl p-3">
         <Form />
       </div>

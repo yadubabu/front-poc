@@ -9,11 +9,13 @@ const TransactionsTracker = () => {
       <div className="col-3">
         <Sidebar />
       </div>
-      <div className="col-4">
-        <DoughnutShow />
-      </div>
-      <div className="col-4">
-        <List />
+      <div className="col-8 m-4 p-4 bg-white rounded-xl flex align-center justify-evenly">
+        <div className="col-4 my-5">
+          <DoughnutShow />
+        </div>
+        <div className="col-4 my-5">
+          <List />
+        </div>
       </div>
     </div>
   );

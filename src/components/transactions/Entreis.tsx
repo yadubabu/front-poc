@@ -29,7 +29,7 @@ const Entries = (props: Props) => {
             };
 
             return (
-              <div className="p-1">
+              <div className="p-1 m-1 ">
                 <div
                   style={{
                     color: `${style()}`,

@@ -30,8 +30,8 @@ const Sidebar = () => {
     dispatch(budgetService(email));
   }, [trans, auth]);
   return (
-    <div className="h-90 m-3 bg-indigo-900 rounded-xl text-xs align-items-center justify-content-center text-center">
-      <ul className="mb-3">
+    <div className="hidden lg:flex row w-100  my-4 mx-2 bg-indigo-900 rounded-xl text-xs align-items-center justify-content-center text-center">
+      <ul className="mt-1 mb-2">
         <li className="p-3 m-2">
           {" "}
           <a href="/dashboard" className="font-bold uppercase text-light">

@@ -8,10 +8,10 @@ const Dashboard = () => {
   return (
     <div className="bg-indigo-200 w-100 h-100 overflow-hidden">
       <div className="flex align-center justify-evenly">
-        <div className="col-3">
+        <div className="w-1/5">
           <Sidebar />
         </div>
-        <div className="col-9">
+        <div className="w-4/5">
           <div className="row-3">
             <MainHead />
           </div>

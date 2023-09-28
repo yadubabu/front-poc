@@ -9,42 +9,42 @@ function TransactionsHistory() {
   const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
 
   return (
-    <div className="row" style={{ background: "gray" }}>
-      <div className="col-2 mt-2">
+    <div className="row bg-white">
+      <div className="col-3">
         <Sidebar />
       </div>
-      <div className="col-10 mt-3">
+      <div className="col-8 m-4">
         {" "}
         <Table className="" striped="row" variant="primary" bordered>
           <thead>
             <tr>
               <th
-                className="text-dark text-center"
-                style={{ background: "purple" }}
+                className="text-warning text-center "
+                style={{ background: "black" }}
               >
                 S.no
               </th>
               <th
-                className="text-dark text-center"
-                style={{ background: "purple" }}
+                className="text-warning text-center"
+                style={{ background: "black" }}
               >
                 Name
               </th>
               <th
-                className="text-dark text-center"
-                style={{ background: "purple" }}
+                className="text-warning text-center"
+                style={{ background: "black" }}
               >
                 Type
               </th>
               <th
-                className="text-dark text-center"
-                style={{ background: "purple" }}
+                className="text-warning text-center"
+                style={{ background: "black" }}
               >
                 Amount
               </th>
               <th
-                className="text-dark text-center"
-                style={{ background: "purple" }}
+                className="text-warning text-center"
+                style={{ background: "black" }}
               >
                 Action(Edit/Delete)
               </th>

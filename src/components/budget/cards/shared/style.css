@@ -33,15 +33,12 @@
 }
 .flip-card-back p {
   font-size: small;
-  font-weight: 400;
+  font-weight: 600;
 }
 .flip-card-front {
   color: black;
   border-radius: 20px;
   margin-top: 20px;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
 }
 
 .flip-card-back {
