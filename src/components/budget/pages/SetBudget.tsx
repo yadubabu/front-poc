@@ -7,13 +7,13 @@ import { setbudgetApi } from "../../../redux/apis";
 import Sidebar from "../../Sidebar";
 import { useSelector } from "react-redux";
 import { AppState } from "../../../redux/store";
-
+import { Budget } from "../../../dataTypes";
 const SetBudget = () => {
   const [msg, setMsg] = useState("");
   let email = useSelector<AppState, string>((state) => state.user.email);
 
   const { register, handleSubmit, reset } = useForm();
-
+  const budget = useSelector<AppState, Budget>((state) => state.budget);
   const submitHandle = async (data: FieldValues) => {
     const { totalBudget, expenseBudget, investmentBudget, savingsBudget } =
       data;
@@ -57,8 +57,8 @@ const SetBudget = () => {
               <label className="col-5 m-1 font-bold text-sm">TotalBudget</label>
               <input
                 type="number"
-                placeholder="Enter Total Amount"
-                className="col-6 border-1 text-xs m-1"
+                placeholder={`${budget.totalBudget}`}
+                className="col-6 border-1 text-xs m-1 font-bold"
                 {...register("totalBudget")}
               />
             </div>
@@ -66,8 +66,8 @@ const SetBudget = () => {
               <label className="col-5 m-1 font-bold text-sm">Expenses</label>
               <input
                 type="number"
-                placeholder="Set Limit on Expenses"
-                className="col-6 border-1 text-xs m-1"
+                placeholder={`${budget.expenseBudget}`}
+                className="col-6 border-1 text-xs m-1 font-bold"
                 {...register("expenseBudget")}
               />
             </div>
@@ -75,8 +75,8 @@ const SetBudget = () => {
               <label className="col-5 m-1 font-bold text-sm">Investments</label>
               <input
                 type="number"
-                placeholder="Set Limit on Investments"
-                className="col-6 border-1 text-xs m-1"
+                placeholder={`${budget.investmentBudget}`}
+                className="col-6 border-1 text-xs m-1 font-bold"
                 {...register("investmentBudget")}
               />
             </div>
@@ -84,8 +84,8 @@ const SetBudget = () => {
               <label className="col-5 m-1 font-bold text-sm">Savings</label>
               <input
                 type="number"
-                placeholder="Set Limit on Savings"
-                className="col-6 border-1 text-xs m-1"
+                placeholder={`${budget.savingsBudget}`}
+                className="col-6 border-1 text-xs m-1 font-bold"
                 {...register("savingsBudget")}
               />
             </div>

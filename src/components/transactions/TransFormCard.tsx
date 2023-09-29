@@ -24,12 +24,12 @@ const TransFormCard = (props: Props) => {
   const [transAmount, setTransAmount] = useState(0);
   const [msg, setMsg] = useState("");
 
-  const editForm = (id: string) => {
-    trans.map((tran: Trans) => {
-      if (tran._id === id) {
-        setEditId(id);
-      }
-    });
+  const editForm = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    id: string
+  ) => {
+    e.preventDefault();
+    setEditId(id);
   };
 
   const submitForm = async (id: string) => {
@@ -57,84 +57,95 @@ const TransFormCard = (props: Props) => {
 
   return (
     <>
-      {msg === "" ? (
-        ""
-      ) : (
+      {trans.map((tran) => (
         <>
-          <MessageModal msg={msg} />
+          {tran._id === editId ? (
+            <>
+              {" "}
+              <tr>
+                <td className="text-center" style={{ color: "black" }}></td>
+                <td className="text-center" style={{ color: "black" }}>
+                  <input
+                    type="text"
+                    value={transName}
+                    onChange={(e) => setTransName(e.target.value)}
+                  />
+                </td>
+                <td className="text-center" style={{ color: "black" }}>
+                  <select
+                    value={transType}
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement | any>) =>
+                      setTransType(e.target.value)
+                    }
+                  >
+                    <option value="Select categoery">Select</option>
+                    <option value="investment">Investment</option>
+                    <option value="expense">Expense</option>
+                    <option value="savings">Savings</option>
+                  </select>
+                </td>
+                <td className="text-center" style={{ color: "black" }}>
+                  <input
+                    type="number"
+                    value={transAmount}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | any>) =>
+                      setTransAmount(e.target.value)
+                    }
+                  />
+                </td>
+                <td>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => submitForm(`${_id}`)}
+                  >
+                    Update
+                  </button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => deleteTransaction(`${_id}`)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </>
+          ) : (
+            <>
+              {" "}
+              <tr>
+                <td>{props.index}</td>
+                <td>{name}</td>
+                <td>{type}</td>
+                <td>{amount}</td>
+                <td className="editDel">
+                  <button
+                    className="btn btn-primary"
+                    onClick={(e) => editForm(e, _id)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => deleteTransaction(`${_id}`)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </>
+          )}
         </>
-      )}
-      {editId === "" ? (
-        <>
-          <tr>
-            <td>{props.index}</td>
-            <td>{name}</td>
-            <td>{type}</td>
-            <td>{amount}</td>
-            <td className="editDel">
-              <button className="btn btn-primary" onClick={() => editForm(_id)}>
-                Edit
-              </button>
-              <button
-                className="btn btn-danger"
-                onClick={() => deleteTransaction(`${_id}`)}
-              >
-                Delete
-              </button>
-            </td>
-          </tr>
-        </>
-      ) : (
-        <>
-          <tr>
-            <td className="text-center" style={{ color: "black" }}></td>
-            <td className="text-center" style={{ color: "black" }}>
-              <input
-                type="text"
-                value={transName}
-                onChange={(e) => setTransName(e.target.value)}
-              />
-            </td>
-            <td className="text-center" style={{ color: "black" }}>
-              <select
-                value={transType}
-                onChange={(e: React.ChangeEvent<HTMLSelectElement | any>) =>
-                  setTransType(e.target.value)
-                }
-              >
-                <option value="Select categoery">Select</option>
-                <option value="investment">Investment</option>
-                <option value="expense">Expense</option>
-                <option value="savings">Savings</option>
-              </select>
-            </td>
-            <td className="text-center" style={{ color: "black" }}>
-              <input
-                type="number"
-                value={transAmount}
-                onChange={(e: React.ChangeEvent<HTMLInputElement | any>) =>
-                  setTransAmount(e.target.value)
-                }
-              />
-            </td>
-            <td>
-              <button
-                className="btn btn-primary"
-                onClick={() => submitForm(`${_id}`)}
-              >
-                Update
-              </button>
-              <button
-                className="btn btn-danger"
-                onClick={() => deleteTransaction(`${_id}`)}
-              >
-                Delete
-              </button>
-            </td>
-          </tr>
-        </>
-      )}
+      ))}
     </>
   );
 };
 export default TransFormCard;
+// {editId === "" ? (
+//   <>
+
+//   </>
+// ) : (
+//   <>
+
+//   </>
+// )}

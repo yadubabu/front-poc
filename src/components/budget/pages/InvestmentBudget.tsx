@@ -3,52 +3,56 @@ import { useSelector } from "react-redux";
 import { AppState } from "../../../redux/store";
 import Sidebar from "../../Sidebar";
 import "../style.css";
-import { GetInvestment } from "../utils/getData";
+import { GetInvestment } from "../utils/getInvestments";
 import Badge from "react-bootstrap/Badge";
+import { FaRupeeSign } from "react-icons/fa";
 
-function InvestmentBudget() {
-  const investment = useSelector<AppState, number>(
+const InvestmentBudget = () => {
+  const investmentBudget = useSelector<AppState, number>(
     (state) => state.budget.investmentBudget
   );
   const totalInvestment = useSelector<AppState, number>(
     (state) => state.account.totalInvestment
   );
-  const investmentPart: number = (totalInvestment * 100) / investment;
-  const totalPart: number = 100 - investmentPart;
+
+  const remainSavings = investmentBudget - totalInvestment;
 
   return (
-    <div className="row" style={{ background: "grey" }}>
-      <div className="col-2">
+    <div className="row bg-indigo-200">
+      <div className="w-1/4 hidden lg:flex">
         <Sidebar />
       </div>
-      <div className="investment my-2 col-10 text-center">
-        <div className="mt-2 text-secondary">
-          <p className=" text-secodary">Allocated amount for Investments</p>
-          <span className="h3 text-dark">{investment}</span>
+      <div className="w-2/3 rounded-xl m-4 bg-white">
+        <div className="h-1/4 bg-indigo-200 m-3 rounded-xl">
+          <div className="flex align-center justify-center p-1">
+            <span className="h3 mt-2">
+              <FaRupeeSign />
+            </span>
+            <span className="h2 "> {remainSavings}</span>
+            <Badge className="h-1/2 mt-2 m-2 bg-success">Left</Badge>
+          </div>
+          <div>
+            <div className="ml-5 mr-5">
+              <ProgressBar now={(totalInvestment * 100) / investmentBudget} />
+            </div>
+            <div className="font-bold m-1 mx-4 text-xs">
+              {totalInvestment}
+              <span className="text-xs">
+                ({(totalInvestment * 100) / investmentBudget}%)
+              </span>{" "}
+              of {investmentBudget} Spent
+            </div>
+          </div>
         </div>
-        <ProgressBar className="m-5">
-          <ProgressBar variant="success" now={totalPart} />
-          <ProgressBar variant="danger" now={investmentPart} />
-        </ProgressBar>
-        <p className="invest">
-          <span className="remain text-success">
-            Remaining Investment Amount--{investment - totalInvestment}
-          </span>
-          <span className="spent text-danger">
-            Spent on Investment--{totalInvestment}
-          </span>
-        </p>
-        <hr />
-        <div className="m-2">
-          <p className="m-2 text-center">
-            {" "}
-            <Badge bg="warning text-dark">List of Investments</Badge>
-          </p>{" "}
-          {GetInvestment()}
+        <div className="h-4/6 bg-indigo-200 m-3 rounded-xl flex-col">
+          <div className="font-bold p-2 text-indigo-800  rounded-md text-center ">
+            Total Savings
+          </div>
+          <div>{GetInvestment()}</div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default InvestmentBudget;

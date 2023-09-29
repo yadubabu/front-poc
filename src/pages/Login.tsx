@@ -8,6 +8,7 @@ import LoginErrors from "../validators/login/LoginErrors";
 import { LoginOptions } from "../validators/login/LoginOptions";
 import LoadingPage from "./LoadingPage";
 import MessageModal from "../components/MessageModal";
+import Dashboard from "./Dashboard";
 
 type FormData = {
   email: string;
