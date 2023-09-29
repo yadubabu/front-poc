@@ -39,7 +39,7 @@ const Form = () => {
           <input
             className="w-2/3 text-xs"
             type="text"
-            placeholder="Salary,House,Rent,SIP"
+            placeholder="House, Rent, SIP"
             {...register("name")}
           />
         </div>
