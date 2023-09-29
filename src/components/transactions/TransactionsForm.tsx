@@ -59,6 +59,7 @@ const TransactionsForm = () => {
             <label className="col-3 m-1 p-1 font-bold text-sm">Type</label>
             <select className="col-6 m-1 border-1" {...register("type")}>
               <option value="Select categoery">Select</option>
+              <option value="income">Income</option>
               <option value="investment">Investment</option>
               <option value="expense">Expense</option>
               <option value="savings">Savings</option>

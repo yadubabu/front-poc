@@ -136,9 +136,12 @@ export const GetExpenses = () => {
         </div>
       )}
       <hr />
-      <div className="save d-flex">
-        <span className="h6">Total Expenses</span>
-        <span className="h2 text-light">{totalExpense}</span>
+      <div className="flex text-dark align-center justify-between m-2 p-2">
+        <span className="h6 w-2/3">Total Expenses</span>
+        <span className="text-xs w-1/2">
+          ({(totalExpense * 100) / expenseBudget}%)
+        </span>
+        <span className="h6 w-1/7">{totalExpense}</span>
       </div>
     </>
   );

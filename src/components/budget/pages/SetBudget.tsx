@@ -15,30 +15,18 @@ const SetBudget = () => {
   const { register, handleSubmit, reset } = useForm();
   const budget = useSelector<AppState, Budget>((state) => state.budget);
   const submitHandle = async (data: FieldValues) => {
-    const { totalBudget, expenseBudget, investmentBudget, savingsBudget } =
-      data;
-    if (
-      parseInt(expenseBudget) +
-        parseInt(investmentBudget) +
-        parseInt(savingsBudget) >
-      parseInt(totalBudget)
-    ) {
-      setMsg(
-        "Limit on savings,expense and investment not exceeds total amount "
-      );
-    } else {
-      const response = await axios.post(`${setbudgetApi}/${email}`, {
+    const { totalBudget } = data;
+
+    await axios
+      .post(`${setbudgetApi}/${email}`, {
         totalBudget,
-        expenseBudget,
-        investmentBudget,
-        savingsBudget,
-      });
-      if (response) {
-        reset();
-        alert("set limits successfully");
-        window.location.href = "/dashboard";
-      }
-    }
+        expenseBudget: totalBudget * 0.5,
+        investmentBudget: totalBudget * 0.3,
+        savingsBudget: totalBudget * 0.2,
+      })
+      .then(() => alert("set success"))
+      .then(() => reset())
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -54,7 +42,9 @@ const SetBudget = () => {
               Limit Form
             </p>
             <div className="row m-4 align-center justify-center flex">
-              <label className="col-5 m-1 font-bold text-sm">TotalBudget</label>
+              <label className="col-5 m-1 font-bold text-sm">
+                Opening Deposit
+              </label>
               <input
                 type="number"
                 placeholder={`${budget.totalBudget}`}
@@ -62,7 +52,7 @@ const SetBudget = () => {
                 {...register("totalBudget")}
               />
             </div>
-            <div className="row m-4 align-center justify-center flex">
+            {/* <div className="row m-4 align-center justify-center flex">
               <label className="col-5 m-1 font-bold text-sm">Expenses</label>
               <input
                 type="number"
@@ -88,7 +78,7 @@ const SetBudget = () => {
                 className="col-6 border-1 text-xs m-1 font-bold"
                 {...register("savingsBudget")}
               />
-            </div>
+            </div> */}
             <div className="row flex justify-center align-center">
               <input
                 className=" p-2 mt-2  bg-indigo-900 w-1/3 text-white rounded-full"

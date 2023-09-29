@@ -47,6 +47,7 @@ const Form = () => {
           <label className="w-1/3 font-bold text-xs">Type</label>
           <select className="w-2/3 text-xs" {...register("type")}>
             <option value="Select categoery">Select</option>
+            <option value="income">Income</option>
             <option value="investment">Investment</option>
             <option value="expense">Expense</option>
             <option value="savings">Savings</option>

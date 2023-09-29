@@ -16,7 +16,9 @@ const List = () => {
   const totalInvestment = useSelector<AppState, number>(
     (state) => state.account.totalInvestment
   );
-
+  const totalIncomes = useSelector<AppState, number>(
+    (state) => state.account.totalIncomes
+  );
   const totalBudget = useSelector<AppState, number>(
     (state) => state.budget.totalBudget
   );
@@ -24,8 +26,9 @@ const List = () => {
   const savingPercent = Math.round((totalSavings * 100) / totalBudget);
   const expensePercent = Math.round((totalExpense * 100) / totalBudget);
   const investPercent = Math.round((totalInvestment * 100) / totalBudget);
+  const incomePercent = Math.round((totalIncomes * 100) / totalBudget);
   const availablePercent = Math.round(
-    100 - (savingPercent + expensePercent + investPercent)
+    100 - (incomePercent + savingPercent + expensePercent + investPercent)
   );
 
   const shares: Shares[] = [
@@ -33,6 +36,11 @@ const List = () => {
       type: "Balance",
       color: "rgb(27, 77, 14)",
       percent: availablePercent,
+    },
+    {
+      type: "Incomes",
+      color: "rgb(248, 104, 8)",
+      percent: incomePercent,
     },
     {
       type: "Savings",

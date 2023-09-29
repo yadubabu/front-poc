@@ -6,6 +6,7 @@ export interface Auth {
 export interface Account {
   email: string;
   availableAmount: number;
+  totalIncomes: number;
   totalSavings: number;
   totalExpense: number;
   totalInvestment: number;
