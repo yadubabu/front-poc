@@ -30,18 +30,16 @@ const DoughnutShow = () => {
       {
         data: getPercent(),
         backgroundColor: [
-          "rgb(27, 77, 14)",
           "rgb(248, 104, 8)",
+          "rgb(27, 77, 14)",
           "rgb(155, 05, 186)",
-
           "rgb(238, 174, 26)",
           "rgb(15, 127, 201)",
         ],
         borderColor: [
-          "rgb(27, 77, 14)",
           "rgb(248, 104, 8)",
+          "rgb(27, 77, 14)",
           "rgb(155, 05, 186)",
-
           "rgb(238, 174, 26)",
           "rgb(15, 127, 201)",
         ],
@@ -49,8 +47,8 @@ const DoughnutShow = () => {
         borderRadius: 5,
         spacing: 3,
         hoverBackgroundColor: [
-          "rgb(27, 77, 14)",
           "rgb(248, 104, 8)",
+          "rgb(27, 77, 14)",
           "rgb(155, 05, 186)",
           "rgb(238, 174, 26)",
           "rgb(15, 127, 201)",
@@ -73,14 +71,8 @@ const DoughnutShow = () => {
 
   return (
     <div className="flex-col">
-      <h5 className="flex text-center m-2 p-1 text-indigo-700 font-bold">
-        {" "}
-        Available Balance-
-        <span className="mt-1 w-4">
-          {" "}
-          <FaRupeeSign />
-        </span>
-        {availableAmount}
+      <h5 className="text-indigo-700 text-md font-bold p-2 text-center text-xl">
+        Transactions Tracker
       </h5>
       <Doughnut data={data} options={options} />
     </div>

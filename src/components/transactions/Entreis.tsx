@@ -26,7 +26,7 @@ const Entries = (props: Props) => {
               } else if (val.type === "investment") {
                 return "rgb(15, 127, 201)";
               } else if (val.type === "income") {
-                return "rgb(248, 104, 8)";
+                return "rgb(27, 77, 14)";
               }
             };
 

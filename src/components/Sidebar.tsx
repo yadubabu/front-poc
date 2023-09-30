@@ -31,7 +31,7 @@ const Sidebar = () => {
   }, [trans, auth]);
   return (
     <div className="hidden lg:flex row w-100  my-4 mx-2 bg-indigo-900 rounded-xl text-xs align-items-center justify-content-center text-center">
-      <ul className="mt-1 mb-2">
+      <ul className="mt-1 mb-3">
         <li className="p-3 m-2">
           {" "}
           <a href="/dashboard" className="font-bold uppercase text-light">
@@ -42,6 +42,12 @@ const Sidebar = () => {
           {" "}
           <a href="/budget/setbudget" className="text-light">
             Set Budget
+          </a>
+        </li>
+        <li className="p-3 m-2">
+          {" "}
+          <a href="/budget/totalincomes" className="text-light">
+            Total Earnings
           </a>
         </li>
         <li className="p-3 m-2">
@@ -78,7 +84,7 @@ const Sidebar = () => {
           <a href="/transactions/tracker" className="text-light">
             Transactions Tracker{" "}
           </a>
-        </li>
+        </li>{" "}
       </ul>
     </div>
   );

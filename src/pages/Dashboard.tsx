@@ -1,8 +1,7 @@
 import Sidebar from "../components/Sidebar";
-import { Row } from "react-bootstrap";
-import Col from "react-bootstrap/Col";
 import MainHead from "../components/main/MainHead";
 import MainFooter from "../components/main/MainFooter";
+import BalanceCard from "../components/budget/cards/BalanceCard";
 
 const Dashboard = () => {
   return (
@@ -15,7 +14,10 @@ const Dashboard = () => {
           <div className="row-3">
             <MainHead />
           </div>
-          <div className="row-8">
+          <div className="h-1/9">
+            <BalanceCard />
+          </div>
+          <div className="row-7">
             <MainFooter />
           </div>
         </div>

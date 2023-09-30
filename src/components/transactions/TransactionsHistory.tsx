@@ -9,6 +9,9 @@ import { apiEditTrans, apiDeleteTrans } from "../../redux/apis";
 import { AiTwotoneEdit } from "react-icons/ai";
 import { MdDeleteForever } from "react-icons/md";
 import { GrUpdate } from "react-icons/gr";
+import { FiArrowDownLeft } from "react-icons/fi";
+import { FiArrowUpRight } from "react-icons/fi";
+
 function TransactionsHistory() {
   const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
   const email = useSelector<AppState, string>((state) => state.user.email);
@@ -16,6 +19,7 @@ function TransactionsHistory() {
   const [transName, setTransName] = useState("");
   const [transType, setTransType] = useState("");
   const [transAmount, setTransAmount] = useState(0);
+  const [key, setKey] = useState("income");
   const [msg, setMsg] = useState("");
 
   const editForm = (
@@ -129,9 +133,10 @@ function TransactionsHistory() {
                             <option value="Select categoery">
                               {tran.type}
                             </option>
-                            <option value="investment">Investment</option>
-                            <option value="expense">Expense</option>
-                            <option value="savings">Savings</option>
+                            <option value="income">income</option>
+                            <option value="investment">investment</option>
+                            <option value="expense">expense</option>
+                            <option value="savings">savings</option>
                           </select>
                         </td>
                         <td
@@ -171,26 +176,42 @@ function TransactionsHistory() {
                         </td>
                         <td className="text-center text-sm font-bold">
                           {tran.type}
+                        </td>{" "}
+                        <td
+                          className="flex align-center justify-center font-bold"
+                          style={{
+                            color: `${
+                              tran.type === "income" ? "green" : "red"
+                            }`,
+                          }}
+                        >
+                          <span> {tran.amount}</span>
+                          <span>
+                            {tran.type === "income" ? (
+                              <>
+                                <FiArrowDownLeft />
+                              </>
+                            ) : (
+                              <>
+                                <FiArrowUpRight />
+                              </>
+                            )}
+                          </span>
                         </td>
-                        <td className="text-center text-sm font-bold">
-                          {tran.amount}
+                        <td className="text-center font-bold">
+                          <button
+                            className="bg-none text-primary mr-3"
+                            onClick={(e) => editForm(e, tran._id)}
+                          >
+                            <AiTwotoneEdit />
+                          </button>
+                          <button
+                            className="bg-none text-danger ml-3"
+                            onClick={() => deleteTransaction(`${tran._id}`)}
+                          >
+                            <MdDeleteForever />
+                          </button>
                         </td>
-                        <center>
-                          <td className="text-center font-bold">
-                            <button
-                              className="bg-none text-primary mr-3"
-                              onClick={(e) => editForm(e, tran._id)}
-                            >
-                              <AiTwotoneEdit />
-                            </button>
-                            <button
-                              className="bg-none text-danger ml-3"
-                              onClick={() => deleteTransaction(`${tran._id}`)}
-                            >
-                              <MdDeleteForever />
-                            </button>
-                          </td>
-                        </center>
                       </tr>
                     </>
                   )}

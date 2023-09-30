@@ -21,6 +21,7 @@ import ThankYouPage from "./components/transactions/ThankYouPage";
 import FAQ from "./pages/FAQ";
 import { authService } from "./redux/services/allServices";
 import { Dispatch } from "redux";
+import Earnings from "./components/budget/pages/Earnings";
 
 const App = () => {
   const dispatch: Dispatch<any> = useDispatch();
@@ -47,6 +48,8 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/budget/setbudget" element={<SetBudget />} />
           <Route path="/budget/totalsavings" element={<SavingsBudget />} />
+          <Route path="/budget/totalincomes" element={<Earnings />} />
+
           <Route path="/budget/totalexpense" element={<ExpenseBudget />} />
           <Route
             path="/budget/totalinvestment"

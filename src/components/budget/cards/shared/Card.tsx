@@ -30,10 +30,7 @@ const Cards = (props: Props) => {
             style={{ background: `${props.color}` }}
           >
             <div className="h6 text-xs">{props.title}</div>
-            <p className="text-black">
-              {props.title === "Available Balance" ? "To set" : "To see"}{" "}
-              {props.title}
-            </p>
+            <p className="text-black">To see {props.title}</p>
             <a
               className="text-white font-bold text-sm"
               href={`/budget/${props.name}`}

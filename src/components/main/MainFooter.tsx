@@ -20,7 +20,7 @@ const MainFooter = () => {
       <div className="w-1/3 bg-indigo-100 m-2 h-65 rounded-xl p-3">
         <Form />
       </div>
-      <div className="w-1/3 bg-indigo-100 m-2 rounded-xl p-3">
+      <div className="w-1/3 bg-indigo-100 m-2 rounded-xl p-3 md:flex-col">
         <div>
           <DoughnutShow />
         </div>

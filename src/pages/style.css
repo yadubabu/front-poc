@@ -1,7 +1,9 @@
 .land {
   position: relative;
-  width: 100vw;
+  width: auto;
   height: 100vh;
+  overflow: hidden;
+  scroll-behavior: unset;
 }
 .landModal {
   position: absolute;
