@@ -8,9 +8,9 @@ import axios from "axios";
 import { apiEditTrans, apiDeleteTrans } from "../../redux/apis";
 import { AiTwotoneEdit } from "react-icons/ai";
 import { MdDeleteForever } from "react-icons/md";
-import { GrUpdate } from "react-icons/gr";
 import { FiArrowDownLeft } from "react-icons/fi";
 import { FiArrowUpRight } from "react-icons/fi";
+import MessageModal from "../MessageModal";
 
 function TransactionsHistory() {
   const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
@@ -19,7 +19,6 @@ function TransactionsHistory() {
   const [transName, setTransName] = useState("");
   const [transType, setTransType] = useState("");
   const [transAmount, setTransAmount] = useState(0);
-  const [key, setKey] = useState("income");
   const [msg, setMsg] = useState("");
 
   const editForm = (
@@ -54,6 +53,7 @@ function TransactionsHistory() {
   };
   return (
     <div className="row bg-indigo-200">
+      {msg ? <MessageModal msg={msg} /> : ""}
       <div className="col-3">
         <Sidebar />
       </div>
@@ -96,127 +96,135 @@ function TransactionsHistory() {
           </thead>
           <tbody>
             {trans !== null &&
-              trans.slice(trans.length - trans.length, 7).map((tran, index) => (
-                <>
-                  {tran._id === editId ? (
-                    <>
-                      {" "}
-                      <tr>
-                        <td
-                          className="text-center text-xs"
-                          style={{ color: "black" }}
-                        >
-                          {index + 1}
-                        </td>
-                        <td
-                          className="text-center text-xs"
-                          style={{ color: "black" }}
-                        >
-                          <input
-                            type="text"
-                            placeholder={`${tran.name}`}
-                            value={transName}
-                            onChange={(e) => setTransName(e.target.value)}
-                          />
-                        </td>
-                        <td
-                          className="text-center text-xs"
-                          style={{ color: "black" }}
-                        >
-                          <select
-                            value={transType}
+              trans
+                .slice(trans.length - trans.length, 12)
+                .map((tran, index) => (
+                  <>
+                    {tran._id === editId ? (
+                      <>
+                        {" "}
+                        <tr>
+                          <td
                             className="text-center text-xs"
-                            onChange={(
-                              e: React.ChangeEvent<HTMLSelectElement | any>
-                            ) => setTransType(e.target.value)}
+                            style={{ color: "black" }}
                           >
-                            <option value="Select categoery">
-                              {tran.type}
-                            </option>
-                            <option value="income">income</option>
-                            <option value="investment">investment</option>
-                            <option value="expense">expense</option>
-                            <option value="savings">savings</option>
-                          </select>
-                        </td>
-                        <td
-                          className="text-center text-xs"
-                          style={{ color: "black" }}
-                        >
-                          <input
-                            type="number"
-                            placeholder={tran.amount.toString()}
-                            value={transAmount}
-                            onChange={(
-                              e: React.ChangeEvent<HTMLInputElement | any>
-                            ) => setTransAmount(e.target.value)}
-                          />
-                        </td>
-                        <td>
-                          <button
-                            className="flex text-success font-bold text-xs  ml-12"
-                            onClick={() => submitForm(`${tran._id}`)}
+                            {index + 1}
+                          </td>
+                          <td
+                            className="text-center text-xs"
+                            style={{ color: "black" }}
                           >
-                            {" "}
-                            <GrUpdate />
-                            Update
-                          </button>
-                        </td>
-                      </tr>
-                    </>
-                  ) : (
-                    <>
-                      {" "}
-                      <tr>
-                        <td className="text-center text-sm font-bold">
-                          {index + 1}
-                        </td>
-                        <td className="text-center text-sm font-bold">
-                          {tran.name}
-                        </td>
-                        <td className="text-center text-sm font-bold">
-                          {tran.type}
-                        </td>{" "}
-                        <td
-                          className="flex align-center justify-center font-bold"
-                          style={{
-                            color: `${
-                              tran.type === "income" ? "green" : "red"
-                            }`,
-                          }}
-                        >
-                          <span> {tran.amount}</span>
-                          <span>
-                            {tran.type === "income" ? (
-                              <>
-                                <FiArrowDownLeft />
-                              </>
-                            ) : (
-                              <>
-                                <FiArrowUpRight />
-                              </>
-                            )}
-                          </span>
-                        </td>
-                        <td className="text-center font-bold">
-                          <button
-                            className="bg-none text-primary mr-3"
-                            onClick={(e) => editForm(e, tran._id)}
+                            <input
+                              type="text"
+                              placeholder={`${tran.name}`}
+                              value={transName}
+                              onChange={(e) => setTransName(e.target.value)}
+                            />
+                          </td>
+                          <td
+                            className="text-center text-xs"
+                            style={{ color: "black" }}
                           >
-                            <AiTwotoneEdit />
-                          </button>
-                          <button
-                            className="bg-none text-danger ml-3"
-                            onClick={() => deleteTransaction(`${tran._id}`)}
+                            <select
+                              value={transType}
+                              className="text-center text-xs"
+                              onChange={(
+                                e: React.ChangeEvent<HTMLSelectElement | any>
+                              ) => setTransType(e.target.value)}
+                            >
+                              <option value="Select categoery">
+                                {tran.type}
+                              </option>
+                              <option value="income">income</option>
+                              <option value="investment">investment</option>
+                              <option value="expense">expense</option>
+                              <option value="savings">savings</option>
+                            </select>
+                          </td>
+                          <td
+                            className="text-center text-xs"
+                            style={{ color: "black" }}
                           >
-                            <MdDeleteForever />
-                          </button>
-                        </td>
-                      </tr>
-                    </>
-                  )}
-                </>
-              ))}{" "}
+                            <input
+                              type="number"
+                              placeholder={tran.amount.toString()}
+                              value={transAmount}
+                              onChange={(
+                                e: React.ChangeEvent<HTMLInputElement | any>
+                              ) => setTransAmount(e.target.value)}
+                            />
+                          </td>
+                          <td className="flex border-1">
+                            <button
+                              className="flex  text-success font-bold text-xs  ml-12"
+                              onClick={() => submitForm(`${tran._id}`)}
+                            >
+                              {" "}
+                              Update
+                            </button>
+                            <button
+                              className="flex text-success font-bold text-xs  ml-12"
+                              onClick={() => setEditId("")}
+                            >
+                              {" "}
+                              Cancel
+                            </button>
+                          </td>
+                        </tr>
+                      </>
+                    ) : (
+                      <>
+                        {" "}
+                        <tr>
+                          <td className="text-center text-sm font-bold">
+                            {index + 1}
+                          </td>
+                          <td className="text-center text-sm font-bold">
+                            {tran.name}
+                          </td>
+                          <td className="text-center text-sm font-bold">
+                            {tran.type}
+                          </td>{" "}
+                          <td
+                            className="flex align-center justify-center font-bold"
+                            style={{
+                              color: `${
+                                tran.type === "income" ? "green" : "red"
+                              }`,
+                            }}
+                          >
+                            <span> {tran.amount}</span>
+                            <span>
+                              {tran.type === "income" ? (
+                                <>
+                                  <FiArrowDownLeft />
+                                </>
+                              ) : (
+                                <>
+                                  <FiArrowUpRight />
+                                </>
+                              )}
+                            </span>
+                          </td>
+                          <td className="text-center font-bold">
+                            <button
+                              className="bg-none text-primary mr-3"
+                              onClick={(e) => editForm(e, tran._id)}
+                            >
+                              <AiTwotoneEdit />
+                            </button>
+                            <button
+                              className="bg-none text-danger ml-3"
+                              onClick={() => deleteTransaction(`${tran._id}`)}
+                            >
+                              <MdDeleteForever />
+                            </button>
+                          </td>
+                        </tr>
+                      </>
+                    )}
+                  </>
+                ))}{" "}
           </tbody>
         </Table>
       </div>

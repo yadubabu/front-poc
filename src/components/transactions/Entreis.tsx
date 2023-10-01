@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
-import axios, { AxiosError, AxiosResponse } from "axios";
 import { useSelector } from "react-redux";
 import { Trans } from "../../dataTypes";
 import { AppState } from "../../redux/store";
+import { FaRupeeSign } from "react-icons/fa";
 
 type Props = {};
 
@@ -16,7 +15,9 @@ const Entries = (props: Props) => {
       </h5>
       {trans !== null &&
         trans
-          .slice(trans.length - trans.length, 5)
+          // .slice(trans.length -trans.length,5)
+
+          .slice(trans.length - 5, trans.length)
           .map((val: Trans, i: number) => {
             const style = () => {
               if (val.type === "savings") {
@@ -40,7 +41,13 @@ const Entries = (props: Props) => {
                   className="flex align-center justify-between font-bold text-xs p-2 rounded-md"
                 >
                   <span className="">{val.name}</span>
-                  <span>{val.amount}</span>
+                  <span className="flex">
+                    <span className="mt-1">
+                      {" "}
+                      <FaRupeeSign />
+                    </span>
+                    <span className="flex">{val.amount}</span>
+                  </span>
                 </div>
               </div>
             );

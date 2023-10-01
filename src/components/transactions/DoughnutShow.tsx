@@ -30,14 +30,14 @@ const DoughnutShow = () => {
       {
         data: getPercent(),
         backgroundColor: [
-          "rgb(248, 104, 8)",
+          "rgb(245, 47, 12)",
           "rgb(27, 77, 14)",
           "rgb(155, 05, 186)",
           "rgb(238, 174, 26)",
           "rgb(15, 127, 201)",
         ],
         borderColor: [
-          "rgb(248, 104, 8)",
+          "rgb(245, 47, 12)",
           "rgb(27, 77, 14)",
           "rgb(155, 05, 186)",
           "rgb(238, 174, 26)",
@@ -47,7 +47,7 @@ const DoughnutShow = () => {
         borderRadius: 5,
         spacing: 3,
         hoverBackgroundColor: [
-          "rgb(248, 104, 8)",
+          "rgb(245, 47, 12)",
           "rgb(27, 77, 14)",
           "rgb(155, 05, 186)",
           "rgb(238, 174, 26)",

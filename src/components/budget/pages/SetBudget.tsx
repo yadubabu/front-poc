@@ -8,6 +8,8 @@ import Sidebar from "../../Sidebar";
 import { useSelector } from "react-redux";
 import { AppState } from "../../../redux/store";
 import { Budget } from "../../../dataTypes";
+import MessageModal from "../../MessageModal";
+
 const SetBudget = () => {
   const [msg, setMsg] = useState("");
   let email = useSelector<AppState, string>((state) => state.user.email);
@@ -24,7 +26,7 @@ const SetBudget = () => {
         investmentBudget: totalBudget * 0.3,
         savingsBudget: totalBudget * 0.2,
       })
-      .then(() => alert("set success"))
+      .then(() => setMsg("Successfully Deposited"))
       .then(() => reset())
       .catch((err) => console.log(err));
   };
@@ -34,12 +36,18 @@ const SetBudget = () => {
       <div className="col-3">
         <Sidebar />
       </div>
-      <div className="col-8 m-4 p-4 bg-white rounded-xl flex align-center justify-evenly">
-        {msg ? <span className="text-danger">{msg}</span> : ""}
+      <div className="col-8 m-4 p-4 bg-white rounded-xl flex align-center justify-evenly h-1/2">
+        {msg ? (
+          <>
+            <MessageModal msg={msg} />
+          </>
+        ) : (
+          ""
+        )}
         <>
           <Form className="flex-col" onSubmit={handleSubmit(submitHandle)}>
             <p className="text-center h3 text-indigo-700 m-1 p-1 font-bold">
-              Limit Form
+              Deposit Form
             </p>
             <div className="row m-4 align-center justify-center flex">
               <label className="col-5 m-1 font-bold text-sm">

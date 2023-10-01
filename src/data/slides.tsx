@@ -5,8 +5,9 @@ export const slides = [
       "A BUDGET is telling your money where to go instead of wondering where it went",
   },
   {
-    url: require("../assets/budget2.jpeg"),
-    caption: "Used correctly, a BUDGET doesn't restrict you;it empowers you.",
+    url: require("../assets/home5.jpg"),
+    caption:
+      "Used correctly, a BUDGET doesn't restrict you;it empowers you.*****",
   },
 
   {
@@ -15,7 +16,7 @@ export const slides = [
       "A BUDGET tells us what we can't afford but it doesn't keep us from buying it.",
   },
   {
-    url: require("../assets/budget5.jpg"),
+    url: require("../assets/home4.jpg"),
     caption:
       "A BUDGET is more than just a series of numbers on page,it is a embodiment of our values",
   },

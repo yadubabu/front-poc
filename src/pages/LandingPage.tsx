@@ -6,6 +6,7 @@ import "./style.css";
 import homeImg from "../assets/home1.jpg";
 import { useSelector } from "react-redux";
 import { Auth } from "../dataTypes";
+import { NavLink } from "react-router-dom";
 
 const LandingPage = () => {
   const auth = useSelector<Auth>((state) => state.auth);
@@ -18,16 +19,16 @@ const LandingPage = () => {
             FINANCIAL FUTURE PLAN
           </p>
           <p className="text-light content">{budgetContent}</p>
-          <a href="/login">
+          <NavLink to="/login">
             <Button className=" text-light" variant="warning">
               Login
             </Button>{" "}
-          </a>
-          <a href="/register">
+          </NavLink>
+          <NavLink to="/register">
             <Button className="text-light" variant="warning">
               Register
             </Button>{" "}
-          </a>
+          </NavLink>
         </div>
       )}
     </div>

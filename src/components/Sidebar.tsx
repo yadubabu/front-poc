@@ -47,7 +47,7 @@ const Sidebar = () => {
         <li className="p-3 m-2">
           {" "}
           <a href="/budget/totalincomes" className="text-light">
-            Total Earnings
+            Total Incomes
           </a>
         </li>
         <li className="p-3 m-2">

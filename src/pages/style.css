@@ -1,3 +1,7 @@
+.home {
+  overflow-y: hidden;
+}
+
 .land {
   position: relative;
   width: auto;

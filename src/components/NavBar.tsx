@@ -13,11 +13,11 @@ const NavBar = () => {
           BudgetPlanner
         </a>
       </div>
-      <div className="h6 text-secondary w-1/3 p-3 ">
-        Hello!{" "}
+      <div className="h6 text-secondary w-1/3 p-3 m-2 hidden lg:flex">
+        <span className="p-1 font-bold"> Hello! </span>
         <span className="text-light  h5">{!isAuth ? "Guest" : name}</span>
       </div>
-      <div className="h6 text-secondary w-1/3 p-3">
+      <div className="h6 text-secondary w-1/3 p-3 hidden lg:flex">
         <ul className="flex">
           <li>
             <a href="/" className="flex text-indigo-100 m-2 uppercase text-xs">

@@ -13,7 +13,7 @@ const TransactionsTracker = () => {
         <div className="col-4 my-5">
           <DoughnutShow />
         </div>
-        <div className="col-4 my-5">
+        <div className="col-4">
           <List />
         </div>
       </div>
