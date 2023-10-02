@@ -56,7 +56,8 @@ export const GetInvestment = () => {
         <div className="flex text-dark align-center justify-between m-2 p-2">
           <span className="h6 w-2/3">Spent on Gold</span>
           <span className="text-xs w-1/2">
-            {(getGoldInvestments() * 100) / investmentBudget}% is spent
+            {Math.round((getGoldInvestments() * 100) / investmentBudget)}% is
+            spent
           </span>
           <span className="h6 w-1/7">{getGoldInvestments()}</span>
         </div>
@@ -67,7 +68,8 @@ export const GetInvestment = () => {
         <div className="flex text-dark align-center justify-between m-2 p-2">
           <span className="h6 w-2/3">Spent on Land</span>
           <span className="text-xs w-1/2">
-            {(getLandInvestment() * 100) / investmentBudget}% is spent
+            {Math.round((getLandInvestment() * 100) / investmentBudget)}% is
+            spent
           </span>
           <span className="h6 w-1/7">{getLandInvestment()}</span>
         </div>
@@ -78,7 +80,7 @@ export const GetInvestment = () => {
         <div className="flex text-dark align-center justify-between m-2 p-2">
           <span className="h6 w-2/3">Spent on Stocks</span>
           <span className="text-xs w-1/2">
-            {(getStocks() * 100) / investmentBudget}% is spent
+            {Math.round((getStocks() * 100) / investmentBudget)}% is spent
           </span>
           <span className="h6 w-1/7">{getStocks()}</span>
         </div>
@@ -90,12 +92,14 @@ export const GetInvestment = () => {
         <div className="flex text-dark align-center justify-between m-2 p-2">
           <span className="h6 w-2/3">Investments on Others </span>
           <span className="text-xs w-1/2">
-            {((totalInvestment -
-              getGoldInvestments() -
-              getStocks() -
-              getLandInvestment()) *
-              100) /
-              investmentBudget}
+            {Math.round(
+              ((totalInvestment -
+                getGoldInvestments() -
+                getStocks() -
+                getLandInvestment()) *
+                100) /
+                investmentBudget
+            )}
             % is spent
           </span>
           <span className="text-xs w-1/7">
@@ -109,6 +113,11 @@ export const GetInvestment = () => {
       <hr />
       <div className="flex text-dark align-center justify-between m-2 p-2 ">
         <span className="h6 ">Total Investments</span>
+        <span className="h6 ">
+          ({Math.round((totalInvestment * 100) / investmentBudget)}% total
+          spent)
+        </span>
+
         <span className="h6">{totalInvestment}</span>
       </div>
     </>

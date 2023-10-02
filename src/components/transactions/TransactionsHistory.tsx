@@ -54,10 +54,10 @@ function TransactionsHistory() {
   return (
     <div className="row bg-indigo-200">
       {msg ? <MessageModal msg={msg} /> : ""}
-      <div className="col-3">
+      <div className="w-1/5">
         <Sidebar />
       </div>
-      <div className="col-8 m-4 ">
+      <div className="w-3/4 my-4 m-3 ">
         {" "}
         <Table className="" striped bordered variant="light">
           <thead>

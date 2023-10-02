@@ -41,7 +41,7 @@ const Login = () => {
   return (
     <>
       {!auth && (
-        <>
+        <div className="lg:pr-20">
           <form className="form" onSubmit={handleSubmit(submitHandle)}>
             {msg === "Successfully Login" ? (
               <>
@@ -84,19 +84,19 @@ const Login = () => {
             </div>
             <div className="row col-3 m-4 ">
               <input
-                className="formBtn text-sm bg-indigo-700 text-indigo-100 uppercase h-8 rounded-full"
+                className="formBtn text-sm bg-indigo-900 text-indigo-100 uppercase h-8 rounded-full"
                 type="submit"
                 value="Login"
               />
             </div>
             <div className="text-center text-secondary mb-2">
               You Don't have an account?
-              <a href="/register" className="text-indigo-900 ">
+              <a href="/register" className="text-indigo-900 font-bold">
                 Register Here!
               </a>
             </div>
           </form>
-        </>
+        </div>
       )}
     </>
   );

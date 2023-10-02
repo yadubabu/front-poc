@@ -6,14 +6,14 @@ import DoughnutShow from "./DoughnutShow";
 const TransactionsTracker = () => {
   return (
     <div className="row bg-indigo-200">
-      <div className="col-3">
+      <div className="w-1/5">
         <Sidebar />
       </div>
-      <div className="col-8 m-4 p-4 bg-white rounded-xl flex align-center justify-evenly">
-        <div className="col-4 my-5">
+      <div className="w-3/4 my-4 m-3 bg-white rounded-xl flex align-center justify-center text-center ">
+        <div className="col-4 py-5">
           <DoughnutShow />
         </div>
-        <div className="col-4">
+        <div className="col-4 py-5">
           <List />
         </div>
       </div>

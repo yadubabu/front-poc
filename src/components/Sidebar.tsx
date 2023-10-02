@@ -10,16 +10,14 @@ import {
   budgetService,
   transactionService,
 } from "../redux/services/allServices";
-
+import { NavLink } from "react-router-dom";
 const Sidebar = () => {
   const email = useSelector<AppState, string>((state) => state.user.email);
   const name = useSelector<AppState, string>((state) => state.user.name);
   const auth = useSelector<AppState>((state) => state.auth);
   const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
-  const [current, setCurrent] = useState({ border: "none", color: "white" });
 
   const dispatch: Dispatch<any> = useDispatch();
-
   useEffect(() => {
     dispatch(transactionService(email));
   }, [trans, auth]);
@@ -30,62 +28,50 @@ const Sidebar = () => {
     dispatch(budgetService(email));
   }, [trans, auth]);
   return (
-    <div className="hidden lg:flex row w-100  my-4 mx-2 bg-indigo-900 rounded-xl text-xs align-items-center justify-content-center text-center">
-      <ul className="mt-1 mb-3">
-        <li className="p-3 m-2">
-          {" "}
-          <a href="/dashboard" className="font-bold uppercase text-light">
-            Dashboard
-          </a>
-        </li>
-        <li className="p-3 m-2">
-          {" "}
-          <a href="/budget/setbudget" className="text-light">
-            Set Budget
-          </a>
-        </li>
-        <li className="p-3 m-2">
-          {" "}
-          <a href="/budget/totalincomes" className="text-light">
-            Total Incomes
-          </a>
-        </li>
-        <li className="p-3 m-2">
-          {" "}
-          <a href="/budget/totalsavings" className="text-light">
-            Total Savings{" "}
-          </a>
-        </li>
-        <li className="p-3 m-2">
-          {" "}
-          <a href="/budget/totalexpense" className=" text-light">
-            Total Expenses{" "}
-          </a>
-        </li>
-        <li className="p-3 m-2">
-          {" "}
-          <a href="/budget/totalinvestment" className=" text-light">
-            Total Investments{" "}
-          </a>
-        </li>
-        <li className="p-3 m-2">
-          <a href="/transactions/add" className="text-light">
-            Add Transactions
-          </a>
-        </li>
-        <li className="p-3 m-2">
-          {" "}
-          <a href="/transactions/edit" className="text-light">
-            Transactions History{" "}
-          </a>
-        </li>
-        <li className="p-3 m-2">
-          {" "}
-          <a href="/transactions/tracker" className="text-light">
-            Transactions Tracker{" "}
-          </a>
-        </li>{" "}
-      </ul>
+    <div className="hidden lg:flex row w-100  my-4  mx-2 bg-indigo-900 rounded-xl text-xs align-items-center justify-content-center text-center p-1">
+      <NavLink
+        id="active"
+        to="/dashboard"
+        className="p-2 m-2 font-bold uppercase text-light"
+      >
+        Dashboard
+      </NavLink>{" "}
+      <NavLink
+        to="/budget/setbudget"
+        className="p-2 m-2 text-light text-sm text-sm"
+      >
+        Set Budget
+      </NavLink>{" "}
+      <NavLink to="/budget/totalincomes" className="p-2 m-2 text-light text-sm">
+        Total Incomes
+      </NavLink>
+      <NavLink to="/budget/totalsavings" className="p-2 m-2 text-light text-sm">
+        Total Savings{" "}
+      </NavLink>
+      <NavLink to="/budget/totalexpense" className="p-2 m-2 text-light text-sm">
+        Total Expenses{" "}
+      </NavLink>
+      <NavLink
+        to="/budget/totalinvestment"
+        className="p-2 m-2 text-light text-sm"
+      >
+        Total Investments{" "}
+      </NavLink>
+      <NavLink to="/transactions/add" className="p-2 m-2 text-light text-sm">
+        Add Transactions
+      </NavLink>
+      <NavLink to="/transactions/edit" className="p-2 m-2 text-light text-sm">
+        Transactions History{" "}
+      </NavLink>
+      <NavLink
+        to="/transactions/tracker"
+        className=" p-2 m-2 text-light text-sm"
+      >
+        Transactions Tracker{" "}
+      </NavLink>
+      <NavLink to="/faq" className=" p-2 m-2 text-light text-sm">
+        FAQ's{" "}
+      </NavLink>
     </div>
   );
 };

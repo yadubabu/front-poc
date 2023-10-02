@@ -4,7 +4,7 @@ import "./slider.css";
 
 const Slider = () => {
   return (
-    <div className="overflow-hidden flex mt-10 ">
+    <div className="overflow-hidden flex mt-6  ">
       <div className="slide-images ">
         {slides.map((slide, index) => {
           return (

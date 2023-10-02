@@ -72,7 +72,7 @@ export const GetExpenses = () => {
         <div className="flex text-dark align-center justify-between m-2 p-2">
           <span className="h6 w-2/3">Spent on Rents</span>
           <span className="text-xs w-1/2">
-            {(getRents() * 100) / expenseBudget}% is spent
+            ({Math.round((getRents() * 100) / expenseBudget)}% is spent)
           </span>
           <span className="h6 w-1/7">{getRents()}</span>
         </div>
@@ -83,7 +83,7 @@ export const GetExpenses = () => {
         <div className="flex text-dark align-center justify-between m-2 p-2">
           <span className="h6 w-2/3">Spent on Needs</span>
           <span className="text-xs w-1/2">
-            {(getGroceries() * 100) / expenseBudget}% is spent
+            ({Math.round((getGroceries() * 100) / expenseBudget)}% is spent)
           </span>
           <span className="h6 w-1/7">{getGroceries()}</span>
         </div>
@@ -94,7 +94,8 @@ export const GetExpenses = () => {
         <div className="flex text-dark align-center justify-between m-2 p-2">
           <span className="h6 w-2/3">Spent on Shopping</span>
           <span className="text-xs w-1/2">
-            {(getShoppingExpense() * 100) / expenseBudget}% is spent
+            ( {Math.round((getShoppingExpense() * 100) / expenseBudget)}% is
+            spent)
           </span>
           <span className="h6 w-1/7">{getShoppingExpense()}</span>
         </div>
@@ -105,7 +106,7 @@ export const GetExpenses = () => {
         <div className="flex text-dark align-center justify-between m-2 p-2">
           <span className="h6 w-2/3">Spent on Bills</span>
           <span className="text-xs w-1/2">
-            {(getBills() * 100) / expenseBudget}% is spent
+            ({Math.round((getBills() * 100) / expenseBudget)}% is spent)
           </span>
           <span className="h6 w-1/7">{getBills()}</span>
         </div>
@@ -117,14 +118,17 @@ export const GetExpenses = () => {
         <div className="flex text-dark align-center justify-between m-2 p-2">
           <span className="h6 w-2/3">Spent on Others</span>
           <span className="text-xs w-1/2">
-            {((totalExpense -
-              getRents() -
-              getShoppingExpense() -
-              getGroceries() -
-              getBills()) *
-              100) /
-              expenseBudget}
-            % is spent
+            (
+            {Math.round(
+              ((totalExpense -
+                getRents() -
+                getShoppingExpense() -
+                getGroceries() -
+                getBills()) *
+                100) /
+                expenseBudget
+            )}
+            % is spent)
           </span>
           <span className="h6 w-1/7">
             {totalExpense -
@@ -138,8 +142,8 @@ export const GetExpenses = () => {
       <hr />
       <div className="flex text-dark align-center justify-between m-2 p-2">
         <span className="h6 w-2/3">Total Expenses</span>
-        <span className="text-xs w-1/2">
-          ({(totalExpense * 100) / expenseBudget}%)
+        <span className="text-xs w-1/2 font-bold">
+          ({Math.round((totalExpense * 100) / expenseBudget)}%)
         </span>
         <span className="h6 w-1/7">{totalExpense}</span>
       </div>

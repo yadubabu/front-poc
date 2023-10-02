@@ -7,7 +7,6 @@ import axios from "axios";
 import { registerApi } from "../redux/apis";
 import { useSelector } from "react-redux";
 import { Auth } from "../dataTypes";
-import logImg from "../assets/home1.jpg";
 import "./style.css";
 import { registerOptions } from "../validators/register/registerOptions";
 import RegisterErrors from "../validators/register/RegisterErrors";
@@ -60,7 +59,9 @@ const Register = () => {
             id="regi"
             onSubmit={handleSubmit(submitHandle)}
           >
-            <div className="h2 text-center">Register Here!</div>
+            <div className="h2 text-center text-indigo-700 font-bold">
+              Register Here!
+            </div>
             {msg === "Successfully Registered" ? (
               <>
                 <MessageModal msg={msg} />
@@ -151,14 +152,14 @@ const Register = () => {
             </div>
             <div className="row col-3 m-4 ">
               <input
-                className="formBtn text-sm bg-warning text-dark uppercase h-8 rounded-full"
+                className="formBtn text-sm bg-indigo-900 text-indigo-100 uppercase h-8 rounded-full"
                 type="submit"
                 value="Register"
               />
             </div>
             <div className="text-center text-secondary ">
               Already have an account?
-              <a href="/login" className="text-primary ">
+              <a href="/login" className="text-indigo-700 font-bold ">
                 Login Here!
               </a>
             </div>

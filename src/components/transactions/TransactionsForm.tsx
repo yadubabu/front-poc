@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { addTransApi } from "../../redux/apis";
 import Sidebar from "../Sidebar";
-import ThankYouPage from "./ThankYouPage";
 import "./style.css";
 import "../../pages/style.css";
 import { FieldValues } from "react-hook-form/dist/types";
@@ -38,13 +37,13 @@ const TransactionsForm = () => {
       ) : (
         ""
       )}
-      <div className="col-3">
+      <div className="w-1/5">
         <Sidebar />
       </div>
-      <div className="col-8 m-4 p-4 bg-white rounded-xl flex align-center justify-evenly ">
+      <div className="w-3/4 my-4 m-4 bg-white rounded-xl flex align-center justify-evenly ">
         <form onSubmit={handleSubmit(submitTrans)} className="flex-col  ">
           <p className="text-center h3 font-bold text-indigo-700 m-1 p-1">
-            Transactions Form
+            Transaction Form
           </p>
           <div className="row m-4 align-center justify-center">
             <label className="col-3 m-1 p-1 font-bold text-sm">Name</label>

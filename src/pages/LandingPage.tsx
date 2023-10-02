@@ -11,11 +11,11 @@ import { NavLink } from "react-router-dom";
 const LandingPage = () => {
   const auth = useSelector<Auth>((state) => state.auth);
   return (
-    <div className="land">
+    <div className="land relative">
       {!auth && (
         <div className="landModal">
           <p className="h2 text-indigo-100">Start Your </p>
-          <p className="title text-warning text-5xl font-bold spacing h1 ">
+          <p className="md:text-3xl sm:text-2xl title text-warning lg:text-5xl font-bold spacing h1 ">
             FINANCIAL FUTURE PLAN
           </p>
           <p className="text-light content">{budgetContent}</p>
@@ -25,7 +25,7 @@ const LandingPage = () => {
             </Button>{" "}
           </NavLink>
           <NavLink to="/register">
-            <Button className="text-light" variant="warning">
+            <Button className="text-light " variant="warning">
               Register
             </Button>{" "}
           </NavLink>

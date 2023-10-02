@@ -11,10 +11,10 @@ const Earnings = () => {
   );
   return (
     <div className="row bg-indigo-200">
-      <div className="w-1/4 hidden lg:flex">
+      <div className="w-1/5 hidden lg:flex">
         <Sidebar />
       </div>
-      <div className="w-2/3 bg-white m-4 rounded-xl">
+      <div className="w-3/4 my-4 mx-2 m-4 bg-white  rounded-xl">
         <div className="flex text-center align-center bg-indigo-200 p-1 m-3 justify-center p-4 font-bold h4 p-2 text-indigo-800  rounded-md text-center ">
           <span>Total Incomes--</span>
           <span className="text-xl mt-2">

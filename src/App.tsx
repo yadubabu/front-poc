@@ -17,7 +17,6 @@ import Logout from "./pages/Logout";
 import TransactionsTracker from "./components/transactions/TransactionsTracker";
 import TransactionsForm from "./components/transactions/TransactionsForm";
 import TransactionsHistory from "./components/transactions/TransactionsHistory";
-import ThankYouPage from "./components/transactions/ThankYouPage";
 import FAQ from "./pages/FAQ";
 import { authService } from "./redux/services/allServices";
 import { Dispatch } from "redux";
@@ -36,8 +35,8 @@ const App = () => {
   });
   return (
     <div>
-      <NavBar />
       <Router>
+        <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/logout" element={<Logout />} />
@@ -59,7 +58,6 @@ const App = () => {
             path="/transactions/tracker"
             element={<TransactionsTracker />}
           />
-          <Route path="/transactions/thankyou" element={<ThankYouPage />} />
           <Route path="/transactions/add" element={<TransactionsForm />} />
           <Route path="/transactions/edit" element={<TransactionsHistory />} />
         </Routes>

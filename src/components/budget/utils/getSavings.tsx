@@ -48,7 +48,7 @@ export const GetSavings = () => {
         <div className="flex text-dark align-center justify-between m-2 p-2">
           <span className="h6 w-2/3">Spent on Bonds</span>
           <span className="text-xs w-1/2">
-            {(getBonds() * 100) / savingsBudget}% is spent
+            {Math.round((getBonds() * 100) / savingsBudget)}% is spent
           </span>
           <span className="h6 w-1/7">{getBonds()}</span>
         </div>
@@ -60,7 +60,7 @@ export const GetSavings = () => {
           <div className="flex text-dark align-center justify-between m-2 p-2">
             <span className="h6 w-2/3">Spent on Emergency Funds</span>
             <span className="text-xs w-1/2">
-              {(getFunds() * 100) / savingsBudget}% is spent
+              {Math.round((getFunds() * 100) / savingsBudget)}% is spent
             </span>
             <span className="h6 w-1/7">{getFunds()}</span>
           </div>
@@ -83,6 +83,9 @@ export const GetSavings = () => {
       <hr />
       <div className="flex text-dark align-center justify-between m-2 p-2">
         <span className="h6">Total Savings</span>
+        <span className="text-xs ">
+          {Math.round((totalSavings * 100) / savingsBudget)}% is spent
+        </span>
         <span className="h6">{totalSavings}</span>
       </div>
     </>
