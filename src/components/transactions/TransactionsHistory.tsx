@@ -97,7 +97,7 @@ function TransactionsHistory() {
           <tbody>
             {trans !== null &&
               trans
-                .slice(trans.length - trans.length, 12)
+                .slice(trans.length - trans.length, 11)
                 .map((tran, index) => (
                   <>
                     {tran._id === editId ? (

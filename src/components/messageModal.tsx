@@ -8,20 +8,21 @@ type Props = {
 
 const MessageModal = (props: Props) => {
   const [key, setKey] = useState("");
-  // const [key, setKey] = useState(
-  //   props.msg.split(" ")[1] === "Login"
-  //     ? "/dashboard"
-  //     : "/login" || props.msg.split(" ")[1] === "Edited"
-  //     ? "/transactions/edit"
-  //     : "" || props.msg.split(" ")[1] === "Deleted"
-  //     ? "/transactions/edit"
-  //     : "" || props.msg.split(" ")[1] === "Deposited"
-  //     ? "/dashboard"
-  //     : ""
-  // );
-  // function closeModal() {
-  //   document.getElementById("myModal").classList.add("hidden");
-  // }
+
+  const showWindow = (msg: string) => {
+    if (msg.split(" ")[1] === "Deposited") {
+      setKey("hidden");
+    }
+    if (msg.split(" ")[1] === "Edited") {
+      setKey("hidden");
+    }
+    if (msg.split(" ")[1] === "Deleted") {
+      setKey("hidden");
+    }
+    if (msg.split(" ")[1] === "Login") {
+      window.location.href = "/dashboard";
+    }
+  };
   return (
     <>
       {key === "" && (
@@ -39,7 +40,7 @@ const MessageModal = (props: Props) => {
                 <p className="font-bold">{props.msg}</p>
               </div>
               <div className="modal-footer font-bold flex align-center justify-center mr-20 ml-20 bg-warning rounded-full">
-                <a href="/dashboard">OK</a>
+                <button onClick={() => showWindow(props.msg)}>OK</button>
               </div>
             </div>
           </div>

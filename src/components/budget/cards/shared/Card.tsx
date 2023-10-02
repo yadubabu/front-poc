@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "./style.css";
 import { FaRupeeSign } from "react-icons/fa";
 
@@ -31,12 +32,12 @@ const Cards = (props: Props) => {
           >
             <div className="h6 text-xs">{props.title}</div>
             <p className="text-black">To see {props.title}</p>
-            <a
+            <NavLink
               className="text-white font-bold text-sm"
-              href={`/budget/${props.name}`}
+              to={`/budget/${props.name}`}
             >
               Click Here
-            </a>
+            </NavLink>
           </div>
         </div>
       </div>
