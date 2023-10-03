@@ -11,7 +11,7 @@ import { NavLink } from "react-router-dom";
 const LandingPage = () => {
   const auth = useSelector<Auth>((state) => state.auth);
   return (
-    <div className="land relative">
+    <div className="land">
       {!auth && (
         <div className="landModal">
           <p className="h2 text-indigo-100">Start Your </p>
