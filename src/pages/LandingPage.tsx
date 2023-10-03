@@ -13,7 +13,7 @@ const LandingPage = () => {
   return (
     <div className="land relative">
       {!auth && (
-        <div className="landModal">
+        <div className="landModal overflow-hidden">
           <p className="h2 text-indigo-100">Start Your </p>
           <p className="md:text-3xl sm:text-2xl title text-warning lg:text-5xl font-bold spacing h1 ">
             FINANCIAL FUTURE PLAN

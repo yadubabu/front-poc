@@ -16,7 +16,7 @@ const Dashboard = () => {
       ) : (
         <div className="bg-indigo-200 w-100 h-100 overflow-hidden">
           <div className="flex align-center justify-evenly">
-            <div className="w-1/5">
+            <div className="w-1/5 ">
               <Sidebar />
             </div>
             <div className="w-4/5">
