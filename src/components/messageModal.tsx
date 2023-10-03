@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Dashboard from "../pages/Dashboard";
-import { NavLink, Navigate, Link, redirect } from "react-router-dom";
 
 type Props = {
   msg: string;

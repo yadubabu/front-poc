@@ -60,33 +60,7 @@ const SetBudget = () => {
                 {...register("totalBudget")}
               />
             </div>
-            {/* <div className="row m-4 align-center justify-center flex">
-              <label className="col-5 m-1 font-bold text-sm">Expenses</label>
-              <input
-                type="number"
-                placeholder={`${budget.expenseBudget}`}
-                className="col-6 border-1 text-xs m-1 font-bold"
-                {...register("expenseBudget")}
-              />
-            </div>
-            <div className="row m-4 align-center justify-center flex">
-              <label className="col-5 m-1 font-bold text-sm">Investments</label>
-              <input
-                type="number"
-                placeholder={`${budget.investmentBudget}`}
-                className="col-6 border-1 text-xs m-1 font-bold"
-                {...register("investmentBudget")}
-              />
-            </div>
-            <div className="row m-4 align-center justify-center flex">
-              <label className="col-5 m-1 font-bold text-sm">Savings</label>
-              <input
-                type="number"
-                placeholder={`${budget.savingsBudget}`}
-                className="col-6 border-1 text-xs m-1 font-bold"
-                {...register("savingsBudget")}
-              />
-            </div> */}
+
             <div className="row flex justify-center align-center">
               <input
                 className=" p-2 mt-2  bg-indigo-900 w-1/3 text-white rounded-full"
