@@ -7,7 +7,6 @@
   width: auto;
   height: 100vh;
   overflow: hidden;
-  scroll-behavior: unset;
 }
 .landModal {
   position: absolute;

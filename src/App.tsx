@@ -21,6 +21,8 @@ import FAQ from "./pages/FAQ";
 import { authService } from "./redux/services/allServices";
 import { Dispatch } from "redux";
 import Earnings from "./components/budget/pages/Earnings";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const dispatch: Dispatch<any> = useDispatch();
@@ -33,6 +35,7 @@ const App = () => {
       dispatch(userAction());
     }
   });
+
   return (
     <div>
       <Router>
@@ -62,6 +65,7 @@ const App = () => {
           <Route path="/transactions/edit" element={<TransactionsHistory />} />
         </Routes>
       </Router>
+      <ToastContainer />
     </div>
   );
 };

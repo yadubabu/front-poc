@@ -7,11 +7,17 @@ import "./style.css";
 import "../../pages/style.css";
 import { FieldValues } from "react-hook-form/dist/types";
 import MessageModal from "../MessageModal";
+import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
+import { AppState } from "../../redux/store";
+import { Budget, Account } from "../../dataTypes";
 
 const TransactionsForm = () => {
   const [msg, setMsg] = useState("");
   let user = JSON.parse(sessionStorage.getItem("data") || "{}");
   const { register, handleSubmit, reset } = useForm();
+  const budget = useSelector<AppState, Budget>((state) => state.budget);
+  const account = useSelector<AppState, Account>((state) => state.account);
 
   const submitTrans = async (data: FieldValues) => {
     const { name, type, amount, transDate } = data;
@@ -23,20 +29,25 @@ const TransactionsForm = () => {
         amount,
         transDate,
       })
-      .then((res) => setMsg(res.data))
+      .then((res) =>
+        toast(res.data, {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          type: "success",
+        })
+      )
       .then(() => reset())
-      .catch((err) => console.log(err));
+      .catch((err) => toast.error(err));
   };
 
   return (
     <div className="row bg-indigo-200">
-      {msg === "added successfully" ? (
-        <div>
-          <MessageModal msg={msg} />
-        </div>
-      ) : (
-        ""
-      )}
       <div className="w-1/5">
         <Sidebar />
       </div>

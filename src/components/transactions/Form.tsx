@@ -5,6 +5,7 @@ import { addTransApi } from "../../redux/apis";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { AppState } from "../../redux/store";
+import { toast } from "react-toastify";
 
 const Form = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -12,17 +13,26 @@ const Form = () => {
   const email = useSelector<AppState, string>((state) => state.user.email);
   const submitTrans = async (data: FieldValues) => {
     const { name, type, amount, transDate } = data;
-    await axios
-      .post(`${addTransApi}`, {
+    try {
+      const res = await axios.post(`${addTransApi}`, {
         email: email,
         name,
         type,
         amount,
         transDate,
-      })
-      .then((res) => setMsg(res.data))
-      .then(() => reset())
-      .catch((err) => console.log(err));
+      });
+      if (res) {
+        toast.success(res.data, {
+          position: "top-center",
+          autoClose: 3000,
+        });
+      }
+    } catch (err) {
+      toast.error(err, {
+        position: "top-center",
+        autoClose: 3000,
+      });
+    }
   };
 
   return (

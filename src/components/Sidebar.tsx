@@ -13,7 +13,6 @@ import {
 import { NavLink } from "react-router-dom";
 const Sidebar = () => {
   const email = useSelector<AppState, string>((state) => state.user.email);
-  const name = useSelector<AppState, string>((state) => state.user.name);
   const auth = useSelector<AppState>((state) => state.auth);
   const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
 

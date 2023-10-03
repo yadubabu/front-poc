@@ -10,6 +10,9 @@ const NavBar = () => {
   const auth = useSelector<AppState>((state) => state.auth);
   const name = useSelector<AppState, string>((state) => state.user.name);
   const [menu, setMenu] = useState("hidden");
+  // const appLogout = () => {
+  //   sessionStorage.removeItem("data");
+  // };
   return (
     <div className="bg-indigo-900 w-100 h-auto flex">
       <div className="w-1/3 p-2 m-3">
@@ -114,12 +117,15 @@ const NavBar = () => {
             </li>
             {auth ? (
               <li className="text-center text-indigo-100 p-1 m-1">
-                <NavLink to="/logout">Logout</NavLink>
+                <NavLink
+                  to="/"
+                  onClick={() => sessionStorage.removeItem("data")}
+                >
+                  Logout
+                </NavLink>
               </li>
             ) : (
-              <li className="hidden text-center text-indigo-100 p-1 m-1">
-                <NavLink to="/logout">Logout</NavLink>
-              </li>
+              ""
             )}
           </ul>
         </div>

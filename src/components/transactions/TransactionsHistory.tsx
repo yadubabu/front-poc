@@ -11,6 +11,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { FiArrowDownLeft } from "react-icons/fi";
 import { FiArrowUpRight } from "react-icons/fi";
 import MessageModal from "../MessageModal";
+import { toast } from "react-toastify";
 
 function TransactionsHistory() {
   const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
@@ -38,22 +39,29 @@ function TransactionsHistory() {
         amount: transAmount,
       });
       if (res) {
-        setMsg(res.data);
+        toast.success(res.data, { position: "top-right", autoClose: 3000 });
         setEditId("");
       }
     } else {
-      alert("Please select transaction and add new values");
+      toast.error("Fields not must be empty", {
+        position: "top-right",
+        autoClose: 3000,
+      });
     }
   };
   const deleteTransaction = async (id: string) => {
     const res = await axios.delete(`${apiDeleteTrans}/${id}`);
     if (res) {
-      setMsg(res.data);
+      toast.success(res.data, { position: "top-right", autoClose: 3000 });
+    } else {
+      toast.error("Something went wrong", {
+        position: "top-right",
+        autoClose: 3000,
+      });
     }
   };
   return (
     <div className="row bg-indigo-200">
-      {msg ? <MessageModal msg={msg} /> : ""}
       <div className="w-1/5">
         <Sidebar />
       </div>

@@ -18,7 +18,7 @@ const Cards = (props: Props) => {
         <div className="flip-card-inner">
           <div className="flip-card-front flex-column ">
             <p className="h6 font-bold text-gray-300 text-xs">{props.title}</p>
-            <p className="h5 font-bold p-1 flex text-white md:text-sm sm:text-xs lg:flex">
+            <p className="h5 font-bold p-1 flex text-white md:text-sm sm:text-xs lg:flex lg:text-xl">
               <span className="mt-1 ">
                 {" "}
                 <FaRupeeSign />

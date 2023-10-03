@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { AppState } from "../../../redux/store";
 import { Budget } from "../../../dataTypes";
 import MessageModal from "../../MessageModal";
-
+import { toast } from "react-toastify";
 const SetBudget = () => {
   const [msg, setMsg] = useState("");
   let email = useSelector<AppState, string>((state) => state.user.email);
@@ -26,9 +26,21 @@ const SetBudget = () => {
         investmentBudget: totalBudget * 0.3,
         savingsBudget: totalBudget * 0.2,
       })
-      .then(() => setMsg("Successfully Deposited"))
+      .then(() =>
+        toast("Successfully Deposited", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          type: "success",
+        })
+      )
       .then(() => reset())
-      .catch((err) => console.log(err));
+      .catch((err) => toast.error(err));
   };
 
   return (
@@ -37,13 +49,6 @@ const SetBudget = () => {
         <Sidebar />
       </div>
       <div className="w-3/4 my-4 m-4 p-4 bg-white rounded-xl flex align-center justify-around h-1/2">
-        {msg ? (
-          <>
-            <MessageModal msg={msg} />
-          </>
-        ) : (
-          ""
-        )}
         <>
           <Form className="flex-col" onSubmit={handleSubmit(submitHandle)}>
             <p className="text-center h3 text-indigo-700 m-1 p-1 font-bold">
