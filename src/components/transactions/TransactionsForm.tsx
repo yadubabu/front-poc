@@ -6,18 +6,11 @@ import Sidebar from "../Sidebar";
 import "./style.css";
 import "../../pages/style.css";
 import { FieldValues } from "react-hook-form/dist/types";
-import MessageModal from "../MessageModal";
 import { toast } from "react-toastify";
-import { useSelector } from "react-redux";
-import { AppState } from "../../redux/store";
-import { Budget, Account } from "../../dataTypes";
 
 const TransactionsForm = () => {
-  const [msg, setMsg] = useState("");
   let user = JSON.parse(sessionStorage.getItem("data") || "{}");
   const { register, handleSubmit, reset } = useForm();
-  const budget = useSelector<AppState, Budget>((state) => state.budget);
-  const account = useSelector<AppState, Account>((state) => state.account);
 
   const submitTrans = async (data: FieldValues) => {
     const { name, type, amount, transDate } = data;
