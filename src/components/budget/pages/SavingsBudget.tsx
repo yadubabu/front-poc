@@ -16,7 +16,6 @@ const SavingsBudget = () => {
   );
 
   const remainSavings = savingsBudget - totalSavings;
-
   return (
     <div className="row bg-indigo-200">
       <div className="w-1/5 hidden lg:flex">
@@ -32,8 +31,29 @@ const SavingsBudget = () => {
             <Badge className="h-1/2 mt-2 m-2 bg-success">Left</Badge>
           </div>
           <div>
-            <div className="ml-5 mr-5 ">
-              <ProgressBar now={(totalSavings * 100) / savingsBudget} />
+            <div className="ml-3 mr-3">
+              <ProgressBar className="h-6 rounded-xl w-100">
+                <ProgressBar
+                  className="bg-danger"
+                  now={(totalSavings * 100) / savingsBudget}
+                  label="Spent"
+                  key={1}
+                />
+                <ProgressBar
+                  className="bg-success"
+                  now={100 - (totalSavings * 100) / savingsBudget - 5}
+                  label="Left"
+                  key={2}
+                />
+
+                <ProgressBar
+                  className="bg-warning relative"
+                  now={5}
+                  label="minimum"
+                  key={3}
+                  color="black"
+                />
+              </ProgressBar>
             </div>
             <div className="font-bold m-1 mx-4 text-xs">
               {totalSavings}

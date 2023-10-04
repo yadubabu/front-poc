@@ -33,7 +33,28 @@ const InvestmentBudget = () => {
           </div>
           <div>
             <div className="ml-5 mr-5">
-              <ProgressBar now={(totalInvestment * 100) / investmentBudget} />
+              <ProgressBar className="h-6 rounded-xl w-100">
+                <ProgressBar
+                  className="bg-danger"
+                  now={(totalInvestment * 100) / investmentBudget}
+                  label="Spent"
+                  key={1}
+                />
+                <ProgressBar
+                  className="bg-success"
+                  now={100 - (totalInvestment * 100) / investmentBudget - 5}
+                  label="Left"
+                  key={2}
+                />
+
+                <ProgressBar
+                  className="bg-warning relative"
+                  now={5}
+                  label="minimum"
+                  key={3}
+                  color="black"
+                />
+              </ProgressBar>{" "}
             </div>
             <div className="font-bold m-1 mx-4 text-xs">
               {totalInvestment}
