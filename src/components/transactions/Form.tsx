@@ -14,7 +14,11 @@ const Form = () => {
     const { name, type, amount, transDate } = data;
     try {
       if (!name || !type || !amount || !transDate) {
-        toast.error("All Fields are mandatory");
+        toast.error("All Fields are mandatory", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: true,
+        });
       } else {
         const res = await axios.post(`${addTransApi}`, {
           email: email,
@@ -27,6 +31,7 @@ const Form = () => {
           toast.success(res.data, {
             position: "top-center",
             autoClose: 3000,
+            hideProgressBar: true,
           });
           reset();
         }
