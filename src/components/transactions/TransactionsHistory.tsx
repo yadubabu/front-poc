@@ -10,7 +10,6 @@ import { AiTwotoneEdit } from "react-icons/ai";
 import { MdDeleteForever } from "react-icons/md";
 import { FiArrowDownLeft } from "react-icons/fi";
 import { FiArrowUpRight } from "react-icons/fi";
-import MessageModal from "../MessageModal";
 import { toast } from "react-toastify";
 
 function TransactionsHistory() {
@@ -20,7 +19,6 @@ function TransactionsHistory() {
   const [transName, setTransName] = useState("");
   const [transType, setTransType] = useState("");
   const [transAmount, setTransAmount] = useState(0);
-  const [msg, setMsg] = useState("");
 
   const editForm = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,

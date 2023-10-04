@@ -8,12 +8,13 @@ import Sidebar from "../../Sidebar";
 import { useSelector } from "react-redux";
 import { AppState } from "../../../redux/store";
 import { Budget } from "../../../dataTypes";
-import MessageModal from "../../MessageModal";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
 const SetBudget = () => {
   const [msg, setMsg] = useState("");
   let email = useSelector<AppState, string>((state) => state.user.email);
-
+  const navigate = useNavigate();
   const { register, handleSubmit, reset } = useForm();
   const budget = useSelector<AppState, Budget>((state) => state.budget);
   const submitHandle = async (data: FieldValues) => {
@@ -40,6 +41,7 @@ const SetBudget = () => {
         })
       )
       .then(() => reset())
+      .then(() => navigate("/dashboard"))
       .catch((err) => toast.error(err));
   };
 

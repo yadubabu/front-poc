@@ -6,9 +6,8 @@ import { useSelector } from "react-redux";
 import { Auth } from "../dataTypes";
 import LoginErrors from "../validators/login/LoginErrors";
 import { LoginOptions } from "../validators/login/LoginOptions";
-import LoadingPage from "./LoadingPage";
-import MessageModal from "../components/MessageModal";
-import Dashboard from "./Dashboard";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 type FormData = {
   email: string;
@@ -19,6 +18,7 @@ const Login = () => {
   const [showModal, setShowModal] = useState(false);
   const auth = useSelector<Auth>((state) => state.auth);
   const [msg, setMsg] = useState("");
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -31,25 +31,19 @@ const Login = () => {
       email,
       password,
     });
-    if (result) {
+    if (result.data.msg === "Successfully Login") {
       sessionStorage.setItem("data", JSON.stringify(result.data));
-      setShowModal(true);
-      reset();
-      setMsg(result.data.msg);
+      toast.success(result.data.msg);
+      window.location.href = "/dashboard";
+    } else {
+      toast.error(result.data.msg);
     }
   };
   return (
-    <>
+    <div className="homeForm">
       {!auth && (
         <div className="lg:pr-20">
           <form className="form" onSubmit={handleSubmit(submitHandle)}>
-            {msg === "Successfully Login" ? (
-              <>
-                <MessageModal msg={msg} />
-              </>
-            ) : (
-              <span className="text-danger text-center">{msg}</span>
-            )}
             <h1
               className="text-center h3 font-bold text-indigo-900"
               style={{ fontFamily: "sans-serif" }}
@@ -98,7 +92,7 @@ const Login = () => {
           </form>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

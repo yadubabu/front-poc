@@ -20,12 +20,18 @@ const LandingPage = () => {
           </p>
           <p className="text-light content">{budgetContent}</p>
           <NavLink to="/login">
-            <Button className=" text-light" variant="warning">
+            <Button
+              className=" text-light hover:bg-yellow-500"
+              variant="warning"
+            >
               Login
             </Button>{" "}
           </NavLink>
           <NavLink to="/register">
-            <Button className="text-light " variant="warning">
+            <Button
+              className="text-light hover:bg-yellow-500 "
+              variant="warning"
+            >
               Register
             </Button>{" "}
           </NavLink>

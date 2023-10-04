@@ -9,23 +9,27 @@ import { toast } from "react-toastify";
 
 const Form = () => {
   const { register, handleSubmit, reset } = useForm();
-  const [msg, setMsg] = useState("");
   const email = useSelector<AppState, string>((state) => state.user.email);
   const submitTrans = async (data: FieldValues) => {
     const { name, type, amount, transDate } = data;
     try {
-      const res = await axios.post(`${addTransApi}`, {
-        email: email,
-        name,
-        type,
-        amount,
-        transDate,
-      });
-      if (res) {
-        toast.success(res.data, {
-          position: "top-center",
-          autoClose: 3000,
+      if (!name || !type || !amount || !transDate) {
+        toast.error("All Fields are mandatory");
+      } else {
+        const res = await axios.post(`${addTransApi}`, {
+          email: email,
+          name,
+          type,
+          amount,
+          transDate,
         });
+        if (res.data) {
+          toast.success(res.data, {
+            position: "top-center",
+            autoClose: 3000,
+          });
+          reset();
+        }
       }
     } catch (err) {
       toast.error(err, {
