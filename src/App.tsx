@@ -21,7 +21,7 @@ import FAQ from "./pages/FAQ";
 import { authService } from "./redux/services/allServices";
 import { Dispatch } from "redux";
 import Earnings from "./components/budget/pages/Earnings";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
