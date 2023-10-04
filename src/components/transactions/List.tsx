@@ -34,12 +34,12 @@ const List = () => {
   const shares: Shares[] = [
     {
       type: "Balance",
-      color: "rgb(245, 47, 12)",
+      color: "rgba(68, 10, 14, 0.918)",
       percent: availablePercent,
     },
     {
       type: "Incomes",
-      color: "rgb(27, 77, 14)",
+      color: "rgb(36, 151, 7)",
 
       percent: incomePercent,
     },

@@ -10,9 +10,7 @@ const NavBar = () => {
   const auth = useSelector<AppState>((state) => state.auth);
   const name = useSelector<AppState, string>((state) => state.user.name);
   const [menu, setMenu] = useState("hidden");
-  // const appLogout = () => {
-  //   sessionStorage.removeItem("data");
-  // };
+
   return (
     <div className="bg-indigo-900 w-100 h-auto flex">
       <div className="w-1/3 p-2 m-3">
@@ -26,7 +24,7 @@ const NavBar = () => {
         </NavLink>
       </div>
       <div className="hidden lg:flex w-1/4 p-2 m-3">
-        <span className="text-secondary ">Hello!</span>
+        <span className="text-warning ">Hello!</span>
         <span className=" text-indigo-100 h5 pl-1">
           {auth ? name.split(" ")[0] : "Guest"}
         </span>

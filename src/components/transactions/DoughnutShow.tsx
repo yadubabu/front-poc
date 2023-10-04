@@ -7,14 +7,10 @@ import { Tooltip } from "chart.js";
 import { DoughnutProps } from "../../dataTypes";
 import { DoughnutData } from "../../dataTypes";
 import { DoughnutOptions } from "../../dataTypes";
-import { FaRupeeSign } from "react-icons/fa";
 
 Chart.register(ArcElement, Tooltip, Legend);
 
 const DoughnutShow = () => {
-  const availableAmount = useSelector<AppState, number>(
-    (state) => state.account.availableAmount
-  );
   const shares = useSelector<AppState, Shares[]>((state) => state.shares);
   const getPercent = () => {
     const res = shares.map((share: Shares) => {
@@ -30,15 +26,15 @@ const DoughnutShow = () => {
       {
         data: getPercent(),
         backgroundColor: [
-          "rgb(245, 47, 12)",
-          "rgb(27, 77, 14)",
+          "rgba(68, 10, 14, 0.918)",
+          "rgb(36, 151, 7)",
           "rgb(155, 05, 186)",
           "rgb(238, 174, 26)",
           "rgb(15, 127, 201)",
         ],
         borderColor: [
-          "rgb(245, 47, 12)",
-          "rgb(27, 77, 14)",
+          "rgba(68, 10, 14, 0.918)",
+          "rgb(36, 151, 7)",
           "rgb(155, 05, 186)",
           "rgb(238, 174, 26)",
           "rgb(15, 127, 201)",
@@ -47,8 +43,8 @@ const DoughnutShow = () => {
         borderRadius: 5,
         spacing: 3,
         hoverBackgroundColor: [
-          "rgb(245, 47, 12)",
-          "rgb(27, 77, 14)",
+          "rgba(68, 10, 14, 0.918)",
+          "rgb(36, 151, 7)",
           "rgb(155, 05, 186)",
           "rgb(238, 174, 26)",
           "rgb(15, 127, 201)",

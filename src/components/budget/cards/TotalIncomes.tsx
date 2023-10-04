@@ -13,7 +13,7 @@ const TotalIncomes = () => {
         val={totalIncomes}
         name="totalincomes"
         title="Total Incomes"
-        color="rgb(27, 77, 14)"
+        color="rgb(36, 151, 7)"
       />
     </div>
   );

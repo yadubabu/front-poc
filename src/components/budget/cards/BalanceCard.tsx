@@ -8,14 +8,12 @@ const BalanceCard = () => {
     ({ account }) => account.availableAmount
   );
   return (
-    <div className="bal flex rounded-full bg-orange m-4 align-center justify-center text-xl">
-      <span className="text-black font-bold text-md pt-1">
-        Available Balance-
-      </span>
-      <span className="mt-2 text-md font-bold text-black">
+    <div className="bal flex rounded-full m-4 align-center justify-center text-xl">
+      <span className="font-bold text-md pt-1">Available Balance-</span>
+      <span className="mt-2 text-md font-bold text-rgba(68, 10, 14, 0.918)">
         <FaRupeeSign />
       </span>
-      <span className="text-black font-bold text-md mt-1 pb-1">
+      <span className="text-rgba(68, 10, 14, 0.918) font-bold text-md mt-1 pb-1">
         {availableAmount}
       </span>
     </div>
