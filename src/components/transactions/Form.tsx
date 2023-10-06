@@ -6,18 +6,28 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { AppState } from "../../redux/store";
 import { toast } from "react-toastify";
+import { Account,Budget } from "../../dataTypes";
 
 const Form = () => {
   const { register, handleSubmit, reset } = useForm();
   const email = useSelector<AppState, string>((state) => state.user.email);
-  const availableAmount=useSelector<AppState,number>(state=>state.account.availableAmount);
+  const {availableAmount,totalExpense,totalInvestment,totalSavings}=useSelector<AppState,Account>(state=>state.account);
+  const {totalBudget,expenseBudget,investmentBudget,savingsBudget}=useSelector<AppState,Budget>(state=>state.budget)
+  
   const submitTrans = async (data: FieldValues) => {
     const { name, type, amount, transDate } = data;
     const getMessage=()=>{
       if(type==='income'){
         return `Your account is Credited with ${amount}.Available balance is ${availableAmount+parseInt(amount)}`
       }else{
-        return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`
+        if(type==='expense'){
+          if(totalExpense+parseInt(amount)<expenseBudget && totalExpense+parseInt(amount)>(expenseBudget-(expenseBudget*0.05))){
+            return `Available Balance is ${availableAmount-parseInt(amount)} Your limit on Expense is getting ready overflow.So please keep sufficient balance in your account`;
+          }
+          else{
+            return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`
+          }
+        }
       }
     }
       if (!name || !type || !amount || !transDate) {
