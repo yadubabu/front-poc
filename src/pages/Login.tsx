@@ -15,10 +15,7 @@ type FormData = {
 };
 
 const Login = () => {
-  const [showModal, setShowModal] = useState(false);
-  const auth = useSelector<Auth>((state) => state.auth);
-  const [msg, setMsg] = useState("");
-  const navigate = useNavigate();
+  const isAuth = useSelector<Auth>((state) => state.auth);
   const {
     register,
     handleSubmit,

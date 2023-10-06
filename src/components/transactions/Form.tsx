@@ -52,7 +52,7 @@ const Form = () => {
         onSubmit={handleSubmit(submitTrans)}
         className="space-y-3 mt-4 m-2 align-center justify-center flex-col"
       >
-        <div className="row m-2 p-1 ">
+        <div className="row m-2 p-2 ">
           <label className="w-1/3 font-bold text-xs">Name</label>
           <input
             className="w-2/3 text-xs"
@@ -61,7 +61,7 @@ const Form = () => {
             {...register("name")}
           />
         </div>
-        <div className="row m-2 p-1">
+        <div className="row m-2 p-2">
           <label className="w-1/3 font-bold text-xs">Type</label>
           <select className="w-2/3 text-xs" {...register("type")}>
             <option value="Select categoery">Select</option>
@@ -71,7 +71,7 @@ const Form = () => {
             <option value="savings">savings</option>
           </select>
         </div>
-        <div className="row m-1 p-1">
+        <div className="row m-1 p-2">
           <label className="w-1/3 font-bold text-xs ">Amount</label>
 
           <input
@@ -81,7 +81,7 @@ const Form = () => {
             {...register("amount")}
           />
         </div>
-        <div className="row m-2 p-1 align-center justify-center">
+        <div className="row m-2 p-2 align-center justify-center">
           <label className="w-1/3 font-bold text-xs">Date</label>
           <input
             type="date"

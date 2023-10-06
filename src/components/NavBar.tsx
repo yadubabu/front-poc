@@ -12,7 +12,7 @@ import { Dispatch } from "redux";
 import { Messages } from "../dataTypes";
 
 const NavBar = () => {
-  const auth = useSelector<AppState>((state) => state.auth);
+  const isAuth = useSelector<AppState>((state) => state.auth);
   const name = useSelector<AppState, string>((state) => state.user.name);
 
   const dispatch: Dispatch<any> = useDispatch();
@@ -21,7 +21,7 @@ const NavBar = () => {
       dispatch(messageService(email))
     },[])
   const [menu, setMenu] = useState("hidden");
-
+  const key=isAuth ? '':'hidden';  
   return (
     <div className="bg-indigo-900 w-100 h-auto flex align-center justify-between">
       <div className=" p-2 m-3">
@@ -37,11 +37,11 @@ const NavBar = () => {
       <div className="hidden lg:flex  p-2 m-3">
         <span className="text-warning ">Hello!</span>
         <span className=" text-indigo-100 h5 pl-1">
-          {auth ? name.split(" ")[0] : "Guest"}
+          {isAuth ? name.split(" ")[0] : "Guest"}
         </span>
         
       </div>
-      <div className="h-1/2">
+      <div className={`w-1/7 ${key}`}>
         <NavLink to='/messages'  className="w-1/7 pt-3 flex"><span className="relative ">
               <IoIosNotifications className="text-light w-9 h-9 pt-2"/>
 </span>
@@ -51,7 +51,7 @@ const NavBar = () => {
         <NavLink to="/">
           <span className="p-2">Home</span>
         </NavLink>
-        {auth ? (
+        {isAuth ? (
           <NavLink to="/login">
             <span className="p-2" style={{ display: "none" }}>
               Login
@@ -62,7 +62,7 @@ const NavBar = () => {
             <span className="p-2">Login</span>
           </NavLink>
         )}
-        {auth ? (
+        {isAuth ? (
           <NavLink to="/register">
             <span className="p-2" style={{ display: "none" }}>
               Register
@@ -76,7 +76,7 @@ const NavBar = () => {
         <NavLink to="/about">
           <span className="p-2">About</span>
         </NavLink>
-        {!auth ? (
+        {!isAuth ? (
           <NavLink to="/logout">
             <span className="p-2" style={{ display: "none" }}>
               Logout
@@ -109,7 +109,7 @@ const NavBar = () => {
             <li className="text-center text-indigo-100 p-1 m-1">
               <NavLink to="/">Home</NavLink>
             </li>
-            {auth ? (
+            {isAuth ? (
               <li className="hidden text-center text-indigo-100 p-1 m-1">
                 <NavLink to="/login">Login</NavLink>
               </li>
@@ -118,7 +118,7 @@ const NavBar = () => {
                 <NavLink to="/login">Login</NavLink>
               </li>
             )}
-            {auth ? (
+            {isAuth ? (
               <li className="hidden text-center text-indigo-100 p-1 m-1">
                 <NavLink to="/register">Register</NavLink>
               </li>
@@ -131,7 +131,7 @@ const NavBar = () => {
             <li className="text-center text-indigo-100 p-1 m-1">
               <NavLink to="/about">About</NavLink>
             </li>
-            {auth ? (
+            {isAuth ? (
               <li className="text-center text-indigo-100 p-1 m-1">
                 <NavLink
                   to="/"

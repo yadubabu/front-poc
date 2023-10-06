@@ -27,7 +27,7 @@ const Sidebar = () => {
     dispatch(budgetService(email));
   }, [trans, auth]);
   return (
-    <div className="hidden pt-3 lg:flex row w-100  my-4  mx-2 bg-indigo-900 rounded-xl text-xs align-items-center justify-content-center text-center p-1">
+    <div className="hidden pt-2 lg:flex row w-100  my-4  mx-2 bg-indigo-900 rounded-xl text-xs align-items-center justify-content-center text-center ">
       <NavLink
         id="active"
         to="/dashboard"

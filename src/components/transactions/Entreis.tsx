@@ -9,7 +9,7 @@ const Entries = (props: Props) => {
   const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
 
   return (
-    <div>
+    <div >
       <h5 className="text-indigo-700 text-md font-bold p-2 text-center text-xl">
         Recent Transactions
       </h5>
@@ -31,7 +31,7 @@ const Entries = (props: Props) => {
             };
 
             return (
-              <div className="p-1 m-1 ">
+              <div className="p-2 m-2 ">
                 <div
                   style={{
                     color: `${style()}`,
