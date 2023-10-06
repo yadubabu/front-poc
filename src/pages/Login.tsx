@@ -15,28 +15,32 @@ type FormData = {
 };
 
 const Login = () => {
-  const [showModal, setShowModal] = useState(false);
   const auth = useSelector<Auth>((state) => state.auth);
-  const [msg, setMsg] = useState("");
-  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<FormData>({ mode: "onSubmit" });
+
+
   const submitHandle = async (data: FieldValues) => {
     const { email, password } = data;
-    const result = await axios.post(loginApi, {
-      email,
-      password,
-    });
-    if (result.data.msg === "Successfully Login") {
-      sessionStorage.setItem("data", JSON.stringify(result.data));
-      toast.success(result.data.msg);
-      window.location.href = "/dashboard";
-    } else {
-      toast.error(result.data.msg);
+    try{
+      const result = await axios.post(loginApi, {
+        email,
+        password,
+      });
+      if (result.data.msg === "Successfully Login") {
+        sessionStorage.setItem("data", JSON.stringify(result.data));
+        await toast.success(result.data.msg);
+        window.location.href = "/dashboard";
+      } else {
+        toast.error(result.data.msg);
+      }
+    }
+    catch(err){
+      console.log(err);
+      
     }
   };
   return (
