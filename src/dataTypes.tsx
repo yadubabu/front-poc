@@ -57,3 +57,10 @@ export interface Shares {
   color: string;
   percent: number;
 }
+
+export interface Messages{
+  _id: string;
+
+  email:string,
+  message:string
+}

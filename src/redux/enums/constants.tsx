@@ -8,4 +8,5 @@ export enum Types {
   SET_AUTH = "SET_AUTH",
   DELETE_TRANS = "DELETE_TRANS",
   ADD_TRANS = "ADD_TRANS",
+  GET_MESSAGES='GET_MESSAGES',
 }

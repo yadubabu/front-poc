@@ -6,8 +6,8 @@ import { useSelector } from "react-redux";
 import { Auth } from "../dataTypes";
 import LoginErrors from "../validators/login/LoginErrors";
 import { LoginOptions } from "../validators/login/LoginOptions";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 type FormData = {
   email: string;
@@ -15,37 +15,32 @@ type FormData = {
 };
 
 const Login = () => {
+  const [showModal, setShowModal] = useState(false);
   const auth = useSelector<Auth>((state) => state.auth);
+  const [msg, setMsg] = useState("");
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>({ mode: "onSubmit" });
-
-
   const submitHandle = async (data: FieldValues) => {
     const { email, password } = data;
-    try{
-      const result = await axios.post(loginApi, {
-        email,
-        password,
-      });
-      if (result.data.msg === "Successfully Login") {
-        sessionStorage.setItem("data", JSON.stringify(result.data));
-        await toast.success(result.data.msg);
-        window.location.href = "/dashboard";
-      } else {
-        toast.error(result.data.msg);
-      }
-    }
-    catch(err){
-      console.log(err);
-      
+    const result = await axios.post(loginApi, {
+      email,
+      password,
+    });
+    if (result.data.msg === "Successfully Login") {
+      sessionStorage.setItem("data", JSON.stringify(result.data));
+      toast.success(result.data.msg);
+      window.location.href = "/dashboard";
+    } else {
+      toast.error(result.data.msg);
     }
   };
   return (
     <div className="homeForm">
-      {!auth && (
+      {!isAuth && (
         <div className="lg:pr-20">
           <form className="form" onSubmit={handleSubmit(submitHandle)}>
             <h1
@@ -85,6 +80,7 @@ const Login = () => {
                 className="formBtn text-sm bg-indigo-900 text-indigo-100 uppercase h-8 rounded-full"
                 type="submit"
                 value="Login"
+                onClick={handleSubmit(submitHandle)}
               />
             </div>
             <div className="text-center text-secondary mb-2">

@@ -10,7 +10,7 @@ const TotalInvestments = () => {
     <div>
       <Cards
         val={totalInvestment}
-        name="investmentbudget"
+        name="totalinvestment"
         title="Total Investments"
         color="rgb(15, 127, 201)"
       />
