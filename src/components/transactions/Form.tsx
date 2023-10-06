@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FieldValues } from "react-hook-form";
-import { addTransApi } from "../../redux/apis";
+import { addTransApi, apiAddMessages } from "../../redux/apis";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { AppState } from "../../redux/store";
@@ -10,9 +10,16 @@ import { toast } from "react-toastify";
 const Form = () => {
   const { register, handleSubmit, reset } = useForm();
   const email = useSelector<AppState, string>((state) => state.user.email);
+  const availableAmount=useSelector<AppState,number>(state=>state.account.availableAmount);
   const submitTrans = async (data: FieldValues) => {
     const { name, type, amount, transDate } = data;
-    try {
+    const getMessage=()=>{
+      if(type==='income'){
+        return `Your account is Credited with ${amount}.Available balance is ${availableAmount+parseInt(amount)}`
+      }else{
+        return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`
+      }
+    }
       if (!name || !type || !amount || !transDate) {
         toast.error("All Fields are mandatory");
       } else {
@@ -22,21 +29,18 @@ const Form = () => {
           type,
           amount,
           transDate,
-        });
-        if (res.data) {
-          toast.success(res.data, {
-            position: "top-center",
-            autoClose: 3000,
+        }).then((res)=>toast.success(res.data))
+        
+        .then(async()=>{
+          return await axios.post(`${apiAddMessages}/${email}`,{
+            email,
+            message:getMessage()
           });
-          reset();
-        }
+        }).then(()=>reset())
+        .catch(err=>console.log(err))
+    
       }
-    } catch (err) {
-      toast.error(err, {
-        position: "top-center",
-        autoClose: 3000,
-      });
-    }
+   
   };
 
   return (

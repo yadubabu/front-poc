@@ -1,10 +1,11 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
-import { getAccountApi, getTransApi, getbudgetApi } from "../apis";
+import { apigetMessages, getAccountApi, getTransApi, getbudgetApi } from "../apis";
 import { Dispatch } from "redux";
 import { getBudget } from "../actions/budgetActions";
 import { getAccount } from "../actions/accountAction";
 import { getTransactions } from "../actions/transactionActions";
 import { authAction } from "../actions/authAction";
+import { getMessageAction } from "../actions/getMessageAction";
 
 export const authService = () => {
   return async (dispatch: Dispatch) => {
@@ -26,6 +27,18 @@ export const budgetService = (email: string) => {
       .get(`${getbudgetApi}/${email}`)
       .then((res: AxiosResponse) => {
         return dispatch(getBudget(res.data));
+      })
+      .catch((err: AxiosError) => console.log(err));
+  };
+};
+
+export const messageService = (email: string) => {
+  return async (dispatch: Dispatch) => {
+    await axios
+      .get(`${apigetMessages}/${email}`)
+      .then((res: AxiosResponse) => {
+        
+        return dispatch(getMessageAction(res.data));
       })
       .catch((err: AxiosError) => console.log(err));
   };

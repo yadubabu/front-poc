@@ -5,13 +5,14 @@
 .land {
   position: relative;
   width: auto;
-  height: 83vh;
+  height: 85vh;
   overflow: hidden;
 }
 .landModal {
   position: absolute;
   top: 0;
   left: 0;
+  bottom: 0;
   opacity: 0.7;
   background-color: rgba(11, 12, 11, 0.932);
   display: flex;

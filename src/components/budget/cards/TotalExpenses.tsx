@@ -3,6 +3,7 @@ import Cards from "./shared/Card";
 import { useSelector } from "react-redux";
 import { Account, Budget } from "../../../dataTypes";
 import { AppState } from "../../../redux/store";
+
 const TotalExpenses = () => {
   const totalExpense = useSelector<AppState, number>(
     ({ account }) => account.totalExpense
@@ -11,7 +12,7 @@ const TotalExpenses = () => {
     <div>
       <Cards
         val={totalExpense}
-        name="expensebudget"
+        name="totalexpense"
         title="Total Expenses"
         color="rgb(238, 174, 26)"
       />

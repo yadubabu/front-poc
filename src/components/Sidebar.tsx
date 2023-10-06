@@ -31,44 +31,44 @@ const Sidebar = () => {
       <NavLink
         id="active"
         to="/dashboard"
-        className="p-2 m-2 font-bold uppercase text-light"
+        className="w-1/2 p-2 m-2 font-bold uppercase text-light"
       >
         Dashboard
       </NavLink>{" "}
       <NavLink
         to="/budget/setbudget"
-        className="p-2 m-2 text-light text-sm text-sm"
+        className="w-1/2 p-2 m-2 text-light text-sm text-sm"
       >
         Set Budget
       </NavLink>{" "}
-      <NavLink to="/budget/totalincomes" className="p-2 m-2 text-light text-sm">
+      <NavLink to="/budget/totalincomes" className="w-1/2 p-2 m-2 text-light text-sm">
         Total Incomes
       </NavLink>
-      <NavLink to="/budget/totalsavings" className="p-2 m-2 text-light text-sm">
+      <NavLink to="/budget/totalsavings" className="w-1/2 p-2 m-2 text-light text-sm">
         Total Savings{" "}
       </NavLink>
-      <NavLink to="/budget/totalexpense" className="p-2 m-2 text-light text-sm">
+      <NavLink to="/budget/totalexpense" className="w-1/2 p-2 m-2 text-light text-sm">
         Total Expenses{" "}
       </NavLink>
       <NavLink
         to="/budget/totalinvestment"
-        className="p-2 m-2 text-light text-sm"
+        className="w-1/2 p-2 m-2 text-light text-sm"
       >
         Total Investments{" "}
       </NavLink>
-      <NavLink to="/transactions/add" className="p-2 m-2 text-light text-sm">
+      <NavLink to="/transactions/add" className="w-1/2 p-2 m-2 text-light text-sm">
         Add Transactions
       </NavLink>
-      <NavLink to="/transactions/edit" className="p-2 m-2 text-light text-sm">
+      <NavLink to="/transactions/edit" className="w-1/2 p-2 m-2 text-light text-sm">
         Transactions History{" "}
       </NavLink>
       <NavLink
         to="/transactions/tracker"
-        className=" p-2 m-2 text-light text-sm"
+        className="w-1/2 p-2 m-2 text-light text-sm"
       >
         Transactions Tracker{" "}
       </NavLink>
-      <NavLink to="/faq" className=" p-2 m-2 text-light text-sm">
+      <NavLink to="/faq" className="w-1/2 p-2 m-2 text-light text-sm">
         FAQ's{" "}
       </NavLink>
     </div>

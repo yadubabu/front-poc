@@ -23,7 +23,7 @@ import { Dispatch } from "redux";
 import Earnings from "./components/budget/pages/Earnings";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import GetMessages from "./components/transactions/Messages";
 const App = () => {
   const dispatch: Dispatch<any> = useDispatch();
   useEffect(() => {
@@ -45,9 +45,9 @@ const App = () => {
           <Route path="/logout" element={<Logout />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/about" element={<About />} />
           <Route path="/faq" element={<FAQ />} />
-          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/budget/setbudget" element={<SetBudget />} />
           <Route path="/budget/totalsavings" element={<SavingsBudget />} />
           <Route path="/budget/totalincomes" element={<Earnings />} />
@@ -56,6 +56,10 @@ const App = () => {
           <Route
             path="/budget/totalinvestment"
             element={<InvestmentBudget />}
+          />
+           <Route
+            path="/messages"
+            element={<GetMessages />}
           />
           <Route
             path="/transactions/tracker"
