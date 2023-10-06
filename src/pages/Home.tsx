@@ -3,7 +3,7 @@ import LandingPage from "./LandingPage";
 import "./style.css";
 const Home = () => {
   return (
-    <div className="">
+    <div>
       <LandingPage />{" "}
     </div>
   );

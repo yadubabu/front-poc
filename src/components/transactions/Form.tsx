@@ -29,14 +29,16 @@ const Form = () => {
           type,
           amount,
           transDate,
-        }).then((res)=>toast.success(res.data))
+        })
         
         .then(async()=>{
           return await axios.post(`${apiAddMessages}/${email}`,{
             email,
-            message:getMessage()
+            message:getMessage(),
+            msgDate:Date.now()
           });
-        }).then(()=>reset())
+        })
+        .then((res)=>toast.success(res.data)).then(()=>reset())
         .catch(err=>console.log(err))
     
       }

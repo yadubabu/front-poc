@@ -6,6 +6,7 @@ const initialValue: Messages[] = [
     _id: "",
     email: "",
    message:'',
+   msgDate:new Date,
   },
 ];
 

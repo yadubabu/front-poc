@@ -60,41 +60,41 @@ function TransactionsHistory() {
   };
   return (
     <div className="row bg-indigo-200">
-      <div className="w-1/5">
+      <div className="w-1/5 mx-3 ">
         <Sidebar />
       </div>
-      <div className="w-3/4 my-4 m-3 ">
+      <div className="w-3/4 my-4 m-2 ">
         {" "}
         <Table className="" striped bordered variant="light">
           <thead>
             <tr>
               <th
                 className="text-white text-center text-sm"
-                style={{ background: "black" }}
+                style={{ background: "orange" }}
               >
                 S.no
               </th>
               <th
                 className="text-white text-center text-sm"
-                style={{ background: "black" }}
+                style={{ background: "orange" }}
               >
                 Name
               </th>
               <th
                 className="text-white text-center text-sm"
-                style={{ background: "black" }}
+                style={{ background: "orange" }}
               >
                 Type
               </th>
               <th
                 className="text-white text-center text-sm"
-                style={{ background: "black" }}
+                style={{ background: "orange" }}
               >
                 Amount
               </th>
               <th
                 className="text-white text-center text-sm"
-                style={{ background: "black" }}
+                style={{ background: "orange" }}
               >
                 Action(Edit/Delete)
               </th>
@@ -103,7 +103,7 @@ function TransactionsHistory() {
           <tbody>
             {trans !== null &&
               trans
-                .slice(trans.length - trans.length, trans.length)
+                .slice(trans.length - trans.length, 14)
                 .map((tran, index) => (
                   <>
                     {tran._id === editId ? (
