@@ -20,7 +20,7 @@ const GetMessages=()=>{
         <div className="bg-indigo-200 w-1/2 m-4 rounded-xl pb-3">
             <div className="flex align-center justify-evenly p-3">
                 <span className="text-2xl text-font">Messages</span>
-                <span className="text-secondary p-1">You have{messages.length} Messages</span></div>
+                <span className="text-secondary p-1">You have <span className="font-bold">{messages.length}</span> Messages</span></div>
             <ul>
                 {messages.map((message:Messages)=>{
                     return(<li className="m-4">

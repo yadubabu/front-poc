@@ -47,15 +47,15 @@ const Form = () => {
 
   return (
     <div className="flex-col align-center justify-center ">
-      <h3 className="m-1 p-1 text-center font-bold text-indigo-700 h5">
+      <h3 className="m-1 p-2 text-center font-bold text-indigo-700 h5">
         Add Transactions
       </h3>
       <form
         onSubmit={handleSubmit(submitTrans)}
         className="space-y-3 mt-4 m-2 align-center justify-center flex-col"
       >
-        <div className="row m-2 p-1 ">
-          <label className="w-1/3 font-bold text-xs">Name</label>
+        <div className="row m-2 p-2 ">
+          <label className="w-1/3 font-bold text-sm p-1">Name</label>
           <input
             className="w-2/3 text-xs"
             type="text"
@@ -63,8 +63,8 @@ const Form = () => {
             {...register("name")}
           />
         </div>
-        <div className="row m-2 p-1">
-          <label className="w-1/3 font-bold text-xs">Type</label>
+        <div className="row m-2 p-2">
+          <label className="w-1/3 font-bold text-sm p-1">Type</label>
           <select className="w-2/3 text-xs" {...register("type")}>
             <option value="Select categoery">Select</option>
             <option value="income">income</option>
@@ -73,27 +73,27 @@ const Form = () => {
             <option value="savings">savings</option>
           </select>
         </div>
-        <div className="row m-1 p-1">
-          <label className="w-1/3 font-bold text-xs ">Amount</label>
+        <div className="row m-1 p-2">
+          <label className="w-1/3 font-bold text-sm p-1">Amount</label>
 
           <input
             type="number"
             placeholder="Amount"
-            className="w-2/3 text-xs"
+            className="w-2/3 text-xs p-1"
             {...register("amount")}
           />
         </div>
-        <div className="row m-2 p-1 align-center justify-center">
-          <label className="w-1/3 font-bold text-xs">Date</label>
+        <div className="row m-2 p-2 align-center justify-center">
+          <label className="w-1/3 font-bold text-sm ">Date</label>
           <input
             type="date"
             {...register("transDate")}
-            className="w-2/3 text-xs"
+            className="w-2/3 text-xs p-1"
           />
         </div>
         <div className="row align-center justify-center mt-4">
           <input
-            className="bg-indigo-700 text-light rounded-xl  m-2 center text-xs p-1 w-auto p-2"
+            className="bg-indigo-700 text-light rounded-md  m-2 center text-xs p-1 w-auto p-2"
             type="submit"
             value="Add"
           />

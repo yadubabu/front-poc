@@ -33,9 +33,24 @@ const ExpenseBudget = () => {
           </div>
           <div>
             <div className="ml-5 mr-5">
-              <ProgressBar now={(totalExpense * 100) / expenseBudget} />
+              <ProgressBar className="h-5 rounded-xl w-100">
+                <ProgressBar
+                  className="bg-danger"
+                  now={(totalExpense * 100) / expenseBudget}
+                  label="Spent"
+                  key={1}
+                />
+                <ProgressBar
+                  className="bg-success"
+                  now={100 - (totalExpense * 100) / expenseBudget }
+                  label="Left"
+                  key={2}
+                />
+
+                
+              </ProgressBar>{" "}
             </div>
-            <div className="font-bold m-1 mx-4 text-xs">
+            <div className="font-bold m-1 mx-4 text-md">
               {totalExpense}
               <span className="text-xs">
                 ({Math.round((totalExpense * 100) / expenseBudget)}%)

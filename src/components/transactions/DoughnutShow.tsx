@@ -67,7 +67,7 @@ const DoughnutShow = () => {
 
   return (
     <div className="flex-col">
-      <h5 className="text-indigo-700 text-md font-bold p-2 text-center text-xl">
+      <h5 className="text-indigo-700 text-md font-bold p-3 text-center text-xl">
         Transactions Tracker
       </h5>
       <Doughnut data={data} options={options} />

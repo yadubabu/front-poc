@@ -47,7 +47,7 @@ const NavBar = () => {
 </span>
 <span className="absolute text-danger"><BiSolidBadge/></span></NavLink>
             </div>
-      <div className="hidden md:flex lg:flex  p-3 m-3 uppercase text-sm p-2 m-2 text-indigo-100">
+      <div className="hidden md:flex lg:flex  p-3 m-3 uppercase text-sm  text-indigo-200">
         <NavLink to="/">
           <span className="p-2">Home</span>
         </NavLink>
