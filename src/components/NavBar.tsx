@@ -41,13 +41,13 @@ const NavBar = () => {
         </span>
         
       </div>
-      <div className={`w-1/7 ${key}`}>
+      <div className="h-1/2">
         <NavLink to='/messages'  className="w-1/7 pt-3 flex"><span className="relative ">
               <IoIosNotifications className="text-light w-9 h-9 pt-2"/>
 </span>
-<span className="absolute "><BiSolidBadge/></span></NavLink>
+<span className="absolute text-danger"><BiSolidBadge/></span></NavLink>
             </div>
-      <div className="hidden md:flex lg:flex  p-3 m-3 uppercase text-sm p-2 m-2 text-indigo-100">
+      <div className="hidden md:flex lg:flex  p-3 m-3 uppercase text-sm  text-indigo-200">
         <NavLink to="/">
           <span className="p-2">Home</span>
         </NavLink>
@@ -143,9 +143,7 @@ const NavBar = () => {
             ) : (
               ""
             )}
-            {/* {auth ? (<li> */}
-            
-            {/* ):''} */}
+           
           </ul>
         </div>
       </div>

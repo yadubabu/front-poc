@@ -7,36 +7,47 @@ import "./style.css";
 import "../../pages/style.css";
 import { FieldValues } from "react-hook-form/dist/types";
 import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
+import { AppState } from "../../redux/store";
+import { apiAddMessages } from "../../redux/apis";
 
 const TransactionsForm = () => {
-  let user = JSON.parse(sessionStorage.getItem("data") || "{}");
   const { register, handleSubmit, reset } = useForm();
+  const availableAmount=useSelector<AppState,number>(state=>state.account.availableAmount);
+  const email = useSelector<AppState, string>((state) => state.user.email);
 
   const submitTrans = async (data: FieldValues) => {
     const { name, type, amount, transDate } = data;
-    await axios
-      .post(`${addTransApi}`, {
-        email: user.email,
-        name,
-        type,
-        amount,
-        transDate,
-      })
-      .then((res) =>
-        toast(res.data, {
-          position: "top-center",
-          autoClose: 3000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          type: "success",
+    const getMessage=()=>{
+      if(type==='income'){
+        return `Your account is <span class>Credited</span> with ${amount}.Available balance is ${availableAmount+parseInt(amount)}`
+      }else{
+        return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`
+      }
+    }
+      if (!name || !type || !amount || !transDate) {
+        toast.error("All Fields are mandatory");
+      } else {
+        const res = await axios.post(`${addTransApi}`, {
+          email: email,
+          name,
+          type,
+          amount,
+          transDate,
         })
-      )
-      .then(() => reset())
-      .catch((err) => toast.error(err));
+        
+        .then(async()=>{
+          return await axios.post(`${apiAddMessages}/${email}`,{
+            email,
+            message:getMessage(),
+            msgDate:Date.now()
+          });
+        })
+        .then((res)=>toast.success(res.data)).then(()=>reset())
+        .catch(err=>console.log(err))
+    
+      }
+   
   };
 
   return (

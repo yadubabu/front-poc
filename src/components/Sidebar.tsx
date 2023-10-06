@@ -27,7 +27,7 @@ const Sidebar = () => {
     dispatch(budgetService(email));
   }, [trans, auth]);
   return (
-    <div className="hidden pt-2 lg:flex row w-100  my-4  mx-2 bg-indigo-900 rounded-xl text-xs align-items-center justify-content-center text-center ">
+    <div className="hidden pt-3 lg:flex row w-100  my-4  mx-2 bg-indigo-900 rounded-xl text-xs align-items-center justify-content-center text-center p-1">
       <NavLink
         id="active"
         to="/dashboard"
@@ -44,9 +44,7 @@ const Sidebar = () => {
       <NavLink to="/budget/totalincomes" className="w-1/2 p-2 m-2 text-light text-sm">
         Total Incomes
       </NavLink>
-      <NavLink to="/budget/totalsavings" className="w-1/2 p-2 m-2 text-light text-sm">
-        Total Savings{" "}
-      </NavLink>
+      
       <NavLink to="/budget/totalexpense" className="w-1/2 p-2 m-2 text-light text-sm">
         Total Expenses{" "}
       </NavLink>
@@ -55,6 +53,9 @@ const Sidebar = () => {
         className="w-1/2 p-2 m-2 text-light text-sm"
       >
         Total Investments{" "}
+      </NavLink>
+      <NavLink to="/budget/totalsavings" className="w-1/2 p-2 m-2 text-light text-sm">
+        Total Savings{" "}
       </NavLink>
       <NavLink to="/transactions/add" className="w-1/2 p-2 m-2 text-light text-sm">
         Add Transactions

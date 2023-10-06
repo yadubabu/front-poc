@@ -17,9 +17,9 @@ const Cards = (props: Props) => {
       >
         <div className="flip-card-inner">
           <div className="flip-card-front flex-column ">
-            <p className="h6 font-bold text-gray-300 text-xs">{props.title}</p>
-            <p className="h5 font-bold p-1 flex text-white md:text-sm sm:text-xs lg:flex lg:text-xl">
-              <span className="mt-1 ">
+            <p className="h6 font-medium text-dark text-md">{props.title}</p>
+            <p className="h4 font-medium p-1 flex text-white md:text-sm sm:text-xs lg:flex lg:text-2xl">
+              <span className="mt-1">
                 {" "}
                 <FaRupeeSign />
               </span>
@@ -30,7 +30,7 @@ const Cards = (props: Props) => {
             className="flip-card-back"
             style={{ background: `${props.color}` }}
           >
-            <div className="h6 text-xs">{props.title}</div>
+            <div className="h6 text-sm">{props.title}</div>
             <p className="text-black">To see {props.title}</p>
             <NavLink
               className="text-white font-bold text-sm"

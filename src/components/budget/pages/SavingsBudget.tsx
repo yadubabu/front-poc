@@ -33,11 +33,25 @@ const SavingsBudget = () => {
           </div>
           <div>
             <div className="ml-5 mr-5 ">
-              <ProgressBar now={(totalSavings * 100) / savingsBudget} />
-            </div>
-            <div className="font-bold m-1 mx-4 text-xs">
+            <ProgressBar className="h-5 rounded-xl w-100">
+                <ProgressBar
+                  className="bg-danger"
+                  now={(totalSavings * 100) / savingsBudget}
+                  label="Spent"
+                  key={1}
+                />
+                <ProgressBar
+                  className="bg-success"
+                  now={100 - (totalSavings * 100) / savingsBudget }
+                  label="Left"
+                  key={2}
+                />
+
+                
+              </ProgressBar>{" "}            </div>
+            <div className="font-bold m-1 mx-4 text-md">
               {totalSavings}
-              <span className="text-2xs">
+              <span className="font-medium text-sm">
                 ({Math.round((totalSavings * 100) / savingsBudget)}%)
               </span>{" "}
               of {savingsBudget} Spent

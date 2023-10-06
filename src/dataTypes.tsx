@@ -60,7 +60,7 @@ export interface Shares {
 
 export interface Messages{
   _id: string;
-
   email:string,
   message:string
+  msgDate:Date
 }

@@ -4,33 +4,33 @@ import { useEffect } from "react";
 import { Messages } from "../../dataTypes";
 import { messageService } from "../../redux/services/allServices";
 import { Dispatch } from "redux";
-import axios from "axios";
+import {IoMdAddCircle} from 'react-icons/io';
+import {AiFillMinusCircle} from 'react-icons/ai'
+
 const GetMessages=()=>{
     const dispatch: Dispatch<any> = useDispatch();
     const email=useSelector<AppState,string>(state=>state.user.email);
     const messages=useSelector<AppState,Messages[]>(state=>state.messages);
 
     useEffect(()=>{
-
         dispatch(messageService(email))
       },[])
    
     return(
-        <div className="bg-indigo-100 text-center m-3 p-3 rounded-xl flex-col align-center justify-center w-1/2">
-            <h3 className="mb-4 font-semibold text-gray-900 dark:text-white text-xl font-bold ">Messages</h3>
-            {messages.map((message:Messages)=>{
-                return (<div>
-<ul className="w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-    <li className="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600 flex align-center justify-center">
-        <div className="flex items-center pl-3">
-            <label  className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{message.message} </label>
+        <div className="bg-indigo-200 w-1/2 m-4 rounded-xl pb-3">
+            <div className="flex align-center justify-evenly p-3">
+                <span className="text-2xl text-font">Messages</span>
+                <span className="text-secondary p-1">You have <span className="font-bold">{messages.length}</span> Messages</span></div>
+            <ul>
+                {messages.map((message:Messages)=>{
+                    return(<li className="m-4">
+                        <div className="text-center flex align-center justify-evenly text-xs"><span>{message.msgDate.toString().split('-')[2].split('T')[0]}/{message.msgDate.toString().split('-')[1].split('T')[0]}</span><span>{message.msgDate.toString().split('T')[1].split('.')[0].split(':')[0]}:{message.msgDate.toString().split('T')[1].split('.')[0].split(':')[1]}</span></div>
+                        <div className='flex align-center justify-between border-t border-b rounded-xl p-3 ml-2 mr-2 bg-light'><span>{message.message}</span><span>{message.message.split(' ')[3]==='Credited'? (<span className="text-success"><IoMdAddCircle/></span>):(<span className="text-danger "><AiFillMinusCircle/></span>)}</span></div>
+                    </li>)
+                })} 
+            </ul>
         </div>
-        <hr/>
-    </li>
-    </ul>
-                </div>)
-            })}
-        </div>
+
     )
 }
 export default GetMessages;
