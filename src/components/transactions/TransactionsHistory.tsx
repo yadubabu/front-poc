@@ -65,36 +65,36 @@ function TransactionsHistory() {
       </div>
       <div className="w-3/4 my-4 m-2 ">
         {" "}
-        <Table className="" striped bordered variant="light">
+        <Table  striped variant="light">
           <thead>
             <tr>
               <th
                 className="text-white text-center text-sm"
-                style={{ background: "orange" }}
+                style={{ background: "gray" }}
               >
                 S.no
               </th>
               <th
                 className="text-white text-center text-sm"
-                style={{ background: "orange" }}
+                style={{ background: "gray" }}
               >
                 Name
               </th>
               <th
                 className="text-white text-center text-sm"
-                style={{ background: "orange" }}
+                style={{ background: "gray" }}
               >
                 Type
               </th>
               <th
                 className="text-white text-center text-sm"
-                style={{ background: "orange" }}
+                style={{ background: "gray" }}
               >
                 Amount
               </th>
               <th
                 className="text-white text-center text-sm"
-                style={{ background: "orange" }}
+                style={{ background: "gray" }}
               >
                 Action(Edit/Delete)
               </th>

@@ -28,7 +28,7 @@ const ExpenseBudget = () => {
             <span className="h3 mt-2">
               <FaRupeeSign />
             </span>
-            <span className="h2 "> {remainExpenses}</span>
+            <span className="h2 "> {Math.round(remainExpenses)}</span>
             <Badge className="h-1/2 mt-2 m-2 bg-success">Left</Badge>
           </div>
           <div>
@@ -55,7 +55,7 @@ const ExpenseBudget = () => {
               <span className="text-xs">
                 ({Math.round((totalExpense * 100) / expenseBudget)}%)
               </span>{" "}
-              of {expenseBudget} Spent
+              of {Math.round(expenseBudget)} Spent
             </div>
           </div>
         </div>

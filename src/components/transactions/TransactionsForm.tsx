@@ -10,11 +10,13 @@ import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 import { AppState } from "../../redux/store";
 import { apiAddMessages } from "../../redux/apis";
+import { Account,Budget } from "../../dataTypes";
 
 const TransactionsForm = () => {
   const { register, handleSubmit, reset } = useForm();
-  const availableAmount=useSelector<AppState,number>(state=>state.account.availableAmount);
-  const email = useSelector<AppState, string>((state) => state.user.email);
+  const {availableAmount,totalExpense,totalInvestment,totalSavings}=useSelector<AppState,Account>(state=>state.account);
+  const {totalBudget,expenseBudget,investmentBudget,savingsBudget}=useSelector<AppState,Budget>(state=>state.budget)
+    const email = useSelector<AppState, string>((state) => state.user.email);
 
   const submitTrans = async (data: FieldValues) => {
     const { name, type, amount, transDate } = data;
@@ -22,9 +24,50 @@ const TransactionsForm = () => {
       if(type==='income'){
         return `Your account is <span class>Credited</span> with ${amount}.Available balance is ${availableAmount+parseInt(amount)}`
       }else{
-        return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`
-      }
+        if(type==='expense'){
+          if(totalExpense+parseInt(amount)<expenseBudget ){
+            if(totalExpense+parseInt(amount)>(expenseBudget-(expenseBudget*0.05))){
+
+              return `Available Balance is ${availableAmount-parseInt(amount)}. Your limit on Expense is getting ready to overflow.So please keep sufficient balance in your account`;
+            }
+            else{
+              return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`
+            }
+          }else{
+            toast.error('There is no sufficient balance in your account')
+          } 
+        }
+        if(type==='savings'){
+          if(totalSavings+parseInt(amount)<savingsBudget ){
+            if(totalSavings+parseInt(amount)>(savingsBudget-(savingsBudget*0.05))){
+
+              return `Available Balance is ${availableAmount-parseInt(amount)}. Your limit on Expense is getting ready to overflow.So please keep sufficient balance in your account`;
+            }
+            else{
+              return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`
+            }
+          }else{
+            toast.error('There is no sufficient balance in your account')
+          }
+          
+        }
+        if(type==='investment'){
+         
+          if(totalInvestment+parseInt(amount)<investmentBudget ){
+            if(totalInvestment+parseInt(amount)>(investmentBudget-(investmentBudget*0.05))){
+
+              return `Available Balance is ${availableAmount-parseInt(amount)}. Your limit on Expense is getting ready to overflow.So please keep sufficient balance in your account`;
+            }
+            else{
+              return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`
+            }
+          }else{
+            toast.error('There is no sufficient balance in your account')
+          } 
+        
     }
+  }
+}
       if (!name || !type || !amount || !transDate) {
         toast.error("All Fields are mandatory");
       } else {

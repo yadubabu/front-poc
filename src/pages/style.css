@@ -22,7 +22,7 @@
   z-index: 999;
   overflow: auto;
   padding: 60px;
-  gap: 25px;
+  gap: 28px;
 }
 .landModal a button {
   font-weight: 700;
@@ -30,6 +30,7 @@
 .content {
   font-style: italic;
   text-align: center;
+  font-size: large;
   font-family: "Times New Roman", Times, serif, "Courier New";
 }
 .dash {

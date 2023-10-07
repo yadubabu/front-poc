@@ -24,7 +24,7 @@ const GetMessages=()=>{
             <ul>
                 {messages.map((message:Messages)=>{
                     return(<li className="m-4">
-                        <div className="text-center flex align-center justify-evenly text-xs"><span>{message.msgDate.toString().split('-')[2].split('T')[0]}/{message.msgDate.toString().split('-')[1].split('T')[0]}</span><span>{message.msgDate.toString().split('T')[1].split('.')[0].split(':')[0]}:{message.msgDate.toString().split('T')[1].split('.')[0].split(':')[1]}</span></div>
+                        {/* <div className="text-center flex align-center justify-evenly text-xs"><span>{message.msgDate.toString().split('-')[2].split('T')[0]}/{message.msgDate.toString().split('-')[1].split('T')[0]}</span><span>{message.msgDate.toString().split('T')[1].split('.')[0].split(':')[0]}:{message.msgDate.toString().split('T')[1].split('.')[0].split(':')[1]}</span></div> */}
                         <div className='flex align-center justify-between border-t border-b rounded-xl p-3 ml-2 mr-2 bg-light'><span>{message.message}</span><span>{message.message.split(' ')[3]==='Credited'? (<span className="text-success"><IoMdAddCircle/></span>):message.message.split(' ')[3]==='Debited' ? (<span className="text-danger "><AiFillMinusCircle/></span>):(<span className="text-warning"><GoAlertFill/></span>)}</span></div>
                     </li>)
                 })} 

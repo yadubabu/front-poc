@@ -21,13 +21,47 @@ const Form = () => {
         return `Your account is Credited with ${amount}.Available balance is ${availableAmount+parseInt(amount)}`
       }else{
         if(type==='expense'){
-          if(totalExpense+parseInt(amount)<expenseBudget && totalExpense+parseInt(amount)>(expenseBudget-(expenseBudget*0.05))){
-            return `Available Balance is ${availableAmount-parseInt(amount)} Your limit on Expense is getting ready overflow.So please keep sufficient balance in your account`;
-          }
-          else{
-            return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`
-          }
+          if(totalExpense+parseInt(amount)<expenseBudget ){
+            if(totalExpense+parseInt(amount)>(expenseBudget-(expenseBudget*0.05))){
+
+              return `Available Balance is ${availableAmount-parseInt(amount)}. Your limit on Expense is getting ready to overflow.So please keep sufficient balance in your account`;
+            }
+            else{
+              return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`
+            }
+          }else{
+            toast.error('There is no sufficient balance in your account')
+          } 
         }
+        if(type==='savings'){
+          if(totalSavings+parseInt(amount)<savingsBudget ){
+            if(totalSavings+parseInt(amount)>(savingsBudget-(savingsBudget*0.05))){
+
+              return `Available Balance is ${availableAmount-parseInt(amount)}. Your limit on Expense is getting ready to overflow.So please keep sufficient balance in your account`;
+            }
+            else{
+              return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`
+            }
+          }else{
+            toast.error('There is no sufficient balance in your account')
+          }
+          
+        }
+        if(type==='investment'){
+         
+          if(totalInvestment+parseInt(amount)<investmentBudget ){
+            if(totalInvestment+parseInt(amount)>(investmentBudget-(investmentBudget*0.05))){
+
+              return `Available Balance is ${availableAmount-parseInt(amount)}. Your limit on Expense is getting ready to overflow.So please keep sufficient balance in your account`;
+            }
+            else{
+              return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`
+            }
+          }else{
+            toast.error('There is no sufficient balance in your account')
+          } 
+        
+    }
       }
     }
       if (!name || !type || !amount || !transDate) {
@@ -67,7 +101,7 @@ const Form = () => {
         <div className="row m-2 p-2 ">
           <label className="w-1/3 font-bold text-sm p-1">Name</label>
           <input
-            className="w-2/3 text-xs"
+            className="w-2/3 text-sm"
             type="text"
             placeholder="House, Rent, SIP"
             {...register("name")}
@@ -75,7 +109,7 @@ const Form = () => {
         </div>
         <div className="row m-2 p-2">
           <label className="w-1/3 font-bold text-sm p-1">Type</label>
-          <select className="w-2/3 text-xs" {...register("type")}>
+          <select className="w-2/3 text-sm" {...register("type")}>
             <option value="Select categoery">Select</option>
             <option value="income">income</option>
             <option value="investment">investment</option>
@@ -89,7 +123,7 @@ const Form = () => {
           <input
             type="number"
             placeholder="Amount"
-            className="w-2/3 text-xs p-1"
+            className="w-2/3 text-sm p-1"
             {...register("amount")}
           />
         </div>
@@ -98,12 +132,12 @@ const Form = () => {
           <input
             type="date"
             {...register("transDate")}
-            className="w-2/3 text-xs p-1"
+            className="w-2/3 text-sm p-1"
           />
         </div>
         <div className="row align-center justify-center mt-4">
           <input
-            className="bg-indigo-700 text-light rounded-md  m-2 center text-xs p-1 w-auto p-2"
+            className="bg-indigo-700 text-light rounded-md  m-2 center text-sm p-1 w-auto p-2"
             type="submit"
             value="Add"
           />

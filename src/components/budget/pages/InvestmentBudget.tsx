@@ -28,7 +28,7 @@ const InvestmentBudget = () => {
             <span className="h3 mt-2">
               <FaRupeeSign />
             </span>
-            <span className="h2 "> {remainInvestments}</span>
+            <span className="h2 "> {Math.round(remainInvestments)}</span>
             <Badge className="h-1/2 mt-2 m-2 bg-success">Left</Badge>
           </div>
           <div>

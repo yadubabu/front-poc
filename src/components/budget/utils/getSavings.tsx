@@ -27,7 +27,7 @@ export const GetSavings = () => {
       .filter((tran) => tran.type === "savings")
       .filter(
         (el) =>
-          el.name.split(" ")[1] === "funds" || el.name.split(" ")[1] === "Funds"
+          el.name.split(" ")[1] === "fund" || el.name.split(" ")[1] === "Fund"
       )
       .map((e) => e.amount)
       .reduce((a: number, c: number) => {

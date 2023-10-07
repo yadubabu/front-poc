@@ -3,25 +3,29 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "../redux/store";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
-import { NavLink } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 import { GiCancel } from "react-icons/gi";
 import {IoIosNotifications} from 'react-icons/io';
 import {BiSolidBadge} from 'react-icons/bi';
 import { messageService } from "../redux/services/allServices";
 import { Dispatch } from "redux";
+import {GoAlertFill} from 'react-icons/go'
 import { Messages } from "../dataTypes";
 
 const NavBar = () => {
   const isAuth = useSelector<AppState>((state) => state.auth);
   const name = useSelector<AppState, string>((state) => state.user.name);
+  const messages=useSelector<AppState,Messages[]>(state=>state.messages);
 
   const dispatch: Dispatch<any> = useDispatch();
   const email=useSelector<AppState,string>(state=>state.user.email);
   useEffect(()=>{
       dispatch(messageService(email))
-    },[])
+    },[messages])
   const [menu, setMenu] = useState("hidden");
   const key=isAuth ? '':'hidden';  
+
+ 
   return (
     <div className="bg-indigo-900 w-100 h-auto flex align-center justify-between">
       <div className=" p-2 m-3">
@@ -42,10 +46,25 @@ const NavBar = () => {
         
       </div>
       <div className={`w-1/7 m-3 ${key}`}>
-        <NavLink to='/messages'  className="w-1/7 pt-2 flex"><span className="relative ">
+        <Link to='/messages'  className="w-1/6 pt-2 flex">
+          <span className="relative ">
               <IoIosNotifications className="text-light w-8 h-8 pt-2"/>
-</span>
-<span className="absolute text-danger"><BiSolidBadge/></span></NavLink>
+          </span>
+          {messages !== null &&
+      messages
+        .slice(-1)
+        .map((message: Messages) => { 
+          if(message.message.split(' ')[0]==='Available'){
+            return(<span className="absolute text-warning"><GoAlertFill/></span>)
+          
+          }
+          else{
+            return(<span className="absolute text-danger w-3 h-3"><BiSolidBadge/></span>
+            )
+          }
+         })
+    }
+        </Link>
             </div>
       <div className="hidden md:flex lg:flex  p-3 m-3 uppercase text-sm  text-indigo-200">
         <NavLink to="/">
