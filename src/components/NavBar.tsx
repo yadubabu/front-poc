@@ -9,7 +9,8 @@ import {IoIosNotifications} from 'react-icons/io';
 import {BiSolidBadge} from 'react-icons/bi';
 import { messageService } from "../redux/services/allServices";
 import { Dispatch } from "redux";
-import {GoAlertFill} from 'react-icons/go'
+import {GoAlertFill} from 'react-icons/go';
+import {MdDangerous} from 'react-icons/md';
 import { Messages } from "../dataTypes";
 
 const NavBar = () => {
@@ -58,8 +59,12 @@ const NavBar = () => {
             return(<span className="absolute text-warning"><GoAlertFill/></span>)
           
           }
+          else if(message.message.split(' ')[0]==='There'){
+            return(<span className="absolute text-danger"><MdDangerous/></span>)
+          
+          }
           else{
-            return(<span className="absolute text-danger w-3 h-3"><BiSolidBadge/></span>
+            return(<span className="absolute text-info w-3 h-3"><BiSolidBadge/></span>
             )
           }
          })

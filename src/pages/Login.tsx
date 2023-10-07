@@ -31,10 +31,10 @@ const Login = () => {
       });
       if (result.data.msg === "Successfully Login") {
         sessionStorage.setItem("data", JSON.stringify(result.data));
-        toast.success(result.data.msg);
+        toast.success(result.data.msg,{
+        });
         window.location.href = "/dashboard";
-  
-      } else {
+        } else {
         toast.error(result.data.msg);
       }
     }
@@ -85,7 +85,6 @@ const Login = () => {
                 className="formBtn text-sm bg-indigo-900 text-indigo-100 uppercase h-8 rounded-full"
                 type="submit"
                 value="Login"
-                onClick={handleSubmit(submitHandle)}
               />
             </div>
             <div className="text-center text-secondary mb-2">

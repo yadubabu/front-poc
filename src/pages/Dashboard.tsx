@@ -4,14 +4,13 @@ import MainFooter from "../components/main/MainFooter";
 import BalanceCard from "../components/budget/cards/BalanceCard";
 import { useSelector } from "react-redux";
 import { AppState } from "../redux/store";
-import { useEffect } from "react";
+import { User } from "../dataTypes";
 
 const Dashboard = () => {
-  const isAuth = useSelector<AppState>((state) => state.auth);
-
+const user=useSelector<AppState,User>(state=>state.user);
   return (
     <>
-      {!isAuth ? (
+      {user === null ? (
         ""
       ) : (
         <div className="bg-indigo-200 w-100 h-100 overflow-hidden">

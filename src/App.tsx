@@ -69,7 +69,12 @@ const App = () => {
           <Route path="/transactions/edit" element={<TransactionsHistory />} />
         </Routes>
       </Router>
-      <ToastContainer />
+      <ToastContainer
+      position="top-center"
+      autoClose={2000}
+      hideProgressBar={true}
+      theme="dark"
+      />
     </div>
   );
 };

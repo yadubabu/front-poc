@@ -24,26 +24,26 @@ const Form = () => {
           if(totalExpense+parseInt(amount)<expenseBudget ){
             if(totalExpense+parseInt(amount)>(expenseBudget-(expenseBudget*0.05))){
 
-              return `Available Balance is ${availableAmount-parseInt(amount)}. Your limit on Expense is getting ready to overflow.So please keep sufficient balance in your account`;
+              return `Available Balance is ${expenseBudget-(totalExpense+parseInt(amount))}. Your limit on Expense is getting ready to overflow.So please keep sufficient balance in your account`;
             }
             else{
               return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`
             }
           }else{
-            toast.error('There is no sufficient balance in your account')
+            return 'There is no sufficient balance in your account to spent on EXPENSES';
           } 
         }
         if(type==='savings'){
           if(totalSavings+parseInt(amount)<savingsBudget ){
             if(totalSavings+parseInt(amount)>(savingsBudget-(savingsBudget*0.05))){
 
-              return `Available Balance is ${availableAmount-parseInt(amount)}. Your limit on Expense is getting ready to overflow.So please keep sufficient balance in your account`;
+              return `Available Balance is ${savingsBudget-(totalSavings+parseInt(amount))}. Your limit on Expense is getting ready to overflow.So please keep sufficient balance in your account`;
             }
             else{
               return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`
             }
           }else{
-            toast.error('There is no sufficient balance in your account')
+            return 'There is no sufficient balance to spent on SAVINGS';
           }
           
         }
@@ -52,13 +52,13 @@ const Form = () => {
           if(totalInvestment+parseInt(amount)<investmentBudget ){
             if(totalInvestment+parseInt(amount)>(investmentBudget-(investmentBudget*0.05))){
 
-              return `Available Balance is ${availableAmount-parseInt(amount)}. Your limit on Expense is getting ready to overflow.So please keep sufficient balance in your account`;
+              return `Available Balance is ${investmentBudget-(totalInvestment+parseInt(amount))}. Your limit on Expense is getting ready to overflow.So please keep sufficient balance in your account`;
             }
             else{
               return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`
             }
           }else{
-            toast.error('There is no sufficient balance in your account')
+            return 'There is no sufficient balance to spent on INVESTMENTS';
           } 
         
     }
