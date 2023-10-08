@@ -25,7 +25,7 @@ const user=useSelector<AppState,User>(state=>state.user);
               <div className="h-1/9">
                 <BalanceCard />
               </div>
-              <div className="row-7">
+              <div className="lg:row-8 sm:row-12">
                 <MainFooter />
               </div>
             </div>

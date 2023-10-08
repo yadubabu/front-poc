@@ -82,8 +82,8 @@ export const GetSavings = () => {
       )}
       <hr />
       <div className="flex text-dark align-center justify-between m-2 p-2">
-        <span className="h5">Total Savings</span>
-        <span className="text-xs font-bold ">
+          <span className="h5 w-2/3">Total Savings</span>
+          <span className="h5 text-xs w-1/2 font-bold">
           ({Math.round((totalSavings * 100) / savingsBudget)}% is spent)
         </span>
         <span className="h5">{totalSavings}</span>

@@ -37,7 +37,7 @@ const Form = () => {
           if(totalSavings+parseInt(amount)<savingsBudget ){
             if(totalSavings+parseInt(amount)>(savingsBudget-(savingsBudget*0.05))){
 
-              return `Available Balance is ${savingsBudget-(totalSavings+parseInt(amount))}. Your limit on Expense is getting ready to overflow.So please keep sufficient balance in your account`;
+              return `Available Balance is ${savingsBudget-(totalSavings+parseInt(amount))}. Your limit on Savings is getting ready to overflow.So please keep sufficient balance in your account`;
             }
             else{
               return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`
@@ -52,7 +52,7 @@ const Form = () => {
           if(totalInvestment+parseInt(amount)<investmentBudget ){
             if(totalInvestment+parseInt(amount)>(investmentBudget-(investmentBudget*0.05))){
 
-              return `Available Balance is ${investmentBudget-(totalInvestment+parseInt(amount))}. Your limit on Expense is getting ready to overflow.So please keep sufficient balance in your account`;
+              return `Available Balance is ${investmentBudget-(totalInvestment+parseInt(amount))}. Your limit on Investment is getting ready to overflow.So please keep sufficient balance in your account`;
             }
             else{
               return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`
@@ -74,7 +74,7 @@ const Form = () => {
           amount,
           transDate,
         })
-        
+        // .then(res=>toast.success(res.data))
         .then(async()=>{
           return await axios.post(`${apiAddMessages}/${email}`,{
             email,
@@ -82,7 +82,7 @@ const Form = () => {
             msgDate:Date.now()
           });
         })
-        .then((res)=>toast.success(res.data)).then(()=>reset())
+        .then((res)=>toast.success(res.data,{theme:'light'})).then(()=>reset())
         .catch(err=>console.log(err))
     
       }

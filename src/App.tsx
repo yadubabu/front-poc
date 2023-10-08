@@ -70,8 +70,8 @@ const App = () => {
         </Routes>
       </Router>
       <ToastContainer
-      position="top-center"
-      autoClose={2000}
+      position="top-right"
+      autoClose={3000}
       hideProgressBar={true}
       theme="dark"
       />

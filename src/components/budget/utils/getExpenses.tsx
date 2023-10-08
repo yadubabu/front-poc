@@ -141,11 +141,11 @@ export const GetExpenses = () => {
       )}
       <hr />
       <div className="flex text-dark align-center justify-between m-2 p-2">
-        <span className="h6 w-2/3">Total Expenses</span>
-        <span className="text-xs w-1/2 font-bold">
-          ({Math.round((totalExpense * 100) / expenseBudget)}%)
+        <span className="h5 w-2/3">Total Expenses</span>
+        <span className="h5 text-xs w-1/2 font-bold">
+          ({Math.round((totalExpense * 100) / expenseBudget)}% is spent)
         </span>
-        <span className="h6 w-1/7">{totalExpense}</span>
+        <span className="h5 w-1/7">{totalExpense}</span>
       </div>
     </>
   );

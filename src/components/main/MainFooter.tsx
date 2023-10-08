@@ -16,11 +16,11 @@ import List from "../transactions/List";
 
 const MainFooter = () => {
   return (
-    <div className="m-4 bg-white rounded-xl justify-content-around flex">
-      <div className="w-1/3 bg-indigo-100 m-2 h-65 rounded-xl p-3">
+    <div className="  bg-white rounded-xl justify-content-around lg:flex m-6 sm-flex-col sm:mr-15">
+      <div className="lg:w-1/3 bg-indigo-100 m-2 h-65 rounded-xl p-3">
         <Form />
       </div>
-      <div className="w-1/3 bg-indigo-100 m-2 rounded-xl p-3 md:flex-col">
+      <div className="lg:w-1/3 bg-indigo-100 m-2 rounded-xl p-3 md:flex-col">
         <div>
           <DoughnutShow />
         </div>
@@ -28,7 +28,7 @@ const MainFooter = () => {
           <List />
         </div>
       </div>
-      <div className="w-1/3 bg-indigo-100 m-2 rounded-xl p-3">
+      <div className=" bg-indigo-100 m-2 rounded-xl p-3 lg:w-1/3">
         <Entries />
       </div>
     </div>

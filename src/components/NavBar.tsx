@@ -6,7 +6,7 @@ import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { NavLink,Link } from "react-router-dom";
 import { GiCancel } from "react-icons/gi";
 import {IoIosNotifications} from 'react-icons/io';
-import {BiSolidBadge} from 'react-icons/bi';
+import {BiSolidMessageRoundedDots} from 'react-icons/bi';
 import { messageService } from "../redux/services/allServices";
 import { Dispatch } from "redux";
 import {GoAlertFill} from 'react-icons/go';
@@ -64,7 +64,7 @@ const NavBar = () => {
           
           }
           else{
-            return(<span className="absolute text-info w-3 h-3"><BiSolidBadge/></span>
+            return(<span className="absolute text-info w-3 h-3 mx-3"><BiSolidMessageRoundedDots/></span>
             )
           }
          })
@@ -112,53 +112,50 @@ const NavBar = () => {
           </NavLink>
         )}
       </div>
-      <div className=" pt-4 m-1 lg:hidden md:hidden sm:ml-80">
-        <button className="text-white">
+      <div className="lg:hidden md:hidden pb-2 m-1 sm:flex-col sm:w-100 align-center justify-center">
+        <button className="text-white ">
           {menu === "" ? (
-            <>
-              <GiCancel className="" onClick={() => setMenu("hidden")} />
-            </>
+            <span className="mx-4">
+              <GiCancel className="mx-10" onClick={() => setMenu("hidden")} />
+            </span>
           ) : (
             <>
               <AiOutlineMenuUnfold
-                className="w-5 h-5 pl-50 mx-80 "
+                className="w-5 h-5 mx-4 my-4  "
                 onClick={() => setMenu("")}
               />
             </>
           )}
         </button>
-        <div className={`${menu} flex  m-1 p-1  `}>
+        <div className={`${menu} flex align-center justify-center text-center w-1/2`}>
           {" "}
-          <ul>
-            <li className="text-center text-indigo-100 p-1 m-1">
-              <NavLink to="/">Home</NavLink>
+          <ul className="flex-col">
+            <li className=" text-indigo-100">
+              <NavLink to="/" className='mr-80 pr-40'>Home</NavLink>
             </li>
             {isAuth ? (
-              <li className="hidden text-center text-indigo-100 p-1 m-1">
-                <NavLink to="/login">Login</NavLink>
-              </li>
+             ''
             ) : (
-              <li className="text-center text-indigo-100 p-1 m-1">
-                <NavLink to="/login">Login</NavLink>
+              <li className="text-indigo-100 ">
+                <NavLink to="/login" className='mr-80 pr-40'>Login</NavLink>
               </li>
             )}
             {isAuth ? (
-              <li className="hidden text-center text-indigo-100 p-1 m-1">
-                <NavLink to="/register">Register</NavLink>
-              </li>
+''
             ) : (
-              <li className="text-center text-indigo-100 p-1 m-1">
-                <NavLink to="/register">Register</NavLink>
+              <li className="text-indigo-100">
+                <NavLink to="/register" className='mr-80 pr-40'>Register</NavLink>
               </li>
             )}
 
-            <li className="text-center text-indigo-100 p-1 m-1">
-              <NavLink to="/about">About</NavLink>
+            <li className="text-indigo-100">
+              <NavLink to="/about" className='mr-80 pr-40'>About</NavLink>
             </li>
             {isAuth ? (
-              <li className="text-center text-indigo-100 p-1 m-1">
+              <li className="text-indigo-100">
                 <NavLink
                   to="/"
+                  className='mr-80 pr-40'
                   onClick={() => sessionStorage.removeItem("data")}
                 >
                   Logout

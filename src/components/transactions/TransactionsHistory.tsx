@@ -37,7 +37,7 @@ function TransactionsHistory() {
         amount: transAmount,
       });
       if (res) {
-        toast.success(res.data, { position: "top-right", autoClose: 3000 });
+        toast.success(res.data, {theme:'light', position: "top-right", autoClose: 3000 });
         setEditId("");
       }
     } else {
@@ -59,41 +59,41 @@ function TransactionsHistory() {
     }
   };
   return (
-    <div className="row bg-indigo-200">
+    <div className="row bg-indigo-200 ">
       <div className="w-1/5 mx-3 ">
         <Sidebar />
       </div>
-      <div className="w-3/4 my-4 m-2 ">
+      <div className="lg:w-3/4 lg:my-4 lg:m-2 sm:w-100 ">
         {" "}
         <Table  striped variant="light">
           <thead>
             <tr>
               <th
-                className="text-white text-center text-sm"
+                className="text-white text-center text-md"
                 style={{ background: "gray" }}
               >
                 S.no
               </th>
               <th
-                className="text-white text-center text-sm"
+                className="text-white text-center text-md"
                 style={{ background: "gray" }}
               >
                 Name
               </th>
               <th
-                className="text-white text-center text-sm"
+                className="text-white text-center text-md"
                 style={{ background: "gray" }}
               >
                 Type
               </th>
               <th
-                className="text-white text-center text-sm"
+                className="text-white text-center text-md"
                 style={{ background: "gray" }}
               >
                 Amount
               </th>
               <th
-                className="text-white text-center text-sm"
+                className="text-white text-center text-md"
                 style={{ background: "gray" }}
               >
                 Action(Edit/Delete)
@@ -111,29 +111,24 @@ function TransactionsHistory() {
                         {" "}
                         <tr>
                           <td
-                            className="text-center text-xs"
-                            style={{ color: "black" }}
+                            className="text-center text-md"
                           >
                             {index + 1}
                           </td>
                           <td
-                            className="text-center text-xs"
-                            style={{ color: "black" }}
+                            className="text-center text-md"
                           >
                             <input
                               type="text"
                               placeholder={`${tran.name}`}
-                              value={transName}
                               onChange={(e) => setTransName(e.target.value)}
                             />
                           </td>
                           <td
-                            className="text-center text-xs"
-                            style={{ color: "black" }}
+                            className="text-center text-md"
                           >
                             <select
-                              value={transType}
-                              className="text-center text-xs"
+                              className="text-center text-md"
                               onChange={(
                                 e: React.ChangeEvent<HTMLSelectElement | any>
                               ) => setTransType(e.target.value)}
@@ -148,13 +143,11 @@ function TransactionsHistory() {
                             </select>
                           </td>
                           <td
-                            className="text-center text-xs"
-                            style={{ color: "black" }}
+                            className="text-center text-md"
                           >
                             <input
                               type="number"
                               placeholder={tran.amount.toString()}
-                              value={transAmount}
                               onChange={(
                                 e: React.ChangeEvent<HTMLInputElement | any>
                               ) => setTransAmount(e.target.value)}
@@ -162,14 +155,14 @@ function TransactionsHistory() {
                           </td>
                           <td className="flex border-1">
                             <button
-                              className="flex  text-success font-bold text-xs  ml-12"
+                              className="flex  text-success font-bold text-md  ml-12"
                               onClick={() => submitForm(`${tran._id}`)}
                             >
                               {" "}
                               Update
                             </button>
                             <button
-                              className="flex text-success font-bold text-xs  ml-12"
+                              className="flex text-success font-bold text-md  ml-12"
                               onClick={() => setEditId("")}
                             >
                               {" "}
@@ -214,13 +207,13 @@ function TransactionsHistory() {
                           </td>
                           <td className="text-center font-bold">
                             <button
-                              className="bg-none text-primary mr-3"
+                              className="bg-none text-primary mr-3 text-xl"
                               onClick={(e) => editForm(e, tran._id)}
                             >
                               <AiTwotoneEdit />
                             </button>
                             <button
-                              className="bg-none text-danger ml-3"
+                              className="bg-none text-danger ml-3 text-xl"
                               onClick={() => deleteTransaction(`${tran._id}`)}
                             >
                               <MdDeleteForever />
