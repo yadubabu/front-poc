@@ -11,6 +11,8 @@ import { useSelector } from "react-redux";
 import { AppState } from "../../redux/store";
 import { apiAddMessages } from "../../redux/apis";
 import { Account,Budget } from "../../dataTypes";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { NavLink } from "react-router-dom";
 
 const TransactionsForm = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -97,11 +99,12 @@ const TransactionsForm = () => {
       <div className="w-1/5">
         <Sidebar />
       </div>
-      <div className="w-3/4 my-4 m-4 bg-white rounded-xl flex align-center justify-evenly ">
-        <form onSubmit={handleSubmit(submitTrans)} className="flex-col  ">
-          <p className="text-center h3 font-bold text-indigo-700 m-1 p-1">
-            Transaction Form
-          </p>
+      <div className="lg:w-3/4 sm:w-3/5 my-4 m-4 p-4 bg-white rounded-xl flex align-center justify-around ">
+          <NavLink to='/dashboard' className='lg:hidden sm:flex sm:w-1/12'><IoMdArrowRoundBack className="m-1 h-9"/></NavLink>
+          <form className="flex-col lg:w-2/3 sm:w-2/2" onSubmit={handleSubmit(submitTrans)}>
+            <p className="text-center h3 text-indigo-700 m-1 p-1 font-bold">
+              Add Transactions
+            </p>
           <div className="row m-4 align-center justify-center">
             <label className="col-3 m-1 p-1 font-bold text-sm">Name</label>
             <input

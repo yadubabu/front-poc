@@ -3,7 +3,7 @@ import Sidebar from "../components/Sidebar";
 
 const FAQ = () => {
   return (
-    <div className="row">
+    <div className="row bg-indigo-200">
       <div className="w-1/5 ">
         <Sidebar />
       </div>
