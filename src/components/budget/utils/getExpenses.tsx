@@ -53,10 +53,10 @@ export const GetExpenses = () => {
       .filter((tran) => tran.type === "expense")
       .filter(
         (el) =>
-          el.name.split(" ")[0] === "Bills" ||
-          el.name.split(" ")[1] === "Bills" ||
-          el.name.split(" ")[0] === "bills" ||
-          el.name.split(" ")[1] === "bills"
+          el.name.split(" ")[0] === "Bill" ||
+          el.name.split(" ")[1] === "Bill" ||
+          el.name.split(" ")[0] === "bill" ||
+          el.name.split(" ")[1] === "bill"
       )
       .map((e) => e.amount)
       .reduce((a: number, c: number) => {

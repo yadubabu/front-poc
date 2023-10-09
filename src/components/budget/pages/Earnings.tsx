@@ -27,7 +27,7 @@ const Earnings = () => {
           <span>{totalIncomes}</span>
         </div>
         <hr />
-        <div className="bg-indigo-200 m-2 rounded-xl flex-col">{GetIncomes()}</div>
+        <div className="bg-indigo-200 m-3 rounded-xl flex-col">{GetIncomes()}</div>
       </div>
     </div>
   );

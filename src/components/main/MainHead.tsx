@@ -15,14 +15,15 @@ const MainHead = () => {
         <Col sm={3}>
           <TotalIncomes />
         </Col>
-        <Col sm={3}>
-          <TotalSavings />
-        </Col>
+       
         <Col sm={3}>
           <TotalExpenses />
         </Col>
         <Col sm={3}>
           <TotalInvestments />
+        </Col>
+        <Col sm={3}>
+          <TotalSavings />
         </Col>
       </Row>
     </div>

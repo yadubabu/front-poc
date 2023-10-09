@@ -18,7 +18,7 @@ const TransactionsForm = () => {
   const { register, handleSubmit, reset } = useForm();
   const {availableAmount,totalExpense,totalInvestment,totalSavings}=useSelector<AppState,Account>(state=>state.account);
   const {totalBudget,expenseBudget,investmentBudget,savingsBudget}=useSelector<AppState,Budget>(state=>state.budget)
-    const email = useSelector<AppState, string>((state) => state.user.email);
+  const email = useSelector<AppState, string>((state) => state.user.email);
 
   const submitTrans = async (data: FieldValues) => {
     const { name, type, amount, transDate } = data;
@@ -30,7 +30,7 @@ const TransactionsForm = () => {
           if(totalExpense+parseInt(amount)<expenseBudget ){
             if(totalExpense+parseInt(amount)>(expenseBudget-(expenseBudget*0.05))){
 
-              return `Available Balance is ${expenseBudget-(totalExpense+parseInt(amount))}. Your limit on Expense is getting ready to overflow.So please keep sufficient balance in your account`;
+              return `Available Balance after transaction is ${expenseBudget-(totalExpense+parseInt(amount))}. Your limit on Expense is getting ready to overflow.So please keep sufficient balance in your account`;
             }
             else{
               return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`
@@ -43,7 +43,7 @@ const TransactionsForm = () => {
           if(totalSavings+parseInt(amount)<savingsBudget ){
             if(totalSavings+parseInt(amount)>(savingsBudget-(savingsBudget*0.05))){
 
-              return `Available Balance is ${savingsBudget-(totalSavings+parseInt(amount))}. Your limit on Savings is getting ready to overflow.So please keep sufficient balance in your account`;
+              return `Available Balance after transaction is ${savingsBudget-(totalSavings+parseInt(amount))}. Your limit on Savings is getting ready to overflow.So please keep sufficient balance in your account`;
             }
             else{
               return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`
@@ -58,7 +58,7 @@ const TransactionsForm = () => {
           if(totalInvestment+parseInt(amount)<investmentBudget ){
             if(totalInvestment+parseInt(amount)>(investmentBudget-(investmentBudget*0.05))){
 
-              return `Available Balance is ${investmentBudget-(totalInvestment+parseInt(amount))}. Your limit on Investment is getting ready to overflow.So please keep sufficient balance in your account`;
+              return `Available Balance after transaction is ${investmentBudget-(totalInvestment+parseInt(amount))}. Your limit on Investment is getting ready to overflow.So please keep sufficient balance in your account`;
             }
             else{
               return `Your account is Debited with ${amount}.Available balance is ${availableAmount-amount}`

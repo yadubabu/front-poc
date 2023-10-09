@@ -25,7 +25,7 @@ const SetBudget = () => {
     if(!totalBudget){
       toast.error('Field not must be an empty',{theme:'dark'})
     }
-    else if(expenseBudget+investmentBudget+savingsBudget>100){
+    else if(parseInt(expenseBudget)+parseInt(investmentBudget)+parseInt(savingsBudget)>100){
       toast.error('Total percent not more than 100%',{theme:'dark'})
     }
     else{
@@ -37,7 +37,7 @@ const SetBudget = () => {
           savingsBudget: totalBudget * (savingsBudget/100),
         })
         .then(() =>
-          toast.success("Successfully Deposited", {position: "top-center",theme:'colored'})
+          toast.success("Successfully Deposited", {position: "top-center",theme:'light'})
         )
         .then(() => navigate("/dashboard"))
         .catch((err) => toast.error(err));
