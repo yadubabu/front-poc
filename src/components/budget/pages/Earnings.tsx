@@ -17,14 +17,14 @@ const Earnings = () => {
       <div className="w-1/5 hidden lg:flex">
         <Sidebar />
       </div>
-      <div className="lg:w-3/4 sm:w-5/6 lg:my-4  lg:mx-2 sm:mx-3 m-4 bg-white rounded-xl">
+      <div className="lg:w-3/4 sm:w-5/6 lg:my-4 sm:mx-4  lg:mx-2 sm:mx-3 m-4 bg-white rounded-xl">
         <div className="flex sm:text-sm sm:m-3 lg:text-xl align-center bg-indigo-200 lg:m-4 justify-center p-4 font-bold h4 text-indigo-800  rounded-md text-center ">
-        <span><NavLink to='/dashboard' className='lg:hidden sm:flex sm:w-1/9 pl-5'><IoMdArrowRoundBack className="m-1"/></NavLink></span>
-          <span>Total Incomes--</span>
-          <span className="lg:text-xl mt-1 sm:text-xs ">
+        <span className="sm:pr-20 lg:hidden sm:flex sm:w-1/9 pl-5"><NavLink to='/dashboard' className=''><IoMdArrowRoundBack className="m-1"/></NavLink></span>
+          <span className="lg:text-2xl lg:text-center">Total Incomes--</span>
+          <span className="lg:text-xl mt-2 sm:text-xs ">
             <FaRupeeSign />
           </span>
-          <span>{totalIncomes}</span>
+          <span className="lg:text-2xl">{totalIncomes}</span>
         </div>
         <hr />
         <div className="bg-indigo-200 m-3 rounded-xl flex-col">{GetIncomes()}</div>

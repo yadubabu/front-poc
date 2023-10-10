@@ -101,7 +101,7 @@ const TransactionsForm = () => {
       </div>
       <div className="lg:w-3/4 sm:w-3/5 my-4 m-4 p-4 bg-white rounded-xl flex align-center justify-around ">
           <NavLink to='/dashboard' className='lg:hidden sm:flex sm:w-1/12'><IoMdArrowRoundBack className="m-1 h-9"/></NavLink>
-          <form className="flex-col lg:w-2/3 sm:w-2/2" onSubmit={handleSubmit(submitTrans)}>
+          <form className="flex-col lg:w-2/3 sm:w-2/2 bg-indigo-200 m-4 p-4" onSubmit={handleSubmit(submitTrans)}>
             <p className="text-center h3 text-indigo-700 m-1 p-1 font-bold">
               Add Transactions
             </p>
@@ -145,7 +145,7 @@ const TransactionsForm = () => {
           </div>
           <div className="row flex justify-center align-center">
             <input
-              className=" p-2 mt-2  bg-indigo-900 w-auto text-white rounded-full "
+              className="p-2 ml-5 bg-indigo-900 w-auto text-white rounded-full "
               type="submit"
               value="Make Transaction"
             />

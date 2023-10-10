@@ -4,7 +4,7 @@ import Slider from "../components/Slider";
 
 const About = () => {
   return (
-    <div>
+    <div className="overflow-hidden h-2/2">
       <Slider />
     </div>
   );
