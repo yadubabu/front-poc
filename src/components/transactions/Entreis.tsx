@@ -16,7 +16,7 @@ const Entries = (props: Props) => {
       {trans !== null &&
         trans
           // .slice(trans.length - trans.length, 5)
-          .slice(trans.length - 5, trans.length)
+          .slice(-5)
           .map((val: Trans, i: number) => {
             const style = () => {
               if (val.type === "savings") {

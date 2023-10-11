@@ -36,9 +36,12 @@ function TransactionsHistory() {
         type: transType,
         amount: transAmount,
       });
-      if (res) {
+      if (res.data==='Successfully Edited') {
         toast.success(res.data, {theme:'light', position: "top-right", autoClose: 3000 });
         setEditId("");
+      }
+      else{
+        toast.error(res.data,{theme:'dark'})
       }
     } else {
       toast.error("Fields not must be empty", {
@@ -63,7 +66,7 @@ function TransactionsHistory() {
       <div className="w-1/5 mx-3 ">
         <Sidebar />
       </div>
-      <div className="lg:w-3/4 lg:my-4 lg:m-2 sm:w-100 ">
+      <div className="lg:w-3/4 lg:my-6 lg:m-2 sm:w-100 ">
         {" "}
         <Table  striped variant="light">
           <thead>
@@ -103,7 +106,9 @@ function TransactionsHistory() {
           <tbody>
             {trans !== null &&
               trans
-                .slice(trans.length - 14, trans.length)
+              // .slice(trans.length -14 ,trans.length)
+                // .slice(trans.length -trans.length ,14)
+                .slice(-14)
                 .map((tran, index) => (
                   <>
                     {tran._id === editId ? (

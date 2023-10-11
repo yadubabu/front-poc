@@ -8,7 +8,7 @@ const Slider = () => {
       <div className="slide-images ">
         {slides.map((slide, index) => {
           return (
-            <div className="img-container bg-white w-1/6 m-5 p-2 ">
+            <div className="img-container bg-white w-1/6 m-4 p-2 ">
               <img
                 className="rounded-xl"
                 key={index}

@@ -32,6 +32,7 @@ const Login = () => {
       if (result.data.msg === "Successfully Login") {
         sessionStorage.setItem("data", JSON.stringify(result.data));
         toast.success(result.data.msg,{
+          position:'top-center',
           theme:'colored',
         });
         window.location.href = "/dashboard";
