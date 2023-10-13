@@ -46,16 +46,16 @@ const InvestmentBudget = () => {
                 />
                 <ProgressBar
                   className="bg-success"
-                  now={95 - (totalInvestment * 100) / investmentBudget }
+                  now={100 - (totalInvestment * 100) / investmentBudget }
                   label="Left"
                   key={2}
                 />
-                <ProgressBar
+                {/* <ProgressBar
                   className="bg-warning text-xs"
                   now={5}
                   label="Break"
                   key={3}
-                />
+                /> */}
                 
               </ProgressBar>{" "}
             </div>

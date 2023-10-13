@@ -46,16 +46,16 @@ const SavingsBudget = () => {
                 />
                 <ProgressBar
                   className="bg-success"
-                  now={95 - (totalSavings * 100) / savingsBudget }
+                  now={100 - (totalSavings * 100) / savingsBudget }
                   label="Left"
                   key={2}
                 />
-                <ProgressBar
+                {/* <ProgressBar
                   className="bg-warning text-xs"
                   now={5}
                   label="Break"
                   key={3}
-                />
+                /> */}
               </ProgressBar>{" "}
             </div>
             <div className="font-bold m-1 mx-4 lg:text-md sm:text-sm">

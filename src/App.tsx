@@ -24,6 +24,8 @@ import Earnings from "./components/budget/pages/Earnings";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import GetMessages from "./components/transactions/Messages";
+
+
 const App = () => {
   const dispatch: Dispatch<any> = useDispatch();
   useEffect(() => {

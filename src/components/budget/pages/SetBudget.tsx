@@ -37,7 +37,7 @@ const SetBudget = () => {
           savingsBudget: totalBudget * (savingsBudget/100),
         })
         .then(() =>
-          toast.success("Successfully Deposited", {position: "top-center",theme:'light'})
+          toast.success("Set Limit Successfully", {position: "top-center",theme:'light'})
         )
         .then(() => navigate("/dashboard"))
         .catch((err) => toast.error(err));
