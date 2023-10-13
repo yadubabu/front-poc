@@ -1,5 +1,10 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
-import { apigetMessages, getAccountApi, getTransApi, getbudgetApi } from "../apis";
+import {
+  apigetMessages,
+  getAccountApi,
+  getTransApi,
+  getbudgetApi,
+} from "../apis";
 import { Dispatch } from "redux";
 import { getBudget } from "../actions/budgetActions";
 import { getAccount } from "../actions/accountAction";
@@ -37,7 +42,7 @@ export const messageService = (email: string) => {
     await axios
       .get(`${apigetMessages}/${email}`)
       .then((res: AxiosResponse) => {
-         return dispatch(getMessageAction(res.data));
+        return dispatch(getMessageAction(res.data));
       })
       .catch((err: AxiosError) => console.log(err));
   };

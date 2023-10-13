@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { AppState } from "../../../redux/store";
 import { Trans } from "../../../dataTypes";
 
-
 const GetIncomes = () => {
   const totalIncomes = useSelector<AppState, number>(
     (state) => state.account.totalIncomes
@@ -99,11 +98,7 @@ const GetIncomes = () => {
           <span className="h6 w-1/9">{getGifts()}</span>
         </div>
       )}
-      {totalIncomes -
-        getGifts() -
-        getRentals() -
-        getSalaries() -
-        getSales() ===
+      {totalIncomes - getGifts() - getRentals() - getSalaries() - getSales() ===
       0 ? (
         ""
       ) : (

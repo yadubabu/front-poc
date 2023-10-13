@@ -41,11 +41,16 @@ const Sidebar = () => {
       >
         Set Budget
       </NavLink>{" "}
-      <NavLink to="/budget/totalincomes" className="w-1/2 p-2 m-2 text-light text-sm">
+      <NavLink
+        to="/budget/totalincomes"
+        className="w-1/2 p-2 m-2 text-light text-sm"
+      >
         Total Incomes
       </NavLink>
-      
-      <NavLink to="/budget/totalexpense" className="w-1/2 p-2 m-2 text-light text-sm">
+      <NavLink
+        to="/budget/totalexpense"
+        className="w-1/2 p-2 m-2 text-light text-sm"
+      >
         Total Expenses{" "}
       </NavLink>
       <NavLink
@@ -54,13 +59,22 @@ const Sidebar = () => {
       >
         Total Investments{" "}
       </NavLink>
-      <NavLink to="/budget/totalsavings" className="w-1/2 p-2 m-2 text-light text-sm">
+      <NavLink
+        to="/budget/totalsavings"
+        className="w-1/2 p-2 m-2 text-light text-sm"
+      >
         Total Savings{" "}
       </NavLink>
-      <NavLink to="/transactions/add" className="w-1/2 p-2 m-2 text-light text-sm">
+      <NavLink
+        to="/transactions/add"
+        className="w-1/2 p-2 m-2 text-light text-sm"
+      >
         Add Transactions
       </NavLink>
-      <NavLink to="/transactions/edit" className="w-1/2 p-2 m-2 text-light text-sm">
+      <NavLink
+        to="/transactions/edit"
+        className="w-1/2 p-2 m-2 text-light text-sm"
+      >
         Transactions History{" "}
       </NavLink>
       <NavLink

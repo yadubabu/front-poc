@@ -36,12 +36,15 @@ function TransactionsHistory() {
         type: transType,
         amount: transAmount,
       });
-      if (res.data==='Successfully Edited') {
-        toast.success(res.data, {theme:'light', position: "top-right", autoClose: 3000 });
+      if (res.data === "Successfully Edited") {
+        toast.success(res.data, {
+          theme: "light",
+          position: "top-right",
+          autoClose: 3000,
+        });
         setEditId("");
-      }
-      else{
-        toast.error(res.data,{theme:'dark'})
+      } else {
+        toast.error(res.data, { theme: "dark" });
       }
     } else {
       toast.error("Fields not must be empty", {
@@ -68,7 +71,7 @@ function TransactionsHistory() {
       </div>
       <div className="lg:w-3/4 lg:my-6 lg:m-2 sm:w-100 ">
         {" "}
-        <Table  striped variant="light">
+        <Table striped variant="light">
           <thead>
             <tr>
               <th
@@ -106,7 +109,7 @@ function TransactionsHistory() {
           <tbody>
             {trans !== null &&
               trans
-              // .slice(trans.length -14 ,trans.length)
+                // .slice(trans.length -14 ,trans.length)
                 // .slice(trans.length -trans.length ,14)
                 .slice(-14)
                 .map((tran, index) => (
@@ -115,23 +118,15 @@ function TransactionsHistory() {
                       <>
                         {" "}
                         <tr>
-                          <td
-                            className="text-center text-md"
-                          >
-                            {index + 1}
-                          </td>
-                          <td
-                            className="text-center text-md"
-                          >
+                          <td className="text-center text-md">{index + 1}</td>
+                          <td className="text-center text-md">
                             <input
                               type="text"
                               placeholder={`${tran.name}`}
                               onChange={(e) => setTransName(e.target.value)}
                             />
                           </td>
-                          <td
-                            className="text-center text-md"
-                          >
+                          <td className="text-center text-md">
                             <select
                               className="text-center text-md"
                               onChange={(
@@ -147,9 +142,7 @@ function TransactionsHistory() {
                               <option value="savings">savings</option>
                             </select>
                           </td>
-                          <td
-                            className="text-center text-md"
-                          >
+                          <td className="text-center text-md">
                             <input
                               type="number"
                               placeholder={tran.amount.toString()}

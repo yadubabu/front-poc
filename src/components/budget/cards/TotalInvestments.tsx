@@ -2,6 +2,7 @@ import React from "react";
 import Cards from "./shared/Card";
 import { useSelector } from "react-redux";
 import { AppState } from "../../../redux/store";
+
 const TotalInvestments = () => {
   const totalInvestment = useSelector<AppState, number>(
     ({ account }) => account.totalInvestment

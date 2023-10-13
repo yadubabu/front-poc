@@ -15,7 +15,6 @@ const MainHead = () => {
         <Col sm={3}>
           <TotalIncomes />
         </Col>
-       
         <Col sm={3}>
           <TotalExpenses />
         </Col>

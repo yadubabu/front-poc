@@ -6,7 +6,6 @@ const TotalIncomes = () => {
   const totalIncomes = useSelector<AppState, number>(
     ({ account }) => account.totalIncomes
   );
-
   return (
     <div>
       <Cards

@@ -39,8 +39,8 @@ const Register = () => {
       phone,
     });
     if (response.data === "Successfully Registered") {
-      toast.success(response.data,{
-        theme:'colored'
+      toast.success(response.data, {
+        theme: "colored",
       });
       reset();
       navigate("/login");
@@ -60,7 +60,6 @@ const Register = () => {
             <div className="h2 text-center text-indigo-700 font-bold">
               Register Here!
             </div>
-
             <div className="row m-4">
               <label className="col-4 m-1 font-bold">Name</label>
               <input
@@ -144,7 +143,8 @@ const Register = () => {
             </div>
             <div className="m-2 align-center justify-center flex w-100">
               <input
-                className="p-2 bg-indigo-900 text-indigo-100 uppercase rounded-full m-1 text-sm"                type="submit"
+                className="p-2 bg-indigo-900 text-indigo-100 uppercase rounded-full m-1 text-sm"
+                type="submit"
                 value="Register"
               />
             </div>

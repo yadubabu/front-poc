@@ -23,7 +23,7 @@ const Login = () => {
   } = useForm<FormData>({ mode: "onSubmit" });
   const submitHandle = async (data: FieldValues) => {
     const { email, password } = data;
-    try{
+    try {
       const result = await axios.post(loginApi, {
         email,
         password,
@@ -32,21 +32,21 @@ const Login = () => {
         sessionStorage.setItem("data", JSON.stringify(result.data));
         toast.success(result.data.msg);
         window.location.href = "/dashboard";
-  
       } else {
         toast.error(result.data.msg);
       }
-    }
-    catch(err){
+    } catch (err) {
       console.log(err);
-      
     }
   };
   return (
     <div className="homeForm flex-col  w-100">
       {!isAuth && (
         <div className="align-center justify-center flex mt-20">
-          <form className="w-1/2 bg-light rounded-xl p-3" onSubmit={handleSubmit(submitHandle)}>
+          <form
+            className="w-1/2 bg-light rounded-xl p-3"
+            onSubmit={handleSubmit(submitHandle)}
+          >
             <h1
               className="text-center h3 font-bold text-indigo-900"
               style={{ fontFamily: "sans-serif" }}
@@ -81,7 +81,8 @@ const Login = () => {
             </div>
             <div className="m-2 align-center justify-center flex w-100">
               <input
-                className="p-2 bg-indigo-900 text-indigo-100 uppercase rounded-full m-1 text-sm"                type="submit"
+                className="p-2 bg-indigo-900 text-indigo-100 uppercase rounded-full m-1 text-sm"
+                type="submit"
                 value="Login"
               />
             </div>

@@ -16,6 +16,6 @@ export const apiEditTrans = "http://localhost:5000/api/edittrans";
 
 export const apiDeleteTrans = "http://localhost:5000/api/deletetrans";
 
-export const apiAddMessages='http://localhost:5000/addmessage';
+export const apiAddMessages = "http://localhost:5000/addmessage";
 
-export const apigetMessages='http://localhost:5000/getmessages';
+export const apigetMessages = "http://localhost:5000/getmessages";

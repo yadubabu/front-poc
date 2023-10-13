@@ -58,9 +58,9 @@ export interface Shares {
   percent: number;
 }
 
-export interface Messages{
+export interface Messages {
   _id: string;
-  email:string,
-  message:string
-  msgDate:Date
+  email: string;
+  message: string;
+  msgDate: Date;
 }

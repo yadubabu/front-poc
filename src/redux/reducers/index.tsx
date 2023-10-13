@@ -14,7 +14,7 @@ const reducers = combineReducers({
   account: accountReducer,
   trans: transReducer,
   shares: sharesReducer,
-  messages:messageReducer
+  messages: messageReducer,
 });
 
 export default reducers;

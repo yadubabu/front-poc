@@ -13,7 +13,6 @@ import SetBudget from "./components/budget/pages/SetBudget";
 import SavingsBudget from "./components/budget/pages/SavingsBudget";
 import ExpenseBudget from "./components/budget/pages/ExpenseBudget";
 import InvestmentBudget from "./components/budget/pages/InvestmentBudget";
-import Logout from "./pages/Logout";
 import TransactionsTracker from "./components/transactions/TransactionsTracker";
 import TransactionsForm from "./components/transactions/TransactionsForm";
 import TransactionsHistory from "./components/transactions/TransactionsHistory";
@@ -24,7 +23,6 @@ import Earnings from "./components/budget/pages/Earnings";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import GetMessages from "./components/transactions/Messages";
-
 
 const App = () => {
   const dispatch: Dispatch<any> = useDispatch();
@@ -44,7 +42,6 @@ const App = () => {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/logout" element={<Logout />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -59,10 +56,7 @@ const App = () => {
             path="/budget/totalinvestment"
             element={<InvestmentBudget />}
           />
-           <Route
-            path="/messages"
-            element={<GetMessages />}
-          />
+          <Route path="/messages" element={<GetMessages />} />
           <Route
             path="/transactions/tracker"
             element={<TransactionsTracker />}
@@ -72,10 +66,10 @@ const App = () => {
         </Routes>
       </Router>
       <ToastContainer
-      position="top-right"
-      autoClose={3000}
-      hideProgressBar={true}
-      theme="dark"
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={true}
+        theme="dark"
       />
     </div>
   );

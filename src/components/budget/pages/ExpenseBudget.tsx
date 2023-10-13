@@ -7,8 +7,7 @@ import { GetExpenses } from "../utils/getExpenses";
 import Badge from "react-bootstrap/Badge";
 import { FaRupeeSign } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import {IoMdArrowRoundBack} from 'react-icons/io';
-
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const ExpenseBudget = () => {
   const totalExpense = useSelector<AppState, number>(
@@ -28,7 +27,11 @@ const ExpenseBudget = () => {
       <div className="w-3/4 my-4 m-3 rounded-xl m-3 bg-white lg:m-2">
         <div className="h-1/4 bg-indigo-200 m-3 rounded-xl">
           <div className="flex align-center justify-center lg:p-3 sm:text-xs lg:text-xl">
-          <span className="sm:pr-20 lg:hidden sm:flex sm:w-1/8 sm:mt-1"><NavLink to='/dashboard' className=''><IoMdArrowRoundBack className="m-1"/></NavLink></span>
+            <span className="sm:pr-20 lg:hidden sm:flex sm:w-1/8 sm:mt-1">
+              <NavLink to="/dashboard" className="">
+                <IoMdArrowRoundBack className="m-1" />
+              </NavLink>
+            </span>
 
             <span className="h3 mt-2">
               <FaRupeeSign />
@@ -47,16 +50,10 @@ const ExpenseBudget = () => {
                 />
                 <ProgressBar
                   className="bg-success"
-                  now={100 - (totalExpense * 100) / expenseBudget }
+                  now={100 - (totalExpense * 100) / expenseBudget}
                   label="Left"
                   key={2}
                 />
-                {/* <ProgressBar
-                  className="bg-warning text-xs"
-                  now={5}
-                  label="Break"
-                  key={3}
-                /> */}
               </ProgressBar>{" "}
             </div>
             <div className="font-bold m-1 mx-4 lg:text-md sm:text-sm">

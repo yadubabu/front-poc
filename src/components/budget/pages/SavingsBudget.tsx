@@ -27,7 +27,11 @@ const SavingsBudget = () => {
       <div className="w-3/4 my-4 m-3 rounded-xl m-3 bg-white lg:m-2">
         <div className="h-1/4 bg-indigo-200 m-3 rounded-xl">
           <div className="flex align-center justify-center lg:p-3 sm:text-xs lg:text-xl">
-          <span className="sm:pr-20 lg:hidden sm:flex sm:w-1/8 sm:mt-1"><NavLink to='/dashboard' className=''><IoMdArrowRoundBack className="m-1"/></NavLink></span>
+            <span className="sm:pr-20 lg:hidden sm:flex sm:w-1/8 sm:mt-1">
+              <NavLink to="/dashboard" className="">
+                <IoMdArrowRoundBack className="m-1" />
+              </NavLink>
+            </span>
 
             <span className="h3 mt-2">
               <FaRupeeSign />
@@ -46,16 +50,10 @@ const SavingsBudget = () => {
                 />
                 <ProgressBar
                   className="bg-success"
-                  now={100 - (totalSavings * 100) / savingsBudget }
+                  now={100 - (totalSavings * 100) / savingsBudget}
                   label="Left"
                   key={2}
                 />
-                {/* <ProgressBar
-                  className="bg-warning text-xs"
-                  now={5}
-                  label="Break"
-                  key={3}
-                /> */}
               </ProgressBar>{" "}
             </div>
             <div className="font-bold m-1 mx-4 lg:text-md sm:text-sm">
@@ -68,7 +66,7 @@ const SavingsBudget = () => {
           </div>
         </div>
         <div className="h-4/6 bg-indigo-200 m-3 rounded-xl flex-col">
-        <div className="font-bold text-2xl p-2 text-indigo-800  rounded-md text-center ">
+          <div className="font-bold text-2xl p-2 text-indigo-800  rounded-md text-center ">
             Total Savings
           </div>
           <div>{GetSavings()}</div>

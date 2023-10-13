@@ -27,7 +27,8 @@ export const GetSavings = () => {
       .filter((tran) => tran.type === "savings")
       .filter(
         (el) =>
-          el.name.split(" ")[0] === "Deposit" || el.name.split(" ")[0] === "deposit"
+          el.name.split(" ")[0] === "Deposit" ||
+          el.name.split(" ")[0] === "deposit"
       )
       .map((e) => e.amount)
       .reduce((a: number, c: number) => {
@@ -89,24 +90,28 @@ export const GetSavings = () => {
           </div>
         </>
       )}
-      {totalSavings === getBonds()+getDeposites() + getFunds() ? (
+      {totalSavings === getBonds() + getDeposites() + getFunds() ? (
         ""
       ) : (
         <div className="flex text-dark m-2 p-2">
           <span className="h6 w-2/3">Spent on Other Savings</span>
           <span className="text-xs w-1/2">
-            {Math.round(((totalSavings - getDeposites()-getFunds() - getBonds()) * 100) / savingsBudget)}%
-            is spent
+            {Math.round(
+              ((totalSavings - getDeposites() - getFunds() - getBonds()) *
+                100) /
+                savingsBudget
+            )}
+            % is spent
           </span>
           <span className="h6 w-1/7">
-            {totalSavings - getBonds() - getFunds()-getDeposites()}
+            {totalSavings - getBonds() - getFunds() - getDeposites()}
           </span>
         </div>
       )}
       <hr />
       <div className="flex text-dark align-center justify-between m-2 p-2">
-          <span className="h5 w-2/3">Total Savings</span>
-          <span className="h5 text-xs w-1/2 font-bold">
+        <span className="h5 w-2/3">Total Savings</span>
+        <span className="h5 text-xs w-1/2 font-bold">
           ({Math.round((totalSavings * 100) / savingsBudget)}% is spent)
         </span>
         <span className="h5">{totalSavings}</span>

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { AppState } from "../../../redux/store";
 import { FaRupeeSign } from "react-icons/fa";
 import "./style.css";
+
 const BalanceCard = () => {
   const availableAmount = useSelector<AppState, number>(
     ({ account }) => account.availableAmount

@@ -7,7 +7,7 @@ import { AppState } from "../redux/store";
 import { User } from "../dataTypes";
 
 const Dashboard = () => {
-const user=useSelector<AppState,User>(state=>state.user);
+  const user = useSelector<AppState, User>((state) => state.user);
   return (
     <>
       {user === null ? (
