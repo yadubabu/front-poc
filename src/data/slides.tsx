@@ -5,9 +5,9 @@ export const slides = [
       "A BUDGET is telling your money where to go instead of wondering where it went",
   },
   {
-    url: require("../assets/home5.jpg"),
+    url: require("../assets/budget6.jpg"),
     caption:
-      "Used correctly, a BUDGET doesn't restrict you;it empowers you.*****",
+      "Balancing the BUDGET is like going to heaven.Everybody wants to do it,but nobody wants to do what you have to do to get there.",
   },
 
   {
@@ -20,9 +20,10 @@ export const slides = [
     caption:
       "A BUDGET is more than just a series of numbers on page,it is a embodiment of our values",
   },
+
   {
-    url: require("../assets/budget6.jpg"),
+    url: require("../assets/budget2.jpeg"),
     caption:
-      "Balancing the BUDGET is like going to heaven.Everybody wants to do it,but nobody wants to do what you have to do to get there.",
+      "Used correctly, a BUDGET doesn't restrict you;it empowers you.*****",
   },
 ];

@@ -3,12 +3,12 @@ import Sidebar from "../components/Sidebar";
 
 const FAQ = () => {
   return (
-    <div className="row">
+    <div className="row bg-indigo-200">
       <div className="w-1/5 ">
         <Sidebar />
       </div>
       <div className="w-4/5 my-2">
-        <div className="rounded bg-indigo-100 m-3">
+        <div className="rounded bg-white m-3">
           <h4 className="text-center text-indigo-900 font-bold">FAQ's</h4>
           <div className="text-secondary p-2 m-3">
             <p className="text-dark font-bold text-center">What is Budget?</p>

@@ -37,8 +37,7 @@ export const messageService = (email: string) => {
     await axios
       .get(`${apigetMessages}/${email}`)
       .then((res: AxiosResponse) => {
-        
-        return dispatch(getMessageAction(res.data));
+         return dispatch(getMessageAction(res.data));
       })
       .catch((err: AxiosError) => console.log(err));
   };

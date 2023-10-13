@@ -23,23 +23,30 @@ const Login = () => {
   } = useForm<FormData>({ mode: "onSubmit" });
   const submitHandle = async (data: FieldValues) => {
     const { email, password } = data;
-    const result = await axios.post(loginApi, {
-      email,
-      password,
-    });
-    if (result.data.msg === "Successfully Login") {
-      sessionStorage.setItem("data", JSON.stringify(result.data));
-      toast.success(result.data.msg);
-      window.location.href = "/dashboard";
-    } else {
-      toast.error(result.data.msg);
+    try{
+      const result = await axios.post(loginApi, {
+        email,
+        password,
+      });
+      if (result.data.msg === "Successfully Login") {
+        sessionStorage.setItem("data", JSON.stringify(result.data));
+        toast.success(result.data.msg);
+        window.location.href = "/dashboard";
+  
+      } else {
+        toast.error(result.data.msg);
+      }
+    }
+    catch(err){
+      console.log(err);
+      
     }
   };
   return (
-    <div className="homeForm">
+    <div className="homeForm flex-col  w-100">
       {!isAuth && (
-        <div className="lg:pr-20">
-          <form className="form" onSubmit={handleSubmit(submitHandle)}>
+        <div className="align-center justify-center flex mt-20">
+          <form className="w-1/2 bg-light rounded-xl p-3" onSubmit={handleSubmit(submitHandle)}>
             <h1
               className="text-center h3 font-bold text-indigo-900"
               style={{ fontFamily: "sans-serif" }}
@@ -47,9 +54,9 @@ const Login = () => {
               Login Here!
             </h1>
             <div className="row m-4">
-              <label className="col-3 m-1">Email</label>
+              <label className="col-4 m-1 font-bold p-1">Email</label>
               <input
-                className="col-8 m-1"
+                className="col-7 m-1"
                 {...register("email", LoginOptions.email)}
                 type="text"
                 placeholder="Enter your Email"
@@ -59,9 +66,9 @@ const Login = () => {
               </small>
             </div>
             <div className="row m-4">
-              <label className="col-3 m-1">Password</label>
+              <label className="col-4 m-1 font-bold p-1">Password</label>
               <input
-                className="col-8 m-1"
+                className="col-7 m-1"
                 {...register("password", LoginOptions.password)}
                 type="password"
                 placeholder="Enter your password"
@@ -72,16 +79,14 @@ const Login = () => {
                 )}
               </small>
             </div>
-            <div className="row col-3 m-4 ">
+            <div className="m-2 align-center justify-center flex w-100">
               <input
-                className="formBtn text-sm bg-indigo-900 text-indigo-100 uppercase h-8 rounded-full"
-                type="submit"
+                className="p-2 bg-indigo-900 text-indigo-100 uppercase rounded-full m-1 text-sm"                type="submit"
                 value="Login"
-                onClick={handleSubmit(submitHandle)}
               />
             </div>
-            <div className="text-center text-secondary mb-2">
-              You Don't have an account?
+            <div className="text-center text-secondary m-2 font-medium">
+              Don't you have an account?
               <a href="/register" className="text-indigo-900 font-bold">
                 Register Here!
               </a>

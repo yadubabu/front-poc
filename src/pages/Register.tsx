@@ -39,7 +39,9 @@ const Register = () => {
       phone,
     });
     if (response.data === "Successfully Registered") {
-      toast.success(response.data);
+      toast.success(response.data,{
+        theme:'colored'
+      });
       reset();
       navigate("/login");
     } else {
@@ -48,12 +50,11 @@ const Register = () => {
   };
 
   return (
-    <>
+    <div className="flex-col  w-100">
       {!auth && (
-        <>
+        <div className="align-center justify-center flex mt-1">
           <form
-            className="form mb-5"
-            id="regi"
+            className="w-1/2 bg-light rounded-xl p-3"
             onSubmit={handleSubmit(submitHandle)}
           >
             <div className="h2 text-center text-indigo-700 font-bold">
@@ -61,7 +62,7 @@ const Register = () => {
             </div>
 
             <div className="row m-4">
-              <label className="col-4 m-1">Name</label>
+              <label className="col-4 m-1 font-bold">Name</label>
               <input
                 className="col-7 m-1"
                 {...register("name", registerOptions.name)}
@@ -73,7 +74,7 @@ const Register = () => {
               </small>
             </div>
             <div className="row m-4">
-              <label className="col-4 m-1">Email</label>
+              <label className="col-4 m-1 font-bold ">Email</label>
               <input
                 className="col-7 m-1"
                 {...register("email", registerOptions.email)}
@@ -85,7 +86,7 @@ const Register = () => {
               </small>
             </div>
             <div className="row m-4">
-              <label className="col-4 m-1">Password</label>
+              <label className="col-4 m-1 font-bold">Password</label>
               <input
                 className="col-7 m-1"
                 {...register("password", registerOptions.password)}
@@ -99,7 +100,7 @@ const Register = () => {
               </small>
             </div>
             <div className="row m-4">
-              <label className="col-4 m-1">ConfirmPassword</label>
+              <label className="col-4 m-1 font-bold">ConfirmPassword</label>
               <input
                 className="col-7 m-1"
                 {...register(
@@ -116,9 +117,9 @@ const Register = () => {
               </small>
             </div>
             <div className="row m-4">
-              <label className="col-4 m-1">Pancard</label>
+              <label className="col-4 m-1 font-bold">Pancard</label>
               <input
-                className="col-7 m-1"
+                className="col-7 m-1 uppercase"
                 {...register("pancard", registerOptions.pancard)}
                 type="text"
                 placeholder="Enter your Pancard"
@@ -130,7 +131,7 @@ const Register = () => {
               </small>
             </div>
             <div className="row m-4">
-              <label className="col-4 m-1">Phone</label>
+              <label className="col-4 m-1 font-bold">Phone</label>
               <input
                 className="col-7 m-1"
                 {...register("phone", registerOptions.phone)}
@@ -141,10 +142,9 @@ const Register = () => {
                 {errors.phone && <RegisterErrors msg={errors.phone.message} />}
               </small>
             </div>
-            <div className="row col-3 m-4 ">
+            <div className="m-2 align-center justify-center flex w-100">
               <input
-                className="formBtn text-sm bg-indigo-900 text-indigo-100 uppercase h-8 rounded-full"
-                type="submit"
+                className="p-2 bg-indigo-900 text-indigo-100 uppercase rounded-full m-1 text-sm"                type="submit"
                 value="Register"
               />
             </div>
@@ -155,9 +155,9 @@ const Register = () => {
               </a>
             </div>
           </form>
-        </>
+        </div>
       )}
-    </>
+    </div>
   );
 };
 

@@ -24,6 +24,8 @@ import Earnings from "./components/budget/pages/Earnings";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import GetMessages from "./components/transactions/Messages";
+
+
 const App = () => {
   const dispatch: Dispatch<any> = useDispatch();
   useEffect(() => {
@@ -69,7 +71,12 @@ const App = () => {
           <Route path="/transactions/edit" element={<TransactionsHistory />} />
         </Routes>
       </Router>
-      <ToastContainer />
+      <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={true}
+      theme="dark"
+      />
     </div>
   );
 };

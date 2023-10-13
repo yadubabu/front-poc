@@ -6,6 +6,7 @@ import accountReducer from "./accountReducer";
 import transReducer from "./transReducer";
 import sharesReducer from "./sharesReducer";
 import messageReducer from "./messageReducer";
+
 const reducers = combineReducers({
   auth: authReducer,
   user: userReducer,

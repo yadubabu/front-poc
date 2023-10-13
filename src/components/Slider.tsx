@@ -4,18 +4,18 @@ import "./slider.css";
 
 const Slider = () => {
   return (
-    <div className="overflow-hidden flex mt-6  ">
+    <div className="flex align-center  justify-center m-1">
       <div className="slide-images ">
         {slides.map((slide, index) => {
           return (
-            <div className="img-container mx-30">
+            <div className="img-container bg-white w-1/6 m-4 p-2 ">
               <img
-                className="rounded-xl w-100 h-1/3 text-center"
+                className="rounded-xl"
                 key={index}
                 src={slide.url}
                 alt=""
               />
-              <div className="absolute font-bold w-3/3 text-center text-lg bg-white rounded-xl p-2 ">
+              <div className="font-bold text-xl">
                 {slide.caption}
               </div>
             </div>
