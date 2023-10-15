@@ -46,7 +46,7 @@ const Login = () => {
   };
   return (
     <div className="homeForm flex-col  w-100">
-      <h1>Login</h1>
+      <h1 >Login</h1>
       {!isAuth && (
         <div className="align-center justify-center flex mt-20">
           <form className="w-1/2 bg-light rounded-xl p-3" onSubmit={handleSubmit(submitHandle)}>

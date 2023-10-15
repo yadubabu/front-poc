@@ -16,7 +16,6 @@ export type TransAction = {
   payload: Trans[];
 };
 const transReducer = (transState = initialValue, action: TransAction) => {
-  console.log(action.payload);
 
   if (action.type === Types.GET_TRANS) {
     return [...action.payload];
