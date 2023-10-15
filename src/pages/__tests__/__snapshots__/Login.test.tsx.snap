@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Page Testing SnapShot testing.... 1`] = `
+<div
+  className="homeForm flex-col  w-100"
+>
+  <h1>
+    Login
+  </h1>
+</div>
+`;
