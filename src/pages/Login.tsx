@@ -15,39 +15,39 @@ type FormData = {
 };
 
 const Login = () => {
-  // const isAuth = useSelector<Auth>((state) => state.auth);
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm<FormData>({ mode: "onSubmit" });
+  const isAuth = useSelector<Auth>((state) => state.auth);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({ mode: "onSubmit" });
 
-  // const submitHandle = async (data: FieldValues) => {
-  //   const { email, password } = data;
-  //   try{
-  //     const result = await axios.post(loginApi, {
-  //       email,
-  //       password,
-  //     });
-  //     if (result.data.msg === "Successfully Login") {
-  //       sessionStorage.setItem("data", JSON.stringify(result.data));
-  //       toast.success(result.data.msg,{
-  //         theme:'colored',
-  //       });
-  //       window.location.href = "/dashboard";
-  //       } else {
-  //       toast.error(result.data.msg);
-  //     }
-  //   }
-  //   catch(err){
-  //     console.log(err);
+  const submitHandle = async (data: FieldValues) => {
+    const { email, password } = data;
+    try{
+      const result = await axios.post(loginApi, {
+        email,
+        password,
+      });
+      if (result.data.msg === "Successfully Login") {
+        sessionStorage.setItem("data", JSON.stringify(result.data));
+        toast.success(result.data.msg,{
+          theme:'colored',
+        });
+        window.location.href = "/dashboard";
+        } else {
+        toast.error(result.data.msg);
+      }
+    }
+    catch(err){
+      console.log(err);
     
-  //   }
-  // };
+    }
+  };
   return (
     <div className="homeForm flex-col  w-100">
       <h1>Login</h1>
-      {/* {!isAuth && (
+      {!isAuth && (
         <div className="align-center justify-center flex mt-20">
           <form className="w-1/2 bg-light rounded-xl p-3" onSubmit={handleSubmit(submitHandle)}>
             <h1
@@ -96,7 +96,7 @@ const Login = () => {
             </div>
           </form>
         </div>
-      )} */}
+      )}
     </div>
   );
 };

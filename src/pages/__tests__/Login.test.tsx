@@ -5,7 +5,7 @@ import Login from '../Login';
 
 describe('Login Page Testing',()=>{
     test('SnapShot testing....',()=>{
-        const wrapper=renderer.create(<Login/>).toJSON();
+        const wrapper=renderer.create(onlywrap(<Login/>)).toJSON();
         expect(wrapper).toMatchSnapshot();
     })
 })
