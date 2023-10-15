@@ -1,11 +1,11 @@
 import renderer from 'react-test-renderer';
 import { onlywrap } from '../../utils/test_helper';
-import Login from '../Login';
+import LandingPage from '../LandingPage';
 
 
-describe('Login Page Testing',()=>{
+describe('LandingPage  Page Testing',()=>{
     test('SnapShot testing....',()=>{
-        const wrapper=renderer.create(onlywrap(<Login/>)).toJSON();
+        const wrapper=renderer.create(onlywrap(<LandingPage />)).toJSON();
         expect(wrapper).toMatchSnapshot();
     });
 })
