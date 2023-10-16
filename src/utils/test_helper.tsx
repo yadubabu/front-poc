@@ -11,8 +11,10 @@ type Props={
     routes:any;
 }
 
-
-export const renderComponent=(props:WrapProps)=>{
+type WrapProps1={
+  component:ReactElement<any,any>
+}
+export const renderComponent=(props:WrapProps1)=>{
     return {
         ...render(
             <Provider store={store}>

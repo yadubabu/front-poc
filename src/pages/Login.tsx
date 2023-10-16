@@ -46,12 +46,11 @@ const Login = () => {
   };
   return (
     <div className="homeForm flex-col  w-100">
-      <h1 >Login</h1>
       {!isAuth && (
         <div className="align-center justify-center flex mt-20">
           <form className="w-1/2 bg-light rounded-xl p-3" onSubmit={handleSubmit(submitHandle)}>
             <h1
-              className="text-center h3 font-bold text-indigo-900"
+              className="text-center font-bold text-indigo-900"
               style={{ fontFamily: "sans-serif" }}
             >
               Login Here!
