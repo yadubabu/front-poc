@@ -3,19 +3,18 @@ import { getAllByText, queryByText, render, screen,waitFor} from "@testing-libra
 import { onlywrap, renderComponent } from "../../utils/test_helper";
 import Login from "../Login";
 import React from "react";
+import { AppState } from "../../redux/store";
 
 describe("Login Page Testing", () => {
   test.skip("SnapShot testing....", () => {
-    const wrapper = renderer.create(onlywrap(<Login />)).toJSON();
+    const wrapper = renderer.create(onlywrap({component:<Login/>})).toJSON();
     expect(wrapper).toMatchSnapshot();
   });
-  test("should show Login heading", async() => {
-   renderComponent(<Login/>)
-   const loginButton = screen.findByRole('button',{hidden:true});
-  console.log(loginButton);
-        });
-      test('should auth is false',()=>{
-        let {store}=renderComponent(<Login/>)
-        expect(store.getState().auth.auth).toBe(false);  
-    })
+
+  test('should auth is false',()=>{
+    let {store}=renderComponent({component:<Login/>})
+    expect((store.getState() as AppState).auth.auth).toBe(false);  
+
 })
+})
+ 
