@@ -46,14 +46,18 @@ const Login = () => {
   };
   return (
     <div className="homeForm flex-col  w-100">
-      {!isAuth && (
+      <div>
+        <h1>Login</h1>
+        <button>Click</button>
+      </div>
+      {/* {!isAuth && (
         <div className="align-center justify-center flex mt-20">
           <form className="w-1/2 bg-light rounded-xl p-3" onSubmit={handleSubmit(submitHandle)}>
-            <h1
+            <h1 data-testid='svg-element'
               className="text-center font-bold text-indigo-900"
               style={{ fontFamily: "sans-serif" }}
             >
-              Login Here!
+              Login
             </h1>
             <div className="row m-4">
               <label className="col-4 m-1 font-bold p-1">Email</label>
@@ -95,7 +99,7 @@ const Login = () => {
             </div>
           </form>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

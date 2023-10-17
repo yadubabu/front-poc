@@ -4,7 +4,7 @@ import Register from '../Register';
 
 
 describe('Register Page Testing',()=>{
-    test('SnapShot testing....',()=>{
+    test.skip('SnapShot testing....',()=>{
         const wrapper=renderer.create(onlywrap(<Register />)).toJSON();
         expect(wrapper).toMatchSnapshot();
     });

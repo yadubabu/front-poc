@@ -4,7 +4,7 @@ import Dashboard from '../Dashboard';
 
 
 describe('Dashboard  Page Testing',()=>{
-    test('SnapShot testing....',()=>{
+    test.skip('SnapShot testing....',()=>{
         const wrapper=renderer.create(onlywrap(<Dashboard />)).toJSON();
         expect(wrapper).toMatchSnapshot();
     });

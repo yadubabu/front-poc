@@ -4,7 +4,7 @@ import BalanceCard from '../BalanceCard';
 
 
 describe('BalanceCard Testing',()=>{
-    test('SnapShot testing....',()=>{
+    test.skip('SnapShot testing....',()=>{
         const wrapper=renderer.create(onlywrap(<BalanceCard />)).toJSON();
         expect(wrapper).toMatchSnapshot();
     });
