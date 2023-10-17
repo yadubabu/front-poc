@@ -16,5 +16,11 @@ describe("Login Page Testing", () => {
     expect((store.getState() as AppState).auth.auth).toBe(false);  
 
 })
+test('Heading should be',()=>{
+  onlywrap({component:<Login/>});
+  const head=screen.findByText('Login');
+  expect(head).toBeInTheDocument;  
+
 })
+});
  
