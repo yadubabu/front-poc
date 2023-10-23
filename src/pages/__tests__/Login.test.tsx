@@ -4,6 +4,7 @@ import { onlywrap, renderComponent } from "../../utils/test_helper";
 import Login from "../Login";
 import React from "react";
 import axios from "axios";
+import {userEvent} from '@testing-library/user-event';
 import { AppState } from "../../redux/store";
 jest.mock('axios');
 const mockedAxios=axios as jest.Mocked<typeof axios>
@@ -28,7 +29,7 @@ test('Heading should be Login',()=>{
   const head=screen.findByText(/login/i);
   expect(head).toMatch;  
 });
-test('Label should be Email',()=>{
+test('Label should be Email',async()=>{
   onlywrap({component:<Login/>});
   const labelText=screen.findByLabelText(/email/i);
   expect(labelText).toMatch;  

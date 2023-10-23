@@ -57,7 +57,7 @@ const Login = () => {
               Login Here!
             </h1>
             <div className="row m-4">
-              <label className="col-4 m-1 font-bold p-1">Email</label>
+              <label className="col-4 m-1 font-bold p-1" data-testid='email'>Email</label>
               <input
                 className="col-7 m-1"
                 {...register("email", LoginOptions.email)}
