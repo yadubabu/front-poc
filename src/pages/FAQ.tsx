@@ -9,7 +9,7 @@ const FAQ = () => {
       </div>
       <div className="w-4/5 my-2">
         <div className="rounded bg-white m-3">
-          <h4 className="text-center text-indigo-900 font-bold">FAQ's</h4>
+          <h4 className="text-center text-indigo-900 font-bold">FAQ</h4>
           <div className="text-secondary p-2 m-3">
             <p className="text-dark font-bold text-center">What is Budget?</p>
             <div className="text-black text-sm text-center">

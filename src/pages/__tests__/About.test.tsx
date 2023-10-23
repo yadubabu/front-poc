@@ -5,7 +5,7 @@ import About from '../About';
 
 describe('About Page Testing',()=>{
     test.skip('SnapShot testing....',()=>{
-        const wrapper=renderer.create(onlywrap(<About/>)).toJSON();
+        const wrapper=renderer.create(onlywrap({component:<About/>})).toJSON();
         expect(wrapper).toMatchSnapshot();
     });
 })
