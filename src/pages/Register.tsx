@@ -148,7 +148,7 @@ const Register = () => {
                 value="Register"
               />
             </div>
-            <div className="text-center text-secondary ">
+            <div className="text-center text-secondary " data-testid='already'>
               Already have an account?
               <a href="/login" className="text-indigo-700 font-bold ">
                 Login Here!

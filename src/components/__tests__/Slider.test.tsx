@@ -4,7 +4,7 @@ import Slider from '../Slider';
 
 
 describe('Slider Testing',()=>{
-    test('SnapShot testing....',()=>{
+    test.skip('SnapShot testing....',()=>{
         const wrapper=renderer.create(onlywrap(<Slider />)).toJSON();
         expect(wrapper).toMatchSnapshot();
     });

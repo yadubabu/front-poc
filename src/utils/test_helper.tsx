@@ -11,7 +11,10 @@ type Props={
     routes:any;
 }
 
-export const renderComponent=(props:Props)=>{
+type WrapProps1={
+  component:ReactElement<any,any>
+}
+export const renderComponent=(props:WrapProps1)=>{
     return {
         ...render(
             <Provider store={store}>
@@ -22,7 +25,7 @@ export const renderComponent=(props:Props)=>{
       };
 }
 type WrapProps={
-    component:ReactElement<any,any>
+  component:ReactElement<any,any>
 
 }
 export const onlywrap=(props:WrapProps)=>{

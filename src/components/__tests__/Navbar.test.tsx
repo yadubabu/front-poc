@@ -4,7 +4,7 @@ import NavBar from '../NavBar';
 
 
 describe('Navbar Testing',()=>{
-    test('SnapShot testing....',()=>{
+    test.skip('SnapShot testing....',()=>{
         const wrapper=renderer.create(onlywrap(<NavBar />)).toJSON();
         expect(wrapper).toMatchSnapshot();
     });

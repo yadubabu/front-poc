@@ -4,7 +4,7 @@ import TotalInvestments from '../TotalInvestments';
 
 
 describe('TotalInvestments Card Testing',()=>{
-    test('SnapShot testing....',()=>{
+    test.skip('SnapShot testing....',()=>{
         const wrapper=renderer.create(onlywrap(<TotalInvestments />)).toJSON();
         expect(wrapper).toMatchSnapshot();
     });

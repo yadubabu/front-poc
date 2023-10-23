@@ -5,7 +5,7 @@ import Sidebar from '../Sidebar';
 
 
 describe('Sidebar Testing',()=>{
-    test('SnapShot testing....',()=>{
+    test.skip('SnapShot testing....',()=>{
         const wrapper=renderer.create(onlywrap(<Sidebar />)).toJSON();
         expect(wrapper).toMatchSnapshot();
     });

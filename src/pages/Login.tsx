@@ -41,13 +41,10 @@ const Login = () => {
   };
   return (
     <div className="homeForm flex-col  w-100">
-      <h1>Login</h1>
+        
       {!isAuth && (
         <div className="align-center justify-center flex mt-20">
-          <form
-            className="w-1/2 bg-light rounded-xl p-3"
-            onSubmit={handleSubmit(submitHandle)}
-          >
+          <form className="w-1/2 bg-light rounded-xl p-3" onSubmit={handleSubmit(submitHandle)}>
             <h1
               className="text-center h3 font-bold text-indigo-900"
               style={{ fontFamily: "sans-serif" }}
@@ -87,7 +84,7 @@ const Login = () => {
                 value="Login"
               />
             </div>
-            <div className="text-center text-secondary m-2 font-medium">
+            <div className="text-center text-secondary m-2 font-medium" data-testid='dontAccount'>
               Don't you have an account?
               <a href="/register" className="text-indigo-900 font-bold">
                 Register Here!

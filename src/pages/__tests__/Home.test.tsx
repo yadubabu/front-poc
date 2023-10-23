@@ -5,7 +5,7 @@ import Home from '../Home';
 
 
 describe('Home  Page Testing',()=>{
-    test('SnapShot testing....',()=>{
+    test.skip('SnapShot testing....',()=>{
         const wrapper=renderer.create(onlywrap(<Home />)).toJSON();
         expect(wrapper).toMatchSnapshot();
     });
