@@ -15,12 +15,12 @@ module.exports = {
 	// You can add other Jest options here as needed.
     "setupFilesAfterEnv": ["/src/setUpTests.ts"]
   };
-import {server} from './mocks/server';
+// import {server} from './mocks/server';
 
-beforeAll(()=>server.listen({
-	onUnhandledRequest:'error'
-}))
+// beforeAll(()=>server.listen({
+// 	onUnhandledRequest:'error'
+// }))
 
-afterEach(()=>server.resetHandlers());
+// afterEach(()=>server.resetHandlers());
 
-afterAll(()=>server.close())
+// afterAll(()=>server.close())

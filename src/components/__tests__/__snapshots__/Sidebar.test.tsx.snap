@@ -1,3 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Sidebar Testing SnapShot testing.... 1`] = `null`;
+exports[`Sidebar Testing SnapShot testing.... 1`] = `
+<div
+  className="hidden  lg:flex row w-100 pt-3  my-4  mx-2 bg-indigo-900 rounded-xl text-sm align-items-center justify-content-center text-center p-1"
+>
+  <a
+    className="w-1/2 p-2 m-2 font-bold uppercase text-light"
+    href="/dashboard"
+    id="active"
+    onClick={[Function]}
+  >
+    Dashboard
+  </a>
+   
+  <a
+    className="w-1/2 p-2 m-2 text-light text-sm text-sm"
+    href="/budget/setbudget"
+    onClick={[Function]}
+  >
+    Set Budget
+  </a>
+   
+  <a
+    className="w-1/2 p-2 m-2 text-light text-sm"
+    href="/budget/totalincomes"
+    onClick={[Function]}
+  >
+    Total Incomes
+  </a>
+  <a
+    className="w-1/2 p-2 m-2 text-light text-sm"
+    href="/budget/totalexpense"
+    onClick={[Function]}
+  >
+    Total Expenses
+     
+  </a>
+  <a
+    className="w-1/2 p-2 m-2 text-light text-sm"
+    href="/budget/totalinvestment"
+    onClick={[Function]}
+  >
+    Total Investments
+     
+  </a>
+  <a
+    className="w-1/2 p-2 m-2 text-light text-sm"
+    href="/budget/totalsavings"
+    onClick={[Function]}
+  >
+    Total Savings
+     
+  </a>
+  <a
+    className="w-1/2 p-2 m-2 text-light text-sm"
+    href="/transactions/add"
+    onClick={[Function]}
+  >
+    Add Transactions
+  </a>
+  <a
+    className="w-1/2 p-2 m-2 text-light text-sm"
+    href="/transactions/edit"
+    onClick={[Function]}
+  >
+    Transactions History
+     
+  </a>
+  <a
+    className="w-1/2 p-2 m-2 text-light text-sm"
+    href="/transactions/tracker"
+    onClick={[Function]}
+  >
+    Transactions Tracker
+     
+  </a>
+  <a
+    className="w-1/2 p-2 m-2 text-light text-sm"
+    href="/faq"
+    onClick={[Function]}
+  >
+    FAQ's
+     
+  </a>
+</div>
+`;
