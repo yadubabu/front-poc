@@ -5,6 +5,7 @@ import Login from "../Login";
 import React from "react";
 import axios from "axios";
 import { AppState } from "../../redux/store";
+import debug from "debug";
 jest.mock('axios');
 const mockedAxios=axios as jest.Mocked<typeof axios>
 axios.create=jest.fn(()=>mockedAxios);
@@ -51,40 +52,26 @@ test('Input should be with placeholder',()=>{
 test('Button should be Login',()=>{
   onlywrap({component:<Login/>});
   const loginBtn=screen.findByRole('textbox',{name:'Login'});
-  expect(loginBtn).toBeInTheDocument;  
+  expect(loginBtn).toBe;  
 });
 test('Display text should be ',()=>{
   onlywrap({component:<Login/>});
   const accountText=screen.findByTestId('dontAccount');
-  expect(accountText).toBeInTheDocument;  
+  expect(accountText).toBe;  
 });
 test('Link text should be ',()=>{
   onlywrap({component:<Login/>});
   const linkItem=screen.findByRole('link',{name:/register/i});
-  expect(linkItem).toBeInTheDocument;  
+  expect(linkItem).toBe;  
 });
 test('Form Submit Testing...',async ()=>{
-  // const data={
-  //   msg:'Successfully Login',
-  //   name:'Sample',
-  //   email:'sample@123.com'
-  // }
-  // sessionStorage.setItem("data", JSON.stringify(data));
-  // const resp=JSON.parse(sessionStorage.getItem("data") || "{}");
-  // console.log(resp.msg);
-  
-  // mockedAxios.get.mockResolvedValue(resp)
-  // const getUser=await submitHandle(data);
-  // console.log(getUser);
-  
-  //  expect('Successfully Login').toBe(resp.msg)
+  const {findByPlaceholderText}=renderComponent({component:<Login />})
+       expect(await findByPlaceholderText(/enter your email/i)).toBe;
   
 })
 
 });
 
 
-function submitHandle(data: { msg: string; name: string; email: string; }) {
-  throw new Error("Function not implemented.");
-}
+
 

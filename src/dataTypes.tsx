@@ -64,3 +64,12 @@ export interface Messages {
   message: string;
   msgDate: Date;
 }
+export interface LoginResponse{
+ msg:'Successfully Login',
+ email:'test@test.com',
+ name:'test'
+}
+export interface LoginRequest{
+  email:'test@test.com',
+  password:'123456'
+ }
